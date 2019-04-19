@@ -1,0 +1,51 @@
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe.config
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\bin\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form1.resources
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form2.resources
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form3.resources
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form4.resources
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Properties.Resources.resources
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csproj.GenerateResource.Cache
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\上位机-c#代码\Firmware Update V1.0 - 20180727\Firmware Update V1.0\obj\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe.config
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\bin\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form1.resources
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form2.resources
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form3.resources
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form4.resources
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Properties.Resources.resources
+C:\Users\Leo\Desktop\C#\Firmware Update V3.0 - 20181221\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csproj.GenerateResource.Cache
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe.config
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\bin\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form1.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form2.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form3.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form4.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Properties.Resources.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csproj.GenerateResource.Cache
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe.config
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\bin\Release\Firmware Update V1.0.pdb
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form1.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form2.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form3.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Form4.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware_Update_V1._0.Properties.Resources.resources
+C:\Users\Leo\Desktop\新建文件夹 (5)\20190322 1045\Firmware Update V1.0\obj\Release\Firmware Update V1.0.csproj.GenerateResource.Cache
+C:\Users\Leo\Desktop\ML\代码升级上位机\C#源码\客户人机交互软件&说明文档\C#源码\01.20190322--已通过\Firmware Update V1.0\bin\Release\Firmware Update V1.0.exe.config
+C:\Users\Leo\Desktop\ML\代码升级上位机\C#源码\客户人机交互软件&说明文档\C#源码\01.20190322--已通过\Firmware Update V1.0\obj\Release\Firmware Update V1.0.exe
+C:\Users\Leo\Desktop\ML\代码升级上位机\C#源码\客户人机交互软件&说明文档\C#源码\01.20190322--已通过\Firmware Update V1.0\obj\Release\Firmware Update V1.0.pdb
