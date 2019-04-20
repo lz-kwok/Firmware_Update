@@ -401,7 +401,7 @@ namespace Firmware_Update_V1._0
             }
             else if(textBox5.Text == "255")
             {
-                button4.Enabled = false;//“升级固件”可按
+                button4.Enabled = true;//“升级固件”可按
                 button10.Enabled = true;//“复位终端”可按
                 button7.Enabled = false;//“出厂设置”禁按
                 button6.Enabled = false;//“终端设置”禁按
@@ -409,7 +409,7 @@ namespace Firmware_Update_V1._0
             }
             else
             {
-                button4.Enabled = false;//“升级固件”可按
+                button4.Enabled = true;//“升级固件”可按
                 button10.Enabled = true;//“复位终端”可按
                 button7.Enabled = false;//“出厂设置”禁按
                 button6.Enabled = true;//“终端设置”禁按
