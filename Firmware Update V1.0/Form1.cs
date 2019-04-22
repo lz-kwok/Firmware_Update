@@ -235,7 +235,7 @@ namespace Firmware_Update_V1._0
                         default: TransmissionWayText = "未知"; break;
                     }
 
-                    this.textBox1.Text = ((DEVEUI[0] << 8) + DEVEUI[1]).ToString("X2").PadLeft(4, '0');
+                    //this.textBox1.Text = ((DEVEUI[0] << 8) + DEVEUI[1]).ToString("X2").PadLeft(4, '0');
 
                     if (this.InvokeRequired)//1.代理
                     {
