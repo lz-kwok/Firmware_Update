@@ -88,3 +88,15 @@ G:\04  MyDesign\20  30000iot\FirmwareUpdate\Firmware_Update\Firmware Update V1.0
 G:\04  MyDesign\20  30000iot\FirmwareUpdate\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Form4.resources
 G:\04  MyDesign\20  30000iot\FirmwareUpdate\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Properties.Resources.resources
 G:\04  MyDesign\20  30000iot\FirmwareUpdate\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware Update V1.0.csproj.GenerateResource.Cache
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\bin\Debug\Firmware Update V1.0.exe.config
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware Update V1.0.exe
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware Update V1.0.pdb
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\bin\Debug\Firmware Update V1.0.exe
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\bin\Debug\Firmware Update V1.0.pdb
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware Update V1.0.csprojResolveAssemblyReference.cache
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Form1.resources
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Form2.resources
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Form3.resources
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Form4.resources
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Properties.Resources.resources
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware Update V1.0.csproj.GenerateResource.Cache
