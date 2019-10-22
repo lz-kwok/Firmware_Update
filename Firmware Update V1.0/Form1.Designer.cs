@@ -61,7 +61,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.update_button = new System.Windows.Forms.Button();
             this.query_mode_button = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -80,7 +80,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
+            this.reset_button = new System.Windows.Forms.Button();
             this.out_2_0_button = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -470,22 +470,22 @@
             this.checkBox2.Text = "自动发送";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // update_button
             // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(807, 137);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 26);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "升级固件";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.update_button.Enabled = false;
+            this.update_button.Location = new System.Drawing.Point(807, 139);
+            this.update_button.Margin = new System.Windows.Forms.Padding(2);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(82, 26);
+            this.update_button.TabIndex = 25;
+            this.update_button.Text = "升级固件";
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // query_mode_button
             // 
             this.query_mode_button.Enabled = false;
-            this.query_mode_button.Location = new System.Drawing.Point(694, 137);
+            this.query_mode_button.Location = new System.Drawing.Point(578, 139);
             this.query_mode_button.Margin = new System.Windows.Forms.Padding(2);
             this.query_mode_button.Name = "query_mode_button";
             this.query_mode_button.Size = new System.Drawing.Size(82, 26);
@@ -684,17 +684,17 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "出厂日期：";
             // 
-            // button10
+            // reset_button
             // 
-            this.button10.Enabled = false;
-            this.button10.Location = new System.Drawing.Point(581, 137);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(82, 26);
-            this.button10.TabIndex = 33;
-            this.button10.Text = "复位终端";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.reset_button.Enabled = false;
+            this.reset_button.Location = new System.Drawing.Point(696, 139);
+            this.reset_button.Margin = new System.Windows.Forms.Padding(2);
+            this.reset_button.Name = "reset_button";
+            this.reset_button.Size = new System.Drawing.Size(82, 26);
+            this.reset_button.TabIndex = 33;
+            this.reset_button.Text = "复位终端";
+            this.reset_button.UseVisualStyleBackColor = true;
+            this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
             // 
             // out_2_0_button
             // 
@@ -736,7 +736,7 @@
             // out_2_3_button
             // 
             this.out_2_3_button.Enabled = false;
-            this.out_2_3_button.Location = new System.Drawing.Point(138, 7);
+            this.out_2_3_button.Location = new System.Drawing.Point(137, 7);
             this.out_2_3_button.Margin = new System.Windows.Forms.Padding(2);
             this.out_2_3_button.Name = "out_2_3_button";
             this.out_2_3_button.Size = new System.Drawing.Size(41, 26);
@@ -760,7 +760,7 @@
             // out_2_1_button
             // 
             this.out_2_1_button.Enabled = false;
-            this.out_2_1_button.Location = new System.Drawing.Point(48, 7);
+            this.out_2_1_button.Location = new System.Drawing.Point(49, 7);
             this.out_2_1_button.Margin = new System.Windows.Forms.Padding(2);
             this.out_2_1_button.Name = "out_2_1_button";
             this.out_2_1_button.Size = new System.Drawing.Size(41, 26);
@@ -786,9 +786,9 @@
             this.ClientSize = new System.Drawing.Size(905, 368);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.query_mode_button);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.reset_button);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.update_button);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -851,7 +851,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button update_button;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
@@ -873,7 +873,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button reset_button;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button out_2_0_button;

@@ -86,12 +86,15 @@ namespace Firmware_Update_V1._0
                     comboBox4.Enabled = true;//“数据位”可选
                     comboBox5.Enabled = true;//“停止位”可选
                     button1.Enabled = true;//“搜索”可按
-                    button4.Enabled = false;//“升级固件”禁按
-                    button10.Enabled = false;//“复位终端”禁按
+                    update_button.Enabled = false;//“升级固件”禁按
+                    reset_button.Enabled = false;//“复位终端”禁按
 
                     query_mode_button.Enabled = false;//“查询模式”禁按
+                    reset_button.Enabled = false;
                     out_2_0_button.Enabled = false;
                     out_2_1_button.Enabled = false;
+                    out_2_2_button.Enabled = false;
+                    out_2_3_button.Enabled = false;
                     serialPort1.DataReceived -= new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
                 }
                 catch
@@ -132,12 +135,14 @@ namespace Firmware_Update_V1._0
                     comboBox4.Enabled = false;//“数据位”禁选
                     comboBox5.Enabled = false;//“停止位”禁选
                     button1.Enabled = false;//“搜索”禁按
-                    button4.Enabled = false;//“升级固件”禁按
-                    button10.Enabled = false;//“复位终端”禁按               
+                    update_button.Enabled = false;//“升级固件”禁按
+                    reset_button.Enabled = false;
 
                     query_mode_button.Enabled = true;//“查询终端”可按
                     out_2_0_button.Enabled = true;
                     out_2_1_button.Enabled = true;
+                    out_2_2_button.Enabled = true;
+                    out_2_3_button.Enabled = true;
                     serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
                 }
                 catch
@@ -393,25 +398,25 @@ namespace Firmware_Update_V1._0
             }
             if(textBox5.Text == null || textBox5.Text == "")
             {
-                button4.Enabled = false;//“升级固件”禁按
-                button10.Enabled = false;//“复位终端”禁按
+                update_button.Enabled = false;//“升级固件”禁按
+                reset_button.Enabled = false;//“复位终端”禁按
             
      
             }
             else if(textBox5.Text == "255")
             {
-                button4.Enabled = true;//“升级固件”可按
-                button10.Enabled = true;//“复位终端”可按           
+                update_button.Enabled = true;//“升级固件”可按
+                reset_button.Enabled = true;//“复位终端”可按           
           
             }
             else
             {
-                button4.Enabled = true;//“升级固件”可按
-                button10.Enabled = true;//“复位终端”可按             
+                update_button.Enabled = true;//“升级固件”可按
+                reset_button.Enabled = true;//“复位终端”可按             
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)//固件升级窗口
+        private void update_button_Click(object sender, EventArgs e)//固件升级窗口
         {
             Form2 frm = new Form2(this);//首先实例化
             frm.ShowDialog();
@@ -426,20 +431,18 @@ namespace Firmware_Update_V1._0
 
         private void query_mode_button_Click(object sender, EventArgs e)//查询终端
         {
-            byte[] SendBytes = new byte[10];
+            byte[] SendBytes = new byte[8];
 
             try
             {
                 SendBytes[0] = 0x0D;
-                SendBytes[1] = 0xF0;//查询
+                SendBytes[1] = 0xFE;//查询
                 SendBytes[2] = 0x00;
                 SendBytes[3] = 0X00;
                 SendBytes[4] = 0X00;
                 SendBytes[5] = 0X00;
                 SendBytes[6] = 0x00;
-                SendBytes[7] = 0x00;
-                SendBytes[8] = 0x00;
-                SendBytes[9] = 0x0D;
+                SendBytes[7] = 0x0D;
                 Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
             }
             catch
@@ -448,22 +451,20 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void button10_Click(object sender, EventArgs e)//复位终端
+        private void reset_button_Click(object sender, EventArgs e)//复位终端
         {
-            byte[] SendBytes = new byte[10];
+            byte[] SendBytes = new byte[8];
 
             try
             {
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//复位
                 SendBytes[2] = 0x00;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
-                SendBytes[7] = 0x00;
-                SendBytes[8] = 0x00;
-                SendBytes[9] = 0x0D;
+                SendBytes[7] = 0x0D;
                 Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
                 MessageBox.Show("复位成功！", "提示");
             }
