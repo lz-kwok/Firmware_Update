@@ -62,10 +62,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.query_mode_button = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -87,6 +84,8 @@
             this.out_2_0_button = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.out_2_3_button = new System.Windows.Forms.Button();
+            this.out_2_2_button = new System.Windows.Forms.Button();
             this.out_2_1_button = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
@@ -102,10 +101,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(114, 12);
+            this.button1.Location = new System.Drawing.Point(114, 15);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 24);
+            this.button1.Size = new System.Drawing.Size(32, 21);
             this.button1.TabIndex = 0;
             this.button1.Text = "搜";
             this.button1.UseVisualStyleBackColor = true;
@@ -474,7 +473,7 @@
             // button4
             // 
             this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(578, 156);
+            this.button4.Location = new System.Drawing.Point(807, 137);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(82, 26);
@@ -483,53 +482,17 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button6
+            // query_mode_button
             // 
-            this.button6.Enabled = false;
-            this.button6.Location = new System.Drawing.Point(697, 331);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(82, 26);
-            this.button6.TabIndex = 28;
-            this.button6.Text = "终端设置";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.Enabled = false;
-            this.button7.Location = new System.Drawing.Point(810, 157);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(82, 26);
-            this.button7.TabIndex = 29;
-            this.button7.Text = "出厂设置";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.Enabled = false;
-            this.button8.Location = new System.Drawing.Point(814, 331);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(82, 26);
-            this.button8.TabIndex = 30;
-            this.button8.Text = "时钟同步";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.Enabled = false;
-            this.button9.Location = new System.Drawing.Point(578, 331);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(82, 26);
-            this.button9.TabIndex = 31;
-            this.button9.Text = "查询终端";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.query_mode_button.Enabled = false;
+            this.query_mode_button.Location = new System.Drawing.Point(694, 137);
+            this.query_mode_button.Margin = new System.Windows.Forms.Padding(2);
+            this.query_mode_button.Name = "query_mode_button";
+            this.query_mode_button.Size = new System.Drawing.Size(82, 26);
+            this.query_mode_button.TabIndex = 31;
+            this.query_mode_button.Text = "查询模式";
+            this.query_mode_button.UseVisualStyleBackColor = true;
+            this.query_mode_button.Click += new System.EventHandler(this.query_mode_button_Click);
             // 
             // groupBox4
             // 
@@ -724,7 +687,7 @@
             // button10
             // 
             this.button10.Enabled = false;
-            this.button10.Location = new System.Drawing.Point(697, 156);
+            this.button10.Location = new System.Drawing.Point(581, 137);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(82, 26);
@@ -752,21 +715,47 @@
             this.tabControl1.Location = new System.Drawing.Point(581, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(312, 100);
+            this.tabControl1.Size = new System.Drawing.Size(312, 113);
             this.tabControl1.TabIndex = 35;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.out_2_3_button);
+            this.tabPage1.Controls.Add(this.out_2_2_button);
             this.tabPage1.Controls.Add(this.out_2_1_button);
             this.tabPage1.Controls.Add(this.out_2_0_button);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(304, 74);
+            this.tabPage1.Size = new System.Drawing.Size(304, 87);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ManualTest";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // out_2_3_button
+            // 
+            this.out_2_3_button.Enabled = false;
+            this.out_2_3_button.Location = new System.Drawing.Point(138, 7);
+            this.out_2_3_button.Margin = new System.Windows.Forms.Padding(2);
+            this.out_2_3_button.Name = "out_2_3_button";
+            this.out_2_3_button.Size = new System.Drawing.Size(41, 26);
+            this.out_2_3_button.TabIndex = 37;
+            this.out_2_3_button.Text = "Q2.3";
+            this.out_2_3_button.UseVisualStyleBackColor = true;
+            this.out_2_3_button.Click += new System.EventHandler(this.out_2_3_button_Click);
+            // 
+            // out_2_2_button
+            // 
+            this.out_2_2_button.Enabled = false;
+            this.out_2_2_button.Location = new System.Drawing.Point(93, 7);
+            this.out_2_2_button.Margin = new System.Windows.Forms.Padding(2);
+            this.out_2_2_button.Name = "out_2_2_button";
+            this.out_2_2_button.Size = new System.Drawing.Size(41, 26);
+            this.out_2_2_button.TabIndex = 36;
+            this.out_2_2_button.Text = "Q2.2";
+            this.out_2_2_button.UseVisualStyleBackColor = true;
+            this.out_2_2_button.Click += new System.EventHandler(this.out_2_2_button_Click);
             // 
             // out_2_1_button
             // 
@@ -785,7 +774,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(304, 74);
+            this.tabPage2.Size = new System.Drawing.Size(304, 87);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "AutoTest";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -796,12 +785,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 368);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.query_mode_button);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -871,10 +857,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button query_mode_button;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox10;
@@ -898,6 +881,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button out_2_1_button;
+        private System.Windows.Forms.Button out_2_2_button;
+        private System.Windows.Forms.Button out_2_3_button;
     }
 }
 

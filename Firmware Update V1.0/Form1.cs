@@ -88,10 +88,8 @@ namespace Firmware_Update_V1._0
                     button1.Enabled = true;//“搜索”可按
                     button4.Enabled = false;//“升级固件”禁按
                     button10.Enabled = false;//“复位终端”禁按
-                    button7.Enabled = false;//“出厂设置”禁按
-                    button6.Enabled = false;//“终端设置”禁按
-                    button8.Enabled = false;//“时间同步”禁按
-                    button9.Enabled = false;//“查询终端”禁按
+
+                    query_mode_button.Enabled = false;//“查询模式”禁按
                     out_2_0_button.Enabled = false;
                     out_2_1_button.Enabled = false;
                     serialPort1.DataReceived -= new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
@@ -135,11 +133,9 @@ namespace Firmware_Update_V1._0
                     comboBox5.Enabled = false;//“停止位”禁选
                     button1.Enabled = false;//“搜索”禁按
                     button4.Enabled = false;//“升级固件”禁按
-                    button10.Enabled = false;//“复位终端”禁按
-                    button7.Enabled = false;//“出厂设置”禁按
-                    button6.Enabled = false;//“终端设置”禁按
-                    button8.Enabled = false;//“时间同步”禁按
-                    button9.Enabled = true;//“查询终端”可按
+                    button10.Enabled = false;//“复位终端”禁按               
+
+                    query_mode_button.Enabled = true;//“查询终端”可按
                     out_2_0_button.Enabled = true;
                     out_2_1_button.Enabled = true;
                     serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
@@ -399,25 +395,19 @@ namespace Firmware_Update_V1._0
             {
                 button4.Enabled = false;//“升级固件”禁按
                 button10.Enabled = false;//“复位终端”禁按
-                button7.Enabled = false;//“出厂设置”禁按
-                button6.Enabled = false;//“终端设置”禁按
-                button8.Enabled = false;//“时间同步”禁按
+            
+     
             }
             else if(textBox5.Text == "255")
             {
                 button4.Enabled = true;//“升级固件”可按
-                button10.Enabled = true;//“复位终端”可按
-                button7.Enabled = false;//“出厂设置”禁按
-                button6.Enabled = false;//“终端设置”禁按
-                button8.Enabled = false;//“时间同步”禁按
+                button10.Enabled = true;//“复位终端”可按           
+          
             }
             else
             {
                 button4.Enabled = true;//“升级固件”可按
-                button10.Enabled = true;//“复位终端”可按
-                button7.Enabled = false;//“出厂设置”禁按
-                button6.Enabled = true;//“终端设置”禁按
-                button8.Enabled = true;//“时间同步”禁按
+                button10.Enabled = true;//“复位终端”可按             
             }
         }
 
@@ -425,43 +415,6 @@ namespace Firmware_Update_V1._0
         {
             Form2 frm = new Form2(this);//首先实例化
             frm.ShowDialog();
-        }
-
-        private void button6_Click(object sender, EventArgs e)//终端设置窗口
-        {
-            Form3 frm = new Form3(this);//首先实例化
-            frm.ShowDialog();
-        }
-
-        private void button7_Click(object sender, EventArgs e)//出厂设置窗口
-        {
-            Form4 frm = new Form4(this);
-            frm.ShowDialog();
-        }
-
-        private void button8_Click(object sender, EventArgs e)//时钟同步
-        {
-            byte[] SendBytes = new byte[10];
-
-            try
-            {
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0xF5;//功能码
-                SendBytes[9] = 0x0D;
-                SendBytes[2] = ByteToBCD((byte)(DateTime.Now.Year % 100));//年
-                SendBytes[3] = ByteToBCD((byte)DateTime.Now.Month);//月
-                SendBytes[4] = ByteToBCD((byte)DateTime.Now.Day);//日
-                SendBytes[8] = (byte)DateTime.Now.DayOfWeek;//星期
-                SendBytes[5] = ByteToBCD((byte)DateTime.Now.Hour);//时
-                SendBytes[6] = ByteToBCD((byte)DateTime.Now.Minute);//分
-                SendBytes[7] = ByteToBCD((byte)DateTime.Now.Second);//秒
-                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
-                MessageBox.Show("同步成功！", "提示");
-            }
-            catch
-            {
-                MessageBox.Show("串口通讯出错", "警告");
-            }
         }
         public static byte ByteToBCD(byte b)//byte转BCD
         {           
@@ -471,7 +424,7 @@ namespace Firmware_Update_V1._0
             return (byte)((b1 << 4) | b2);
         }
 
-        private void button9_Click(object sender, EventArgs e)//查询终端
+        private void query_mode_button_Click(object sender, EventArgs e)//查询终端
         {
             byte[] SendBytes = new byte[10];
 
@@ -639,7 +592,51 @@ namespace Firmware_Update_V1._0
             try
             {
                 SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x02;        //Q2.0
+                SendBytes[1] = 0x02;        //Q2.1
+                SendBytes[2] = 0x00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void out_2_2_button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+
+            try
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0x03;        //Q2.2
+                SendBytes[2] = 0x00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void out_2_3_button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+
+            try
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0x04;        //Q2.3
                 SendBytes[2] = 0x00;
                 SendBytes[3] = 0x00;
                 SendBytes[4] = 0x00;
@@ -663,6 +660,10 @@ namespace Firmware_Update_V1._0
         {
 
         }
+
+
+
+
 
 
     }
