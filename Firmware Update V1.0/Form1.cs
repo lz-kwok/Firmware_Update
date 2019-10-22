@@ -162,6 +162,7 @@ namespace Firmware_Update_V1._0
             int count = serialPort1.BytesToRead;//接收数据的字符数
             byte[] data = new byte[count];//创建接收8位数据数组data
             bool ShowFlag = false;
+            int deviceMode = 0; //默认手动模式
             serialPort1.Read(data, 0, count);//将接收的数据存放到data
             CurrentTime = "【" + DateTime.Now.ToString("f") + ":" + DateTime.Now.Second.ToString("D2") + "】";
 
@@ -188,43 +189,15 @@ namespace Firmware_Update_V1._0
                 {
                     ShowFlag = true;
                     FirmwareVersionOld = data[1];
-                    DeviceNumber[0] = data[2];
-                    DeviceNumber[1] = data[3];
-                    PDNumber[0] = data[4];
-                    PDNumber[1] = data[5];
-                    PDDate.Year = data[6];
-                    PDDate.Month = data[7];
-                    PDDate.Day = data[8];
+                    deviceMode = data[2];
+
                     GloabValue.TerminalTypeValue = TerminalType = data[9];
                     GloabValue.TransmissionTypeValue = TransmissionWay = data[10];
-                    DEVEUI[0] = data[11];
-                    DEVEUI[1] = data[12];
-                    SendPeriod = data[13];
 
-                    //this.comboBox1.SelectedIndex = TerminalType;
-
-                    switch (TerminalType)
+                    switch (deviceMode)
                     {
-                        case 0x01: TerminalTypeText = "[01]空气"; break;
-                        case 0x02: TerminalTypeText = "[02]VOC"; break;
-                        case 0x03: TerminalTypeText = "[03]扬尘噪音"; break;
-                        case 0x04: TerminalTypeText = "[04]水雨情"; break;
-                        case 0x05: TerminalTypeText = "[05]气象"; break;
-                        case 0x06: TerminalTypeText = "[06]水质水况"; break;
-                        case 0x07: TerminalTypeText = "[07]土壤"; break;
-                        case 0x08: TerminalTypeText = "[08]农业"; break;
-                        case 0x09: TerminalTypeText = "[09]流量计"; break;
-
-                        case 0x10: TerminalTypeText = "[10]总磷总氮"; break;
-                        case 0x11: TerminalTypeText = "[11]易涝点"; break;
-                        case 0x12: TerminalTypeText = "[12]窖井管道流量"; break;
-                        case 0x13: TerminalTypeText = "[13]雨量"; break;
-                        case 0x14: TerminalTypeText = "[14]一体化窖井液位"; break;
-
-                        case 0x0A: TerminalTypeText = "[0A]二次供水"; break;
-                        case 0x0B: TerminalTypeText = "[0B]TankMonitor"; break;
-                        case 0x55: TerminalTypeText = "[55]定制需求"; break;
-                        default: TerminalTypeText = "未知"; break;
+                        case 0x01: this.tabPage1.TabIndex = 0; break;
+                        case 0x02: this.tabPage1.TabIndex = 1; ; break;
                     }
 
                     //this.comboBox2.SelectedIndex = TerminalType;
@@ -246,26 +219,12 @@ namespace Firmware_Update_V1._0
                     {
                         this.Invoke(new MethodInvoker(delegate
                         {
-                            textBox5.Text = FirmwareVersionOld.ToString("000");
-                            textBox6.Text = ((DeviceNumber[0] << 8) + DeviceNumber[1]).ToString("00000");
-                            textBox7.Text = "2" + PDDate.Year.ToString("000") + "年" + PDDate.Month.ToString() + "月" + PDDate.Day.ToString() + "日";
-                            textBox8.Text = ((PDNumber[0] << 8) + PDNumber[1]).ToString("00000");
-                            textBox9.Text = TerminalTypeText;
-                            textBox10.Text = TransmissionWayText;
-                            textBox11.Text = "004A77054800" + ((DEVEUI[0] << 8) + DEVEUI[1]).ToString("X2").PadLeft(4, '0');
-                            textBox3.Text = SendPeriod.ToString() + "min";
+                            firmware_version.Text = FirmwareVersionOld.ToString("000");
                         }));
                     }
                     else//2.正常
                     {
-                        textBox5.Text = FirmwareVersionOld.ToString("000");
-                        textBox6.Text = ((DeviceNumber[0] << 8) + DeviceNumber[1]).ToString("00000");
-                        textBox7.Text = "2" + PDDate.Year.ToString("000") + "年" + PDDate.Month.ToString() + "月" + PDDate.Day.ToString() + "日";
-                        textBox8.Text = ((PDNumber[0] << 8) + PDNumber[1]).ToString("00000");
-                        textBox9.Text = TerminalTypeText;
-                        textBox10.Text = TransmissionWayText;
-                        textBox11.Text = "004A77054800" + ((DEVEUI[0] << 8) + DEVEUI[1]).ToString("X2").PadLeft(4, '0');
-                        textBox3.Text = SendPeriod.ToString() + "min";
+                        firmware_version.Text = FirmwareVersionOld.ToString("000");
                     }
                 }
                 else
@@ -396,17 +355,17 @@ namespace Firmware_Update_V1._0
                     button3_Click(sender, e);
                 }
             }
-            if(textBox5.Text == null || textBox5.Text == "")
+            if (firmware_version.Text == null || firmware_version.Text == "")
             {
                 update_button.Enabled = false;//“升级固件”禁按
                 reset_button.Enabled = false;//“复位终端”禁按
             
      
             }
-            else if(textBox5.Text == "255")
+            else if (firmware_version.Text == "255")
             {
-                update_button.Enabled = true;//“升级固件”可按
-                reset_button.Enabled = true;//“复位终端”可按           
+                update_button.Enabled = false;//“升级固件”可按
+                reset_button.Enabled = false;//“复位终端”可按           
           
             }
             else
@@ -480,26 +439,12 @@ namespace Firmware_Update_V1._0
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
-                    textBox5.Text = "";
-                    textBox6.Text = "";
-                    textBox7.Text = "";
-                    textBox8.Text = "";
-                    textBox9.Text = "";
-                    textBox10.Text = "";
-                    textBox11.Text = "";
-                    textBox3.Text = "";
+                    firmware_version.Text = "";
                 }));
             }
             else//2.正常
             {
-                textBox5.Text = "";
-                textBox6.Text = "";
-                textBox7.Text = "";
-                textBox8.Text = "";
-                textBox9.Text = "";
-                textBox10.Text = "";
-                textBox11.Text = "";
-                textBox3.Text = "";
+                firmware_version.Text = "";
             }
         }
 
@@ -544,25 +489,11 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void out_2_0_button_Click(object sender, EventArgs e)
         {
@@ -662,10 +593,15 @@ namespace Firmware_Update_V1._0
 
         }
 
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
 
+        }
 
+        private void firmware_version_TextChanged(object sender, EventArgs e)
+        {
 
-
+        }
 
     }
 }

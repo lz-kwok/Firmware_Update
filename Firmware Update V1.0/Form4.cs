@@ -246,11 +246,6 @@ namespace Firmware_Update_V1._0
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label7_Click(object sender, EventArgs e)
         {
 
