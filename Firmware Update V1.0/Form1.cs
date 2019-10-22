@@ -92,6 +92,8 @@ namespace Firmware_Update_V1._0
                     button6.Enabled = false;//“终端设置”禁按
                     button8.Enabled = false;//“时间同步”禁按
                     button9.Enabled = false;//“查询终端”禁按
+                    out_2_0_button.Enabled = false;
+                    out_2_1_button.Enabled = false;
                     serialPort1.DataReceived -= new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
                 }
                 catch
@@ -138,6 +140,8 @@ namespace Firmware_Update_V1._0
                     button6.Enabled = false;//“终端设置”禁按
                     button8.Enabled = false;//“时间同步”禁按
                     button9.Enabled = true;//“查询终端”可按
+                    out_2_0_button.Enabled = true;
+                    out_2_1_button.Enabled = true;
                     serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
                 }
                 catch
@@ -415,42 +419,6 @@ namespace Firmware_Update_V1._0
                 button6.Enabled = true;//“终端设置”禁按
                 button8.Enabled = true;//“时间同步”禁按
             }
-            if (textBox9.Text == "[01]空气")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.空气;
-            else if (textBox9.Text == "[02]VOC")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.VOC;
-            else if (textBox9.Text == "[03]扬尘噪音")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.扬尘;
-            else if (textBox9.Text == "[04]水雨情")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.降雨;
-            else if (textBox9.Text == "[05]气象")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.气象;
-            else if (textBox9.Text == "[06]水质水况")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.水质;
-            else if (textBox9.Text == "[07]土壤")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.土壤;
-            else if (textBox9.Text == "[08]农业")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.农业;
-            else if (textBox9.Text == "[09]流量计")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.流量计;
-            else if (textBox9.Text == "[10]总磷总氮")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.总磷总氮;
-            else if (textBox9.Text == "[11]易涝点")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.易涝点;
-            else if (textBox9.Text == "[12]窖井管道流量")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.管道;
-            else if (textBox9.Text == "[13]雨量")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.雨量;
-            else if (textBox9.Text == "[14]一体化窖井液位")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.窖井;
-            else if (textBox9.Text == "[0A]二次供水")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.二次供水;
-            else if (textBox9.Text == "[0B]TankMonitor")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.TankMonitor;
-            else if (textBox9.Text == "[55]定制需求")
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.定制需求1;
-            else
-                pictureBox2.Image = Firmware_Update_V1._0.Properties.Resources.透明logo;
         }
 
         private void button4_Click(object sender, EventArgs e)//固件升级窗口
@@ -641,5 +609,61 @@ namespace Firmware_Update_V1._0
         {
 
         }
+
+        private void out_2_0_button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+
+            try
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0x01;        //Q2.0
+                SendBytes[2] = 0x00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void out_2_1_button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+
+            try
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0x02;        //Q2.0
+                SendBytes[2] = 0x00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

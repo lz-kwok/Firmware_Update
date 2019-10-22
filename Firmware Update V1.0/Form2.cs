@@ -188,7 +188,7 @@ namespace Firmware_Update_V1._0
             int SendCount = 0;
             string SendTxtLine = "";
             int PercentCount = 0;
-            int i = 0;
+    
             if (Form1.UpdateState == 1 && CMD_Reset == false)//【状态1】
             {
                 CMD_Reset = true;

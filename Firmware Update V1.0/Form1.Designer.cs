@@ -84,7 +84,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.out_2_0_button = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.out_2_1_button = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,7 +96,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -728,24 +733,69 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // pictureBox2
+            // out_2_0_button
             // 
-            this.pictureBox2.Image = global::Firmware_Update_V1._0.Properties.Resources.微信图片_20180706141228;
-            this.pictureBox2.Location = new System.Drawing.Point(582, 19);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(314, 125);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 34;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.out_2_0_button.Enabled = false;
+            this.out_2_0_button.Location = new System.Drawing.Point(5, 7);
+            this.out_2_0_button.Margin = new System.Windows.Forms.Padding(2);
+            this.out_2_0_button.Name = "out_2_0_button";
+            this.out_2_0_button.Size = new System.Drawing.Size(41, 26);
+            this.out_2_0_button.TabIndex = 34;
+            this.out_2_0_button.Text = "Q2.0";
+            this.out_2_0_button.UseVisualStyleBackColor = true;
+            this.out_2_0_button.Click += new System.EventHandler(this.out_2_0_button_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(581, 19);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(312, 100);
+            this.tabControl1.TabIndex = 35;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.out_2_1_button);
+            this.tabPage1.Controls.Add(this.out_2_0_button);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(304, 74);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "ManualTest";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // out_2_1_button
+            // 
+            this.out_2_1_button.Enabled = false;
+            this.out_2_1_button.Location = new System.Drawing.Point(48, 7);
+            this.out_2_1_button.Margin = new System.Windows.Forms.Padding(2);
+            this.out_2_1_button.Name = "out_2_1_button";
+            this.out_2_1_button.Size = new System.Drawing.Size(41, 26);
+            this.out_2_1_button.TabIndex = 35;
+            this.out_2_1_button.Text = "Q2.1";
+            this.out_2_1_button.UseVisualStyleBackColor = true;
+            this.out_2_1_button.Click += new System.EventHandler(this.out_2_1_button_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(304, 74);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "AutoTest";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 368);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox4);
@@ -764,7 +814,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TN1900单逆测试台客户端";
+            this.Text = "TN19002单逆测试台客户端";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -779,7 +829,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -840,9 +891,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button out_2_0_button;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button out_2_1_button;
     }
 }
 
