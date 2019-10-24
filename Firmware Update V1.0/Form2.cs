@@ -328,5 +328,15 @@ namespace Firmware_Update_V1._0
                 Application.DoEvents();
             }
         }
+
+        private void ratingControl1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void separatorControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

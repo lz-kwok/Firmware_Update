@@ -52,7 +52,6 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -61,27 +60,56 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.update_button = new System.Windows.Forms.Button();
-            this.query_mode_button = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.firmware_version = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.reset_button = new System.Windows.Forms.Button();
-            this.out_2_0_button = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.out_2_3_button = new System.Windows.Forms.Button();
-            this.out_2_2_button = new System.Windows.Forms.Button();
-            this.out_2_1_button = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
+            this.firmware_version = new DevExpress.XtraEditors.TextEdit();
+            this.reset_button = new DevExpress.XtraEditors.SimpleButton();
+            this.update_button = new DevExpress.XtraEditors.SimpleButton();
+            this.query_mode_button = new DevExpress.XtraEditors.SimpleButton();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
+            this.Q2_1 = new DevExpress.XtraEditors.TextEdit();
+            this.Q2_0 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_9 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_8 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_7 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_6 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_5 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_4 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_3 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_2 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_1 = new DevExpress.XtraEditors.TextEdit();
+            this.Q1_0 = new DevExpress.XtraEditors.TextEdit();
+            this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
+            this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.firmware_version.Properties)).BeginInit();
+            this.sidePanel1.SuspendLayout();
+            this.sidePanel5.SuspendLayout();
+            this.sidePanel4.SuspendLayout();
+            this.sidePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q2_0.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_0.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
+            this.tabPane1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -237,7 +265,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(44, 60);
             this.button3.TabIndex = 14;
-            this.button3.Text = "发送数据";
+            this.button3.Text = "数据自测";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -329,25 +357,14 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox1.Location = new System.Drawing.Point(164, 19);
+            this.textBox1.Location = new System.Drawing.Point(5, 4);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(408, 273);
+            this.textBox1.Size = new System.Drawing.Size(367, 256);
             this.textBox1.TabIndex = 20;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(164, 296);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(408, 65);
-            this.textBox2.TabIndex = 21;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // groupBox1
             // 
@@ -364,13 +381,15 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.comboBox5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(9, 10);
+            this.groupBox1.Location = new System.Drawing.Point(11, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(150, 158);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "串口配置";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pictureBox1
             // 
@@ -389,7 +408,7 @@
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Location = new System.Drawing.Point(9, 173);
+            this.groupBox2.Location = new System.Drawing.Point(11, 173);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -397,6 +416,7 @@
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收区";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // button5
             // 
@@ -416,14 +436,15 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Location = new System.Drawing.Point(9, 258);
+            this.groupBox3.Location = new System.Drawing.Point(11, 260);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(150, 102);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "发送区";
+            this.groupBox3.Text = "自测区";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // textBox4
             // 
@@ -455,179 +476,309 @@
             this.checkBox2.Text = "自动发送";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // sidePanel3
+            // 
+            this.sidePanel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.sidePanel3.Location = new System.Drawing.Point(565, 0);
+            this.sidePanel3.Name = "sidePanel3";
+            this.sidePanel3.Size = new System.Drawing.Size(499, 582);
+            this.sidePanel3.TabIndex = 38;
+            this.sidePanel3.Text = "sidePanel3";
+            this.sidePanel3.Click += new System.EventHandler(this.sidePanel3_Click);
+            // 
+            // firmware_version
+            // 
+            this.firmware_version.Location = new System.Drawing.Point(254, 184);
+            this.firmware_version.Name = "firmware_version";
+            this.firmware_version.Size = new System.Drawing.Size(75, 20);
+            this.firmware_version.TabIndex = 3;
+            this.firmware_version.EditValueChanged += new System.EventHandler(this.firmware_version_EditValueChanged);
+            // 
+            // reset_button
+            // 
+            this.reset_button.Location = new System.Drawing.Point(12, 183);
+            this.reset_button.Name = "reset_button";
+            this.reset_button.Size = new System.Drawing.Size(75, 23);
+            this.reset_button.TabIndex = 0;
+            this.reset_button.Text = "复位设备";
+            this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
+            // 
             // update_button
             // 
-            this.update_button.Enabled = false;
-            this.update_button.Location = new System.Drawing.Point(807, 139);
-            this.update_button.Margin = new System.Windows.Forms.Padding(2);
+            this.update_button.Location = new System.Drawing.Point(92, 183);
             this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(82, 26);
-            this.update_button.TabIndex = 25;
-            this.update_button.Text = "升级固件";
-            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Size = new System.Drawing.Size(75, 23);
+            this.update_button.TabIndex = 1;
+            this.update_button.Text = "固件升级";
             this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // query_mode_button
             // 
-            this.query_mode_button.Enabled = false;
-            this.query_mode_button.Location = new System.Drawing.Point(578, 139);
-            this.query_mode_button.Margin = new System.Windows.Forms.Padding(2);
+            this.query_mode_button.Location = new System.Drawing.Point(173, 183);
             this.query_mode_button.Name = "query_mode_button";
-            this.query_mode_button.Size = new System.Drawing.Size(82, 26);
-            this.query_mode_button.TabIndex = 31;
-            this.query_mode_button.Text = "查询模式";
-            this.query_mode_button.UseVisualStyleBackColor = true;
+            this.query_mode_button.Size = new System.Drawing.Size(75, 23);
+            this.query_mode_button.TabIndex = 2;
+            this.query_mode_button.Text = "模式查询";
             this.query_mode_button.Click += new System.EventHandler(this.query_mode_button_Click);
             // 
-            // groupBox4
+            // textBox2
             // 
-            this.groupBox4.Location = new System.Drawing.Point(578, 187);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(318, 140);
-            this.groupBox4.TabIndex = 32;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "终端信息";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            this.textBox2.Location = new System.Drawing.Point(5, 263);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(367, 104);
+            this.textBox2.TabIndex = 21;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
-            // firmware_version
+            // sidePanel1
             // 
-            this.firmware_version.Location = new System.Drawing.Point(797, 16);
-            this.firmware_version.Margin = new System.Windows.Forms.Padding(2);
-            this.firmware_version.Name = "firmware_version";
-            this.firmware_version.ReadOnly = true;
-            this.firmware_version.Size = new System.Drawing.Size(99, 21);
-            this.firmware_version.TabIndex = 7;
-            this.firmware_version.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.firmware_version.TextChanged += new System.EventHandler(this.firmware_version_TextChanged);
+            this.sidePanel1.Controls.Add(this.sidePanel5);
+            this.sidePanel1.Controls.Add(this.sidePanel4);
+            this.sidePanel1.Controls.Add(this.sidePanel2);
+            this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidePanel1.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel1.Name = "sidePanel1";
+            this.sidePanel1.Size = new System.Drawing.Size(559, 582);
+            this.sidePanel1.TabIndex = 39;
+            this.sidePanel1.Text = "sidePanel1";
             // 
-            // label8
+            // sidePanel5
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(739, 21);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "固件版本：";
+            this.sidePanel5.Controls.Add(this.textBox2);
+            this.sidePanel5.Controls.Add(this.textBox1);
+            this.sidePanel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.sidePanel5.Location = new System.Drawing.Point(177, 0);
+            this.sidePanel5.Name = "sidePanel5";
+            this.sidePanel5.Size = new System.Drawing.Size(381, 372);
+            this.sidePanel5.TabIndex = 27;
+            this.sidePanel5.Text = "sidePanel5";
             // 
-            // reset_button
+            // sidePanel4
             // 
-            this.reset_button.Enabled = false;
-            this.reset_button.Location = new System.Drawing.Point(696, 139);
-            this.reset_button.Margin = new System.Windows.Forms.Padding(2);
-            this.reset_button.Name = "reset_button";
-            this.reset_button.Size = new System.Drawing.Size(82, 26);
-            this.reset_button.TabIndex = 33;
-            this.reset_button.Text = "复位终端";
-            this.reset_button.UseVisualStyleBackColor = true;
-            this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
+            this.sidePanel4.Controls.Add(this.groupBox1);
+            this.sidePanel4.Controls.Add(this.groupBox3);
+            this.sidePanel4.Controls.Add(this.groupBox2);
+            this.sidePanel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidePanel4.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel4.Name = "sidePanel4";
+            this.sidePanel4.Size = new System.Drawing.Size(173, 372);
+            this.sidePanel4.TabIndex = 26;
+            this.sidePanel4.Text = "sidePanel4";
             // 
-            // out_2_0_button
+            // sidePanel2
             // 
-            this.out_2_0_button.Enabled = false;
-            this.out_2_0_button.Location = new System.Drawing.Point(5, 7);
-            this.out_2_0_button.Margin = new System.Windows.Forms.Padding(2);
-            this.out_2_0_button.Name = "out_2_0_button";
-            this.out_2_0_button.Size = new System.Drawing.Size(41, 26);
-            this.out_2_0_button.TabIndex = 34;
-            this.out_2_0_button.Text = "Q2.0";
-            this.out_2_0_button.UseVisualStyleBackColor = true;
-            this.out_2_0_button.Click += new System.EventHandler(this.out_2_0_button_Click);
+            this.sidePanel2.Controls.Add(this.firmware_version);
+            this.sidePanel2.Controls.Add(this.Q2_1);
+            this.sidePanel2.Controls.Add(this.update_button);
+            this.sidePanel2.Controls.Add(this.Q2_0);
+            this.sidePanel2.Controls.Add(this.query_mode_button);
+            this.sidePanel2.Controls.Add(this.reset_button);
+            this.sidePanel2.Controls.Add(this.Q1_9);
+            this.sidePanel2.Controls.Add(this.Q1_8);
+            this.sidePanel2.Controls.Add(this.Q1_7);
+            this.sidePanel2.Controls.Add(this.Q1_6);
+            this.sidePanel2.Controls.Add(this.Q1_5);
+            this.sidePanel2.Controls.Add(this.Q1_4);
+            this.sidePanel2.Controls.Add(this.Q1_3);
+            this.sidePanel2.Controls.Add(this.Q1_2);
+            this.sidePanel2.Controls.Add(this.Q1_1);
+            this.sidePanel2.Controls.Add(this.Q1_0);
+            this.sidePanel2.Controls.Add(this.tabPane1);
+            this.sidePanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sidePanel2.Location = new System.Drawing.Point(0, 372);
+            this.sidePanel2.Name = "sidePanel2";
+            this.sidePanel2.Size = new System.Drawing.Size(558, 210);
+            this.sidePanel2.TabIndex = 25;
+            this.sidePanel2.Text = "sidePanel2";
             // 
-            // tabControl1
+            // Q2_1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(581, 19);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(319, 113);
-            this.tabControl1.TabIndex = 35;
+            this.Q2_1.EditValue = "Q2.1";
+            this.Q2_1.Location = new System.Drawing.Point(508, 158);
+            this.Q2_1.Name = "Q2_1";
+            this.Q2_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q2_1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q2_1.Properties.Appearance.Options.UseBackColor = true;
+            this.Q2_1.Properties.Appearance.Options.UseForeColor = true;
+            this.Q2_1.Size = new System.Drawing.Size(37, 20);
+            this.Q2_1.TabIndex = 14;
             // 
-            // tabPage1
+            // Q2_0
             // 
-            this.tabPage1.Controls.Add(this.out_2_3_button);
-            this.tabPage1.Controls.Add(this.out_2_2_button);
-            this.tabPage1.Controls.Add(this.out_2_1_button);
-            this.tabPage1.Controls.Add(this.out_2_0_button);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(311, 87);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "ManualTest";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.Q2_0.EditValue = "Q2.0";
+            this.Q2_0.Location = new System.Drawing.Point(463, 158);
+            this.Q2_0.Name = "Q2_0";
+            this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q2_0.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q2_0.Properties.Appearance.Options.UseBackColor = true;
+            this.Q2_0.Properties.Appearance.Options.UseForeColor = true;
+            this.Q2_0.Size = new System.Drawing.Size(37, 20);
+            this.Q2_0.TabIndex = 15;
             // 
-            // out_2_3_button
+            // Q1_9
             // 
-            this.out_2_3_button.Enabled = false;
-            this.out_2_3_button.Location = new System.Drawing.Point(137, 7);
-            this.out_2_3_button.Margin = new System.Windows.Forms.Padding(2);
-            this.out_2_3_button.Name = "out_2_3_button";
-            this.out_2_3_button.Size = new System.Drawing.Size(41, 26);
-            this.out_2_3_button.TabIndex = 37;
-            this.out_2_3_button.Text = "Q2.3";
-            this.out_2_3_button.UseVisualStyleBackColor = true;
-            this.out_2_3_button.Click += new System.EventHandler(this.out_2_3_button_Click);
+            this.Q1_9.EditValue = "Q1.9";
+            this.Q1_9.Location = new System.Drawing.Point(418, 158);
+            this.Q1_9.Name = "Q1_9";
+            this.Q1_9.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_9.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_9.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_9.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_9.Size = new System.Drawing.Size(37, 20);
+            this.Q1_9.TabIndex = 17;
             // 
-            // out_2_2_button
+            // Q1_8
             // 
-            this.out_2_2_button.Enabled = false;
-            this.out_2_2_button.Location = new System.Drawing.Point(93, 7);
-            this.out_2_2_button.Margin = new System.Windows.Forms.Padding(2);
-            this.out_2_2_button.Name = "out_2_2_button";
-            this.out_2_2_button.Size = new System.Drawing.Size(41, 26);
-            this.out_2_2_button.TabIndex = 36;
-            this.out_2_2_button.Text = "Q2.2";
-            this.out_2_2_button.UseVisualStyleBackColor = true;
-            this.out_2_2_button.Click += new System.EventHandler(this.out_2_2_button_Click);
+            this.Q1_8.EditValue = "Q1.8";
+            this.Q1_8.Location = new System.Drawing.Point(373, 158);
+            this.Q1_8.Name = "Q1_8";
+            this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_8.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_8.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_8.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_8.Size = new System.Drawing.Size(37, 20);
+            this.Q1_8.TabIndex = 16;
             // 
-            // out_2_1_button
+            // Q1_7
             // 
-            this.out_2_1_button.Enabled = false;
-            this.out_2_1_button.Location = new System.Drawing.Point(49, 7);
-            this.out_2_1_button.Margin = new System.Windows.Forms.Padding(2);
-            this.out_2_1_button.Name = "out_2_1_button";
-            this.out_2_1_button.Size = new System.Drawing.Size(41, 26);
-            this.out_2_1_button.TabIndex = 35;
-            this.out_2_1_button.Text = "Q2.1";
-            this.out_2_1_button.UseVisualStyleBackColor = true;
-            this.out_2_1_button.Click += new System.EventHandler(this.out_2_1_button_Click);
+            this.Q1_7.EditValue = "Q1.7";
+            this.Q1_7.Location = new System.Drawing.Point(328, 158);
+            this.Q1_7.Name = "Q1_7";
+            this.Q1_7.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_7.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_7.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_7.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_7.Size = new System.Drawing.Size(37, 20);
+            this.Q1_7.TabIndex = 12;
             // 
-            // tabPage2
+            // Q1_6
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(304, 87);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "AutoTest";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.Q1_6.EditValue = "Q1.6";
+            this.Q1_6.Location = new System.Drawing.Point(283, 158);
+            this.Q1_6.Name = "Q1_6";
+            this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_6.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_6.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_6.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_6.Size = new System.Drawing.Size(37, 20);
+            this.Q1_6.TabIndex = 13;
+            // 
+            // Q1_5
+            // 
+            this.Q1_5.EditValue = "Q1.5";
+            this.Q1_5.Location = new System.Drawing.Point(238, 158);
+            this.Q1_5.Name = "Q1_5";
+            this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_5.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_5.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_5.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_5.Size = new System.Drawing.Size(37, 20);
+            this.Q1_5.TabIndex = 11;
+            // 
+            // Q1_4
+            // 
+            this.Q1_4.EditValue = "Q1.4";
+            this.Q1_4.Location = new System.Drawing.Point(193, 158);
+            this.Q1_4.Name = "Q1_4";
+            this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_4.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_4.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_4.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_4.Size = new System.Drawing.Size(37, 20);
+            this.Q1_4.TabIndex = 10;
+            // 
+            // Q1_3
+            // 
+            this.Q1_3.EditValue = "Q1.3";
+            this.Q1_3.Location = new System.Drawing.Point(148, 158);
+            this.Q1_3.Name = "Q1_3";
+            this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_3.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_3.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_3.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_3.Size = new System.Drawing.Size(37, 20);
+            this.Q1_3.TabIndex = 8;
+            // 
+            // Q1_2
+            // 
+            this.Q1_2.EditValue = "Q1.2";
+            this.Q1_2.Location = new System.Drawing.Point(103, 158);
+            this.Q1_2.Name = "Q1_2";
+            this.Q1_2.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_2.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_2.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_2.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_2.Size = new System.Drawing.Size(37, 20);
+            this.Q1_2.TabIndex = 9;
+            // 
+            // Q1_1
+            // 
+            this.Q1_1.EditValue = "Q1.1";
+            this.Q1_1.Location = new System.Drawing.Point(58, 158);
+            this.Q1_1.Name = "Q1_1";
+            this.Q1_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_1.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_1.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_1.Size = new System.Drawing.Size(37, 20);
+            this.Q1_1.TabIndex = 8;
+            // 
+            // Q1_0
+            // 
+            this.Q1_0.EditValue = "Q1.0";
+            this.Q1_0.Location = new System.Drawing.Point(13, 158);
+            this.Q1_0.Name = "Q1_0";
+            this.Q1_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Q1_0.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Q1_0.Properties.Appearance.Options.UseBackColor = true;
+            this.Q1_0.Properties.Appearance.Options.UseForeColor = true;
+            this.Q1_0.Size = new System.Drawing.Size(37, 20);
+            this.Q1_0.TabIndex = 7;
+            // 
+            // tabPane1
+            // 
+            this.tabPane1.Controls.Add(this.tabNavigationPage1);
+            this.tabPane1.Controls.Add(this.tabNavigationPage2);
+            this.tabPane1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabPane1.Location = new System.Drawing.Point(0, 1);
+            this.tabPane1.Name = "tabPane1";
+            this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.tabNavigationPage1,
+            this.tabNavigationPage2});
+            this.tabPane1.RegularSize = new System.Drawing.Size(558, 151);
+            this.tabPane1.SelectedPage = this.tabNavigationPage2;
+            this.tabPane1.Size = new System.Drawing.Size(558, 151);
+            this.tabPane1.TabIndex = 5;
+            this.tabPane1.Text = "tabPane1";
+            this.tabPane1.Click += new System.EventHandler(this.tabPane1_Click);
+            // 
+            // tabNavigationPage1
+            // 
+            this.tabNavigationPage1.Caption = "手动测试";
+            this.tabNavigationPage1.Name = "tabNavigationPage1";
+            this.tabNavigationPage1.Size = new System.Drawing.Size(540, 105);
+            // 
+            // tabNavigationPage2
+            // 
+            this.tabNavigationPage2.Caption = "自动测试";
+            this.tabNavigationPage2.Name = "tabNavigationPage2";
+            this.tabNavigationPage2.Size = new System.Drawing.Size(540, 105);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 368);
-            this.Controls.Add(this.firmware_version);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.query_mode_button);
-            this.Controls.Add(this.reset_button);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.update_button);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1064, 582);
+            this.Controls.Add(this.sidePanel1);
+            this.Controls.Add(this.sidePanel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TN19002单逆测试台客户端";
@@ -643,10 +794,27 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.firmware_version.Properties)).EndInit();
+            this.sidePanel1.ResumeLayout(false);
+            this.sidePanel5.ResumeLayout(false);
+            this.sidePanel5.PerformLayout();
+            this.sidePanel4.ResumeLayout(false);
+            this.sidePanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q2_0.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Q1_0.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
+            this.tabPane1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -675,28 +843,39 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button update_button;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button query_mode_button;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox firmware_version;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button reset_button;
-        private System.Windows.Forms.Button out_2_0_button;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button out_2_1_button;
-        private System.Windows.Forms.Button out_2_2_button;
-        private System.Windows.Forms.Button out_2_3_button;
+        private DevExpress.XtraEditors.SidePanel sidePanel3;
+        private System.Windows.Forms.TextBox textBox2;
+        private DevExpress.XtraEditors.SidePanel sidePanel1;
+        private DevExpress.XtraEditors.SidePanel sidePanel4;
+        private DevExpress.XtraEditors.SidePanel sidePanel5;
+        private DevExpress.XtraBars.Navigation.TabPane tabPane1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
+        private DevExpress.XtraEditors.SimpleButton reset_button;
+        private DevExpress.XtraEditors.SimpleButton update_button;
+        private DevExpress.XtraEditors.TextEdit firmware_version;
+        private DevExpress.XtraEditors.SimpleButton query_mode_button;
+        private DevExpress.XtraEditors.SidePanel sidePanel2;
+        private DevExpress.XtraEditors.TextEdit Q1_0;
+        private DevExpress.XtraEditors.TextEdit Q1_1;
+        private DevExpress.XtraEditors.TextEdit Q1_2;
+        private DevExpress.XtraEditors.TextEdit Q1_3;
+        private DevExpress.XtraEditors.TextEdit Q1_4;
+        private DevExpress.XtraEditors.TextEdit Q1_5;
+        private DevExpress.XtraEditors.TextEdit Q1_6;
+        private DevExpress.XtraEditors.TextEdit Q1_7;
+        private DevExpress.XtraEditors.TextEdit Q1_8;
+        private DevExpress.XtraEditors.TextEdit Q1_9;
+        private DevExpress.XtraEditors.TextEdit Q2_0;
+        private DevExpress.XtraEditors.TextEdit Q2_1;
     }
 }
 

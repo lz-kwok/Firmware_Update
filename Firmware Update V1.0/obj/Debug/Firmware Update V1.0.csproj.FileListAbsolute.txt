@@ -100,3 +100,4 @@ G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update
 G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Form4.resources
 G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware_Update_V1._0.Properties.Resources.resources
 G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware Update V1.0.csproj.GenerateResource.Cache
+G:\DesignProjects\Firmware_Update\Firmware Update V1.0\obj\Debug\Firmware Update V1.0.exe.licenses

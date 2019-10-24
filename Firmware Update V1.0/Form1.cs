@@ -91,10 +91,6 @@ namespace Firmware_Update_V1._0
 
                     query_mode_button.Enabled = false;//“查询模式”禁按
                     reset_button.Enabled = false;
-                    out_2_0_button.Enabled = false;
-                    out_2_1_button.Enabled = false;
-                    out_2_2_button.Enabled = false;
-                    out_2_3_button.Enabled = false;
                     serialPort1.DataReceived -= new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
                 }
                 catch
@@ -139,10 +135,6 @@ namespace Firmware_Update_V1._0
                     reset_button.Enabled = false;
 
                     query_mode_button.Enabled = true;//“查询终端”可按
-                    out_2_0_button.Enabled = true;
-                    out_2_1_button.Enabled = true;
-                    out_2_2_button.Enabled = true;
-                    out_2_3_button.Enabled = true;
                     serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
                 }
                 catch
@@ -158,7 +150,6 @@ namespace Firmware_Update_V1._0
         {
             string s = "";
             string CurrentTime = "";
-            string TerminalTypeText = "", TransmissionWayText = "";
             int count = serialPort1.BytesToRead;//接收数据的字符数
             byte[] data = new byte[count];//创建接收8位数据数组data
             bool ShowFlag = false;
@@ -196,35 +187,20 @@ namespace Firmware_Update_V1._0
 
                     switch (deviceMode)
                     {
-                        case 0x01: this.tabPage1.TabIndex = 0; break;
-                        case 0x02: this.tabPage1.TabIndex = 1; ; break;
+                     //   case 0x01: this.tabPage1.TabIndex = 0; break;
+                    //    case 0x02: this.tabPage1.TabIndex = 1; ; break;
                     }
-
-                    //this.comboBox2.SelectedIndex = TerminalType;
-                    switch (TransmissionWay)
-                    {
-                        case 0x01: TransmissionWayText = "[01]GPRS"; break;
-                        case 0x07: TransmissionWayText = "[02]GPRS"; break;
-                        case 0x02: TransmissionWayText = "[02]NBIoT"; break;
-                        case 0x03: TransmissionWayText = "[02]NBIoT"; break;
-                        case 0x04: TransmissionWayText = "[03]LoRa"; break;
-                        case 0x05: TransmissionWayText = "[03]LoRa"; break;
-                        case 0x06: TransmissionWayText = "[03]LoRa"; break;
-                        default: TransmissionWayText = "未知"; break;
-                    }
-
-                    //this.textBox1.Text = ((DEVEUI[0] << 8) + DEVEUI[1]).ToString("X2").PadLeft(4, '0');
 
                     if (this.InvokeRequired)//1.代理
                     {
                         this.Invoke(new MethodInvoker(delegate
                         {
-                            firmware_version.Text = FirmwareVersionOld.ToString("000");
+
                         }));
                     }
                     else//2.正常
                     {
-                        firmware_version.Text = FirmwareVersionOld.ToString("000");
+
                     }
                 }
                 else
@@ -495,14 +471,14 @@ namespace Firmware_Update_V1._0
         }
 
 
-        private void out_2_0_button_Click(object sender, EventArgs e)
+        private void out_1_0_button_Click(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[8];
 
             try
             {
                 SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x01;        //Q2.0
+                SendBytes[1] = 0x01;        //Q1.0
                 SendBytes[2] = 0x00;
                 SendBytes[3] = 0x00;
                 SendBytes[4] = 0x00;
@@ -517,14 +493,14 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void out_2_1_button_Click(object sender, EventArgs e)
+        private void out_1_1_button_Click(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[8];
 
             try
             {
                 SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x02;        //Q2.1
+                SendBytes[1] = 0x02;        //Q1.1
                 SendBytes[2] = 0x00;
                 SendBytes[3] = 0x00;
                 SendBytes[4] = 0x00;
@@ -539,14 +515,14 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void out_2_2_button_Click(object sender, EventArgs e)
+        private void out_1_2_button_Click(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[8];
 
             try
             {
                 SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x03;        //Q2.2
+                SendBytes[1] = 0x03;        //Q1.2
                 SendBytes[2] = 0x00;
                 SendBytes[3] = 0x00;
                 SendBytes[4] = 0x00;
@@ -561,14 +537,14 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void out_2_3_button_Click(object sender, EventArgs e)
+        private void out_1_3_button_Click(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[8];
 
             try
             {
                 SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x04;        //Q2.3
+                SendBytes[1] = 0x04;        //Q1.3
                 SendBytes[2] = 0x00;
                 SendBytes[3] = 0x00;
                 SendBytes[4] = 0x00;
@@ -602,6 +578,52 @@ namespace Firmware_Update_V1._0
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidePanel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void firmware_version_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPane1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEdit4_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
