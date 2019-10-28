@@ -68,6 +68,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.sidePanel6 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.firmware_version = new DevExpress.XtraEditors.TextEdit();
@@ -560,6 +561,7 @@
             // 
             // sidePanel6
             // 
+            this.sidePanel6.Controls.Add(this.simpleButton4);
             this.sidePanel6.Controls.Add(this.simpleButton3);
             this.sidePanel6.Controls.Add(this.simpleButton1);
             this.sidePanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -568,6 +570,16 @@
             this.sidePanel6.Size = new System.Drawing.Size(672, 64);
             this.sidePanel6.TabIndex = 0;
             this.sidePanel6.Text = "sidePanel6";
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
+            this.simpleButton4.Location = new System.Drawing.Point(209, 5);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(99, 51);
+            this.simpleButton4.TabIndex = 3;
+            this.simpleButton4.Text = "打印报告";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // simpleButton3
             // 
@@ -1015,6 +1027,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraSpreadsheet.SpreadsheetControl spreadsheetControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
     }
 }
 

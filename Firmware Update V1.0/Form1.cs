@@ -712,6 +712,11 @@ namespace Firmware_Update_V1._0
 
         }
 
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            this.spreadsheetControl1.ShowPrintPreview();
+        }
+
 
     }
 }
