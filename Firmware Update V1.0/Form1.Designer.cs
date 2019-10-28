@@ -61,7 +61,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
+            this.spreadsheetControl1 = new DevExpress.XtraSpreadsheet.SpreadsheetControl();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.sidePanel6 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.firmware_version = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.reset_button = new DevExpress.XtraEditors.SimpleButton();
             this.update_button = new DevExpress.XtraEditors.SimpleButton();
             this.query_mode_button = new DevExpress.XtraEditors.SimpleButton();
@@ -85,12 +95,16 @@
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.sidePanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            this.sidePanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firmware_version.Properties)).BeginInit();
             this.sidePanel1.SuspendLayout();
             this.sidePanel5.SuspendLayout();
@@ -110,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Q1_0.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -365,6 +380,7 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(367, 256);
             this.textBox1.TabIndex = 20;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -478,45 +494,145 @@
             // 
             // sidePanel3
             // 
+            this.sidePanel3.Controls.Add(this.spreadsheetControl1);
+            this.sidePanel3.Controls.Add(this.sidePanel6);
             this.sidePanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.sidePanel3.Location = new System.Drawing.Point(565, 0);
+            this.sidePanel3.Location = new System.Drawing.Point(560, 0);
             this.sidePanel3.Name = "sidePanel3";
-            this.sidePanel3.Size = new System.Drawing.Size(499, 582);
+            this.sidePanel3.Size = new System.Drawing.Size(673, 653);
             this.sidePanel3.TabIndex = 38;
             this.sidePanel3.Text = "sidePanel3";
             this.sidePanel3.Click += new System.EventHandler(this.sidePanel3_Click);
             // 
+            // spreadsheetControl1
+            // 
+            this.spreadsheetControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spreadsheetControl1.Location = new System.Drawing.Point(1, 64);
+            this.spreadsheetControl1.MenuManager = this.barManager1;
+            this.spreadsheetControl1.Name = "spreadsheetControl1";
+            this.spreadsheetControl1.Options.Import.Csv.Encoding = ((System.Text.Encoding)(resources.GetObject("spreadsheetControl1.Options.Import.Csv.Encoding")));
+            this.spreadsheetControl1.Options.Import.Txt.Encoding = ((System.Text.Encoding)(resources.GetObject("spreadsheetControl1.Options.Import.Txt.Encoding")));
+            this.spreadsheetControl1.Size = new System.Drawing.Size(672, 589);
+            this.spreadsheetControl1.TabIndex = 1;
+            this.spreadsheetControl1.Text = "spreadsheetControl1";
+            this.spreadsheetControl1.Click += new System.EventHandler(this.spreadsheetControl1_Click);
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.MaxItemId = 25;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1233, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 653);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1233, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 653);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1233, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 653);
+            // 
+            // sidePanel6
+            // 
+            this.sidePanel6.Controls.Add(this.simpleButton3);
+            this.sidePanel6.Controls.Add(this.simpleButton1);
+            this.sidePanel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidePanel6.Location = new System.Drawing.Point(1, 0);
+            this.sidePanel6.Name = "sidePanel6";
+            this.sidePanel6.Size = new System.Drawing.Size(672, 64);
+            this.sidePanel6.TabIndex = 0;
+            this.sidePanel6.Text = "sidePanel6";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.Location = new System.Drawing.Point(3, 5);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(100, 52);
+            this.simpleButton3.TabIndex = 2;
+            this.simpleButton3.Text = "打开报告";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(109, 4);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(93, 52);
+            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.Text = "另存为";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // firmware_version
             // 
-            this.firmware_version.Location = new System.Drawing.Point(254, 184);
+            this.firmware_version.Location = new System.Drawing.Point(440, 245);
             this.firmware_version.Name = "firmware_version";
             this.firmware_version.Size = new System.Drawing.Size(75, 20);
             this.firmware_version.TabIndex = 3;
             this.firmware_version.EditValueChanged += new System.EventHandler(this.firmware_version_EditValueChanged);
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(215, 234);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(110, 43);
+            this.simpleButton2.TabIndex = 4;
+            this.simpleButton2.Text = "测试项设置";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // reset_button
             // 
-            this.reset_button.Location = new System.Drawing.Point(12, 183);
+            this.reset_button.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("reset_button.ImageOptions.Image")));
+            this.reset_button.Location = new System.Drawing.Point(11, 234);
             this.reset_button.Name = "reset_button";
-            this.reset_button.Size = new System.Drawing.Size(75, 23);
+            this.reset_button.Size = new System.Drawing.Size(91, 43);
             this.reset_button.TabIndex = 0;
             this.reset_button.Text = "复位设备";
             this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
             // 
             // update_button
             // 
-            this.update_button.Location = new System.Drawing.Point(92, 183);
+            this.update_button.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("update_button.ImageOptions.Image")));
+            this.update_button.Location = new System.Drawing.Point(109, 234);
             this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(75, 23);
+            this.update_button.Size = new System.Drawing.Size(99, 43);
             this.update_button.TabIndex = 1;
             this.update_button.Text = "固件升级";
             this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // query_mode_button
             // 
-            this.query_mode_button.Location = new System.Drawing.Point(173, 183);
+            this.query_mode_button.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("query_mode_button.ImageOptions.Image")));
+            this.query_mode_button.Location = new System.Drawing.Point(332, 234);
             this.query_mode_button.Name = "query_mode_button";
-            this.query_mode_button.Size = new System.Drawing.Size(75, 23);
+            this.query_mode_button.Size = new System.Drawing.Size(102, 43);
             this.query_mode_button.TabIndex = 2;
             this.query_mode_button.Text = "模式查询";
             this.query_mode_button.Click += new System.EventHandler(this.query_mode_button_Click);
@@ -541,7 +657,7 @@
             this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel1.Location = new System.Drawing.Point(0, 0);
             this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(559, 582);
+            this.sidePanel1.Size = new System.Drawing.Size(559, 653);
             this.sidePanel1.TabIndex = 39;
             this.sidePanel1.Text = "sidePanel1";
             // 
@@ -570,11 +686,12 @@
             // 
             // sidePanel2
             // 
+            this.sidePanel2.Controls.Add(this.simpleButton2);
             this.sidePanel2.Controls.Add(this.firmware_version);
             this.sidePanel2.Controls.Add(this.Q2_1);
-            this.sidePanel2.Controls.Add(this.update_button);
-            this.sidePanel2.Controls.Add(this.Q2_0);
             this.sidePanel2.Controls.Add(this.query_mode_button);
+            this.sidePanel2.Controls.Add(this.Q2_0);
+            this.sidePanel2.Controls.Add(this.update_button);
             this.sidePanel2.Controls.Add(this.reset_button);
             this.sidePanel2.Controls.Add(this.Q1_9);
             this.sidePanel2.Controls.Add(this.Q1_8);
@@ -590,14 +707,14 @@
             this.sidePanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.sidePanel2.Location = new System.Drawing.Point(0, 372);
             this.sidePanel2.Name = "sidePanel2";
-            this.sidePanel2.Size = new System.Drawing.Size(558, 210);
+            this.sidePanel2.Size = new System.Drawing.Size(558, 281);
             this.sidePanel2.TabIndex = 25;
             this.sidePanel2.Text = "sidePanel2";
             // 
             // Q2_1
             // 
             this.Q2_1.EditValue = "Q2.1";
-            this.Q2_1.Location = new System.Drawing.Point(508, 158);
+            this.Q2_1.Location = new System.Drawing.Point(508, 210);
             this.Q2_1.Name = "Q2_1";
             this.Q2_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q2_1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -609,7 +726,7 @@
             // Q2_0
             // 
             this.Q2_0.EditValue = "Q2.0";
-            this.Q2_0.Location = new System.Drawing.Point(463, 158);
+            this.Q2_0.Location = new System.Drawing.Point(463, 210);
             this.Q2_0.Name = "Q2_0";
             this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q2_0.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -621,7 +738,7 @@
             // Q1_9
             // 
             this.Q1_9.EditValue = "Q1.9";
-            this.Q1_9.Location = new System.Drawing.Point(418, 158);
+            this.Q1_9.Location = new System.Drawing.Point(418, 210);
             this.Q1_9.Name = "Q1_9";
             this.Q1_9.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_9.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -633,7 +750,7 @@
             // Q1_8
             // 
             this.Q1_8.EditValue = "Q1.8";
-            this.Q1_8.Location = new System.Drawing.Point(373, 158);
+            this.Q1_8.Location = new System.Drawing.Point(373, 210);
             this.Q1_8.Name = "Q1_8";
             this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_8.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -645,7 +762,7 @@
             // Q1_7
             // 
             this.Q1_7.EditValue = "Q1.7";
-            this.Q1_7.Location = new System.Drawing.Point(328, 158);
+            this.Q1_7.Location = new System.Drawing.Point(328, 210);
             this.Q1_7.Name = "Q1_7";
             this.Q1_7.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_7.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -657,7 +774,7 @@
             // Q1_6
             // 
             this.Q1_6.EditValue = "Q1.6";
-            this.Q1_6.Location = new System.Drawing.Point(283, 158);
+            this.Q1_6.Location = new System.Drawing.Point(283, 210);
             this.Q1_6.Name = "Q1_6";
             this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_6.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -669,7 +786,7 @@
             // Q1_5
             // 
             this.Q1_5.EditValue = "Q1.5";
-            this.Q1_5.Location = new System.Drawing.Point(238, 158);
+            this.Q1_5.Location = new System.Drawing.Point(238, 210);
             this.Q1_5.Name = "Q1_5";
             this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_5.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -681,7 +798,7 @@
             // Q1_4
             // 
             this.Q1_4.EditValue = "Q1.4";
-            this.Q1_4.Location = new System.Drawing.Point(193, 158);
+            this.Q1_4.Location = new System.Drawing.Point(193, 210);
             this.Q1_4.Name = "Q1_4";
             this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_4.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -693,7 +810,7 @@
             // Q1_3
             // 
             this.Q1_3.EditValue = "Q1.3";
-            this.Q1_3.Location = new System.Drawing.Point(148, 158);
+            this.Q1_3.Location = new System.Drawing.Point(148, 210);
             this.Q1_3.Name = "Q1_3";
             this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_3.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -705,7 +822,7 @@
             // Q1_2
             // 
             this.Q1_2.EditValue = "Q1.2";
-            this.Q1_2.Location = new System.Drawing.Point(103, 158);
+            this.Q1_2.Location = new System.Drawing.Point(103, 210);
             this.Q1_2.Name = "Q1_2";
             this.Q1_2.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_2.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -717,7 +834,7 @@
             // Q1_1
             // 
             this.Q1_1.EditValue = "Q1.1";
-            this.Q1_1.Location = new System.Drawing.Point(58, 158);
+            this.Q1_1.Location = new System.Drawing.Point(58, 210);
             this.Q1_1.Name = "Q1_1";
             this.Q1_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -729,7 +846,7 @@
             // Q1_0
             // 
             this.Q1_0.EditValue = "Q1.0";
-            this.Q1_0.Location = new System.Drawing.Point(13, 158);
+            this.Q1_0.Location = new System.Drawing.Point(13, 210);
             this.Q1_0.Name = "Q1_0";
             this.Q1_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.Q1_0.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -748,9 +865,9 @@
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
             this.tabNavigationPage2});
-            this.tabPane1.RegularSize = new System.Drawing.Size(558, 151);
+            this.tabPane1.RegularSize = new System.Drawing.Size(558, 203);
             this.tabPane1.SelectedPage = this.tabNavigationPage2;
-            this.tabPane1.Size = new System.Drawing.Size(558, 151);
+            this.tabPane1.Size = new System.Drawing.Size(558, 203);
             this.tabPane1.TabIndex = 5;
             this.tabPane1.Text = "tabPane1";
             this.tabPane1.Click += new System.EventHandler(this.tabPane1_Click);
@@ -760,20 +877,26 @@
             this.tabNavigationPage1.Caption = "手动测试";
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(540, 105);
+            this.tabNavigationPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.tabNavigationPage1_Paint);
             // 
             // tabNavigationPage2
             // 
             this.tabNavigationPage2.Caption = "自动测试";
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(540, 105);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(540, 157);
+            this.tabNavigationPage2.Paint += new System.Windows.Forms.PaintEventHandler(this.tabNavigationPage2_Paint);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 582);
+            this.ClientSize = new System.Drawing.Size(1233, 653);
             this.Controls.Add(this.sidePanel1);
             this.Controls.Add(this.sidePanel3);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -794,6 +917,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.sidePanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            this.sidePanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.firmware_version.Properties)).EndInit();
             this.sidePanel1.ResumeLayout(false);
             this.sidePanel5.ResumeLayout(false);
@@ -814,7 +940,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Q1_0.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -876,6 +1004,17 @@
         private DevExpress.XtraEditors.TextEdit Q1_9;
         private DevExpress.XtraEditors.TextEdit Q2_0;
         private DevExpress.XtraEditors.TextEdit Q2_1;
+        private DevExpress.XtraEditors.SidePanel sidePanel6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraSpreadsheet.SpreadsheetControl spreadsheetControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }
 
