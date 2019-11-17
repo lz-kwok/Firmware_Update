@@ -13,8 +13,19 @@ using System.IO.Ports;
 
 namespace Firmware_Update_V1._0
 {
-    public partial class Form1 : Form
+    public interface IView
     {
+        void SetController(IController controller);
+        //Open serial port event
+        void OpenComEvent(Object sender, SerialPortEventArgs e);
+        //Close serial port event
+        void CloseComEvent(Object sender, SerialPortEventArgs e);
+        //Serial port receive data event
+        void ComReceiveDataEvent(Object sender, SerialPortEventArgs e);
+    }
+    public partial class Form1 : Form, IView
+    {
+        private IController controller;
         public static SerialPort serialPort1 = new SerialPort();
 
         public static byte FirmwareVersionOld = 0x00;
@@ -39,64 +50,26 @@ namespace Firmware_Update_V1._0
             InitializeComponent();
         }
 
-         class FileDialogHelper
+         public void SetController(IController controller)
          {
-             public static string OpenExcel()
-             {
-                 OpenFileDialog fileDialog = new OpenFileDialog();
-                 fileDialog.Multiselect = true;
-                 fileDialog.Title = "请选择文件";
-                 fileDialog.Filter = "所有文件(*xls*)|*.xls*"; //设置要选择的文件的类型
-                 if (fileDialog.ShowDialog() == DialogResult.OK)
-                 {
-                     return fileDialog.FileName;//返回文件的完整路径               
-                 }
-                 else
-                 {
-                     return null;
-                 }
-
-             }
-             /// <summary>
-             /// excel另存为选择路径
-             /// </summary>
-             /// <returns></returns>
-             public static string SaveExcel()
-             {
-                 string filename = "霸道";
-                 SaveFileDialog saveDialog = new SaveFileDialog();
-                 //设置默认文件扩展名。
-                 saveDialog.DefaultExt = "xls";
-                 //设置当前文件名筛选器字符串，该字符串决定对话框的“另存为文件类型”或“文件类型”框中出现的选择内容。
-                 saveDialog.Filter = "Excel文件|*.xls";
-
-                 //  用默认的所有者运行通用对话框。
-                 saveDialog.ShowDialog();
-                 //如果修改了文件名，用对话框中的文件名名重新赋值
-                 filename = saveDialog.FileName;
-                 //被点了取消
-                 if (filename.IndexOf(":") < 0) return null;
-                 else
-                 {
-                     return saveDialog.FileName.ToString();
-                 }
-
-             }
-
+             this.controller = controller;
          }
+
+         
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.comboBox2.SelectedIndex = 3;//波特率默认“115200”
-            this.comboBox3.SelectedIndex = 0;//校验位默认“None”
-            this.comboBox4.SelectedIndex = 3;//数据位默认“8”
-            this.comboBox5.SelectedIndex = 0;//停止位默认“1”
+            this.baudRateCbx.SelectedIndex = 3;//波特率默认“115200”
+            this.parityCbx.SelectedIndex = 0;//校验位默认“None”
+            this.dataBitsCbx.SelectedIndex = 3;//数据位默认“8”
+            this.stopBitsCbx.SelectedIndex = 0;//停止位默认“1”
+            this.handshakingcbx.SelectedIndex = 0;//流控位默认“0”
         }
 
         private void button1_Click(object sender, EventArgs e)//“搜索”
         {
-            comboBox1.Text = "";
-            SearchAndAddSerialToComboBox(serialPort1, comboBox1);//调用扫描代码
+            comListCbx.Text = "";
+            SearchAndAddSerialToComboBox(serialPort1, comListCbx);//调用扫描代码
         }
         private void SearchAndAddSerialToComboBox(SerialPort MyPort, ComboBox MyBox)//扫描代码
         {                                                               //将可用端口号添加到ComboBox
@@ -118,78 +91,229 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)//“打开串口”
+        private void openCloseSpbtn_Click(object sender, EventArgs e)//“打开串口”
         {
-            if (serialPort1.IsOpen)//如果串口已经打开，按下此开关应关闭串口，并将此按钮显示为“打开串口”
+            //if (serialPort1.IsOpen)//如果串口已经打开，按下此开关应关闭串口，并将此按钮显示为“打开串口”
+            //{
+            //    try
+            //    {
+            //        timer1.Enabled = false;//关闭定时器
+            //        serialPort1.Close();
+            //        openCloseSpbtn.Text = "开始连接";
+            //        pictureBox1.Image = Properties.Resources.off;
+            //        comListCbx.Enabled = true;//“端口号”可选
+            //        baudRateCbx.Enabled = true;//“波特率”可选
+            //        parityCbx.Enabled = true;//“校验位”可选
+            //        dataBitsCbx.Enabled = true;//“数据位”可选
+            //        stopBitsCbx.Enabled = true;//“停止位”可选
+            //        button1.Enabled = true;//“搜索”可按
+            //        update_button.Enabled = false;//“升级固件”禁按
+            //        reset_button.Enabled = false;//“复位终端”禁按
+
+            //        query_mode_button.Enabled = false;//“查询模式”禁按
+            //        reset_button.Enabled = false;
+            //        serialPort1.DataReceived -= new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            //    }
+            //    catch
+            //    {
+            //        MessageBox.Show("串口断开失败", "错误");
+            //    }
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        serialPort1.PortName = comListCbx.Text;//1.端口号
+            //        serialPort1.BaudRate = Convert.ToInt32(baudRateCbx.Text);//2.波特率
+            //        switch (parityCbx.Text)//3.校验位
+            //        {
+            //            case "None （无）": serialPort1.Parity = Parity.None;break;
+            //            case "Odd  （奇）": serialPort1.Parity = Parity.Odd;break;
+            //            case "Even （偶）": serialPort1.Parity = Parity.Even;break;
+            //            case "Mark （=1）": serialPort1.Parity = Parity.Mark;break;
+            //            case "Space（=0）": serialPort1.Parity = Parity.Space;break;
+            //                default: serialPort1.Parity = Parity.None;break;
+            //        }
+            //        serialPort1.DataBits = Convert.ToInt32(dataBitsCbx.Text);//4.数据位
+            //        switch (stopBitsCbx.Text)//5.停止位
+            //        {
+            //            case   "1": serialPort1.StopBits = StopBits.One; break;
+            //            case "1.5": serialPort1.StopBits = StopBits.OnePointFive; break;
+            //            case   "2": serialPort1.StopBits = StopBits.Two; break;
+            //               default: serialPort1.StopBits = StopBits.One;break;
+            //        }
+            //        timer1.Enabled = true;//打开定时器
+            //        serialPort1.Open();//打开端口
+            //        openCloseSpbtn.Text = "断开连接";
+            //        pictureBox1.Image = Properties.Resources.on;
+            //        comListCbx.Enabled = false;//“端口号”禁选
+            //        baudRateCbx.Enabled = false;//“波特率”禁选
+            //        parityCbx.Enabled = false;//“校验位”禁选
+            //        dataBitsCbx.Enabled = false;//“数据位”禁选
+            //        stopBitsCbx.Enabled = false;//“停止位”禁选
+            //        button1.Enabled = false;//“搜索”禁按
+            //        update_button.Enabled = false;//“升级固件”禁按
+            //        reset_button.Enabled = false;
+
+            //        query_mode_button.Enabled = true;//“查询终端”可按
+            //        serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            //    }
+            //    catch
+            //    {
+            //        MessageBox.Show("串口连接失败", "错误");
+            //    }
+            //}
+            try
+            {
+                if (openCloseSpbtn.Text == "开始连接")
+                {
+                    //baudRateCbx.Text = baudRateCbx.Items[3].ToString();
+                    //parityCbx.Text = parityCbx.Items[0].ToString();
+                    //dataBitsCbx.Text = dataBitsCbx.Items[3].ToString();
+                    //stopBitsCbx.Text = stopBitsCbx.Items[0].ToString();
+                    //handshakingcbx.Text = handshakingcbx.Items[0].ToString();
+
+                    controller.OpenSerialPort(comListCbx.Text, baudRateCbx.Text,
+                        dataBitsCbx.Text, stopBitsCbx.Text, parityCbx.Text,            //dataBitsCbx.Text, stopBitsCbx.Text, parityCbx.Text,
+                        handshakingcbx.Text);
+                    openCloseSpbtn.Text = "断开连接";
+                }
+                else
+                {
+                    controller.CloseSerialPort();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("串口连接失败", "错误");
+            }
+            
+        }
+
+        public void OpenComEvent(Object sender, SerialPortEventArgs e)
+        {
+            if (this.InvokeRequired)
+            {
+                Invoke(new Action<Object, SerialPortEventArgs>(OpenComEvent), sender, e);
+                return;
+            }
+
+            if (e.isOpend)  //Open successfully
             {
                 try
                 {
                     timer1.Enabled = false;//关闭定时器
-                    serialPort1.Close();
-                    button2.Text = "开始连接";
+                    openCloseSpbtn.Text = "开始连接";
                     pictureBox1.Image = Properties.Resources.off;
-                    comboBox1.Enabled = true;//“端口号”可选
-                    comboBox2.Enabled = true;//“波特率”可选
-                    comboBox3.Enabled = true;//“校验位”可选
-                    comboBox4.Enabled = true;//“数据位”可选
-                    comboBox5.Enabled = true;//“停止位”可选
+                    comListCbx.Enabled = true;//“端口号”可选
+                    baudRateCbx.Enabled = true;//“波特率”可选
+                    parityCbx.Enabled = true;//“校验位”可选
+                    dataBitsCbx.Enabled = true;//“数据位”可选
+                    stopBitsCbx.Enabled = true;//“停止位”可选
                     button1.Enabled = true;//“搜索”可按
                     update_button.Enabled = false;//“升级固件”禁按
                     reset_button.Enabled = false;//“复位终端”禁按
 
                     query_mode_button.Enabled = false;//“查询模式”禁按
                     reset_button.Enabled = false;
-                    serialPort1.DataReceived -= new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
                 }
                 catch
                 {
                     MessageBox.Show("串口断开失败", "错误");
                 }
             }
-            else
+        }
+
+        public void CloseComEvent(Object sender, SerialPortEventArgs e)
+        {
+            if (this.InvokeRequired)
+            {
+                Invoke(new Action<Object, SerialPortEventArgs>(CloseComEvent), sender, e);
+                return;
+            }
+
+            if (!e.isOpend) //close successfully
+            {
+                openCloseSpbtn.Text = "开始连接";
+
+                comListCbx.Enabled = false;
+                baudRateCbx.Enabled = false;
+                dataBitsCbx.Enabled = false;
+                stopBitsCbx.Enabled = false;
+                parityCbx.Enabled = false;
+                handshakingcbx.Enabled = false;
+            }
+        }
+
+        public void ComReceiveDataEvent(Object sender, SerialPortEventArgs e)
+        {
+            if (this.InvokeRequired)
             {
                 try
                 {
-                    serialPort1.PortName = comboBox1.Text;//1.端口号
-                    serialPort1.BaudRate = Convert.ToInt32(comboBox2.Text);//2.波特率
-                    switch (comboBox3.Text)//3.校验位
-                    {
-                        case "None （无）": serialPort1.Parity = Parity.None;break;
-                        case "Odd  （奇）": serialPort1.Parity = Parity.Odd;break;
-                        case "Even （偶）": serialPort1.Parity = Parity.Even;break;
-                        case "Mark （=1）": serialPort1.Parity = Parity.Mark;break;
-                        case "Space（=0）": serialPort1.Parity = Parity.Space;break;
-                            default: serialPort1.Parity = Parity.None;break;
-                    }
-                    serialPort1.DataBits = Convert.ToInt32(comboBox4.Text);//4.数据位
-                    switch (comboBox5.Text)//5.停止位
-                    {
-                        case   "1": serialPort1.StopBits = StopBits.One; break;
-                        case "1.5": serialPort1.StopBits = StopBits.OnePointFive; break;
-                        case   "2": serialPort1.StopBits = StopBits.Two; break;
-                           default: serialPort1.StopBits = StopBits.One;break;
-                    }
-                    timer1.Enabled = true;//打开定时器
-                    serialPort1.Open();//打开端口
-                    button2.Text = "断开连接";
-                    pictureBox1.Image = Properties.Resources.on;
-                    comboBox1.Enabled = false;//“端口号”禁选
-                    comboBox2.Enabled = false;//“波特率”禁选
-                    comboBox3.Enabled = false;//“校验位”禁选
-                    comboBox4.Enabled = false;//“数据位”禁选
-                    comboBox5.Enabled = false;//“停止位”禁选
-                    button1.Enabled = false;//“搜索”禁按
-                    update_button.Enabled = false;//“升级固件”禁按
-                    reset_button.Enabled = false;
-
-                    query_mode_button.Enabled = true;//“查询终端”可按
-                    serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+                    Invoke(new Action<Object, SerialPortEventArgs>(ComReceiveDataEvent), sender, e);
                 }
-                catch
+                catch (System.Exception)
                 {
-                    MessageBox.Show("串口连接失败", "错误");
+                    //disable form destroy exception
                 }
+                return;
             }
+
+            if (radioButton3.Checked) //display as string 
+            {
+                this.receivetbx.AppendText(Encoding.Default.GetString(e.receivedBytes));
+            }
+            else //display as hex
+            {
+                if (receivetbx.Text.Length > 0)
+                {
+                    receivetbx.AppendText("-");
+                }
+                receivetbx.AppendText(IController.Bytes2Hex(e.receivedBytes));
+            }
+
+        }
+
+        private void sendbtn_Click(object sender, EventArgs e)
+        {
+            String sendText = sendtbx.Text;
+            bool flag = false;
+            if (sendText == null)
+            {
+                return;
+            }
+            //set select index to the end
+            sendtbx.SelectionStart = sendtbx.TextLength;
+
+            if (radioButton3.Checked)
+            {
+                flag = controller.SendDataToCom(sendText);
+            }
+            else 
+            {
+                Byte[] bytes = IController.Hex2Bytes(sendText);
+                flag = controller.SendDataToCom(bytes);
+            }
+
+            //if (sendHexRadiobtn.Checked)
+            //{
+            //    //If hex radio checked
+            //    //send bytes to serial port
+            //    Byte[] bytes = IController.Hex2Bytes(sendText);
+            //   // sendbtn.Enabled = false;//wait return
+            //    flag = controller.SendDataToCom(bytes);
+            //   // sendbtn.Enabled = true;
+            //}
+            //else
+            //{
+            //    //send String to serial port
+            //  //  sendbtn.Enabled = false;//wait return
+            //    flag = controller.SendDataToCom(sendText);
+            //   // sendbtn.Enabled = true;
+            //  //  sendBytesCount += sendText.Length;
+            //}
+
         }
 
         public static int UpdateState = 0;//升级状态
@@ -237,6 +361,7 @@ namespace Firmware_Update_V1._0
                     {
                      //   case 0x01: this.tabPage1.TabIndex = 0; break;
                     //    case 0x02: this.tabPage1.TabIndex = 1; ; break;
+                        default: break;
                     }
 
                     if (this.InvokeRequired)//1.代理
@@ -254,17 +379,14 @@ namespace Firmware_Update_V1._0
                 else
                     ShowFlag = false;
             }
-            if (radioButton3.Checked == true && !ShowFlag)//1.字符型接收
-            {
-                //foreach (byte item in data)
-                //{
-                //    s += Convert.ToChar(item);
-                //}
-                s = System.Text.Encoding.Default.GetString(data);
-            }
-            else if(radioButton4.Checked == true || ShowFlag)//2.十六进制接收
-            {
-                s = byteToHexStr(data);
+
+            if (ShowFlag == false) {
+                if (radioButton3.Checked == true) {
+                    s = System.Text.Encoding.Default.GetString(data);
+                }
+                if (radioButton4.Checked == true) {
+                    s = byteToHexStr(data);
+                }
             }
 
             //↓↓↓接收数据显示区代码↓↓↓
@@ -273,17 +395,17 @@ namespace Firmware_Update_V1._0
                 this.Invoke(new MethodInvoker(delegate
                 {
                     if (checkBox1.Checked == true)
-                        this.textBox1.AppendText(CurrentTime + "\r\n" + s + "\n");
+                        this.receivetbx.AppendText(CurrentTime + "\r\n" + s + "\n");
                     else
-                        this.textBox1.AppendText(s + "\n");
+                        this.receivetbx.AppendText(s + "\n");
                 }));
             }
             else//2.正常
             {
                 if (checkBox1.Checked == true)
-                    this.textBox1.AppendText(CurrentTime + "\r\n" + s + "\n");
+                    this.receivetbx.AppendText(CurrentTime + "\r\n" + s + "\n");
                 else
-                    this.textBox1.AppendText(s + "\n");
+                    this.receivetbx.AppendText(s + "\n");
             }
             //↑↑↑接收数据显示区代码↑↑↑
 
@@ -305,7 +427,7 @@ namespace Firmware_Update_V1._0
         private void button3_Click(object sender, EventArgs e)//“发送数据”
         {
             byte[] SendBytes = null;
-            string SendData = textBox2.Text;//需要发送的数据
+            string SendData = sendtbx.Text;//需要发送的数据
             List<string> SendDataList = new List<string>();//字符两两存一个
 
             try
@@ -346,7 +468,7 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)//TextBox输入事件
+        private void sendtbx_KeyPress(object sender, KeyPressEventArgs e)//TextBox输入事件
         {
             if(radioButton2.Checked == true)//十六进制发送，限定输入值
                 e.Handled = "0123456789ABCDEF \b".IndexOf(char.ToUpper(e.KeyChar)) < 0;
@@ -354,7 +476,7 @@ namespace Firmware_Update_V1._0
 
         private void button5_Click(object sender, EventArgs e)//清除接收区
         {
-            textBox1.Clear();
+            receivetbx.Clear();
         }
 
         
@@ -436,25 +558,8 @@ namespace Firmware_Update_V1._0
 
         private void reset_button_Click(object sender, EventArgs e)//复位终端
         {
-            byte[] SendBytes = new byte[8];
-
-            try
-            {
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0xFD;//复位
-                SendBytes[2] = 0x00;
-                SendBytes[3] = 0x00;
-                SendBytes[4] = 0x00;
-                SendBytes[5] = 0x00;
-                SendBytes[6] = 0x00;
-                SendBytes[7] = 0x0D;
-                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
-                MessageBox.Show("复位成功！", "提示");
-            }
-            catch
-            {
-                MessageBox.Show("串口通讯错误", "错误");
-            }
+            Form3 frm = new Form3(this);//首先实例化
+            frm.ShowDialog();
         }
 
         public void ResetMessages(byte e)
@@ -473,26 +578,26 @@ namespace Firmware_Update_V1._0
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {   
-            if (textBox2.Text != "")
+        {
+            if (sendtbx.Text != "")
             {
                 if (radioButton2.Checked == true)//切换到十六进制
                 {
-                    byte[] array = System.Text.Encoding.ASCII.GetBytes(textBox2.Text);
+                    byte[] array = System.Text.Encoding.ASCII.GetBytes(sendtbx.Text);
                     string ASCIIstr2 = null;
                     for(int i = 0; i < array.Length; i++)
                     {
                         int asciicode = (int)(array[i]);
                         ASCIIstr2 += (Convert.ToString(asciicode, 16).ToUpper().PadLeft(2,'0') + " ");
                     }
-                    textBox2.Text = ASCIIstr2;
+                    sendtbx.Text = ASCIIstr2;
                 }
                 else
                 {
                     byte[] CharBytes = null;
                     List<string> CharDataList = new List<string>();//字符两两存一个
                     //剔除所有空格
-                    string charstring = textBox2.Text.Replace(" ", "").Replace("\r", "");
+                    string charstring = sendtbx.Text.Replace(" ", "").Replace("\r", "");
                     //每两个字符放进认为一个字节
 
                     for (int i = 0; i < charstring.Length; i = i + 2)
@@ -508,7 +613,7 @@ namespace Firmware_Update_V1._0
                     {
                         CharBytes[j] = (byte)(Convert.ToInt32(CharDataList[j], 16));//把单个字符转十六进制
                     }
-                    textBox2.Text = System.Text.Encoding.ASCII.GetString(CharBytes);
+                    sendtbx.Text = System.Text.Encoding.ASCII.GetString(CharBytes);
                 }
             }
         }
@@ -647,7 +752,7 @@ namespace Firmware_Update_V1._0
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void sendtbx_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -677,9 +782,10 @@ namespace Firmware_Update_V1._0
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void receivetbx_TextChanged(object sender, EventArgs e)
         {
-
+            receivetbx.SelectionStart = receivetbx.Text.Length;
+            receivetbx.ScrollToCaret();
         }
 
         private void tabNavigationPage2_Paint(object sender, PaintEventArgs e)
@@ -694,29 +800,35 @@ namespace Firmware_Update_V1._0
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-
+            Form4 frm = new Form4(this);//首先实例化
+            frm.ShowDialog();
         }
+       
 
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            string filePath = FileDialogHelper.OpenExcel();
-            if (!string.IsNullOrEmpty(filePath))
-            {
-                IWorkbook workbook = spreadsheetControl1.Document;
-                workbook.LoadDocument(filePath);
-            }
-        }
-
-        private void spreadsheetControl1_Click(object sender, EventArgs e)
+        private void sidePanel7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void simpleButton4_Click(object sender, EventArgs e)
+        private void comListCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.spreadsheetControl1.ShowPrintPreview();
+
         }
 
+        private void dataBitsCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stopBitsCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void handshakingcbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

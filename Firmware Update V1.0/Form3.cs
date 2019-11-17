@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Spreadsheet;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,52 @@ namespace Firmware_Update_V1._0
         {
             InitializeComponent();
             f1 = frm1;
+        }
+
+        class FileDialogHelper
+        {
+            public static string OpenExcel()
+            {
+                OpenFileDialog fileDialog = new OpenFileDialog();
+                fileDialog.Multiselect = true;
+                fileDialog.Title = "请选择文件";
+                fileDialog.Filter = "所有文件(*xls*)|*.xls*"; //设置要选择的文件的类型
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    return fileDialog.FileName;//返回文件的完整路径               
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            /// <summary>
+            /// excel另存为选择路径
+            /// </summary>
+            /// <returns></returns>
+            public static string SaveExcel()
+            {
+                string filename = "霸道";
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                //设置默认文件扩展名。
+                saveDialog.DefaultExt = "xls";
+                //设置当前文件名筛选器字符串，该字符串决定对话框的“另存为文件类型”或“文件类型”框中出现的选择内容。
+                saveDialog.Filter = "Excel文件|*.xls";
+
+                //  用默认的所有者运行通用对话框。
+                saveDialog.ShowDialog();
+                //如果修改了文件名，用对话框中的文件名名重新赋值
+                filename = saveDialog.FileName;
+                //被点了取消
+                if (filename.IndexOf(":") < 0) return null;
+                else
+                {
+                    return saveDialog.FileName.ToString();
+                }
+
+            }
+
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -56,6 +103,31 @@ namespace Firmware_Update_V1._0
         }
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            string filePath = FileDialogHelper.OpenExcel();
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                IWorkbook workbook = spreadsheetControl1.Document;
+                workbook.LoadDocument(filePath);
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            this.spreadsheetControl1.ShowPrintPreview();
+        }
+
+        private void tabNavigationPage2_Paint(object sender, PaintEventArgs e)
         {
 
         }

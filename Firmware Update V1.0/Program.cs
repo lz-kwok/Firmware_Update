@@ -21,7 +21,11 @@ namespace Firmware_Update_V1._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Form1 view = new Form1();
+
+            IController controller = new IController(view);
+            Application.Run(view);
         }
     }
 }
