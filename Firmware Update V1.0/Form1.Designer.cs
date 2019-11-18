@@ -64,11 +64,11 @@
             this.reset_button = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
-            this.handshakingcbx = new System.Windows.Forms.ComboBox();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.firmware_version = new System.Windows.Forms.TextBox();
             this.sendtbx = new System.Windows.Forms.TextBox();
             this.receivetbx = new System.Windows.Forms.TextBox();
+            this.handshakingcbx = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,9 +84,9 @@
             this.button1.Location = new System.Drawing.Point(4, 60);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 20);
+            this.button1.Size = new System.Drawing.Size(141, 20);
             this.button1.TabIndex = 0;
-            this.button1.Text = "搜";
+            this.button1.Text = "扫描端口";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -237,7 +237,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "数据自测";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.sendbtn_Click);
             // 
             // timer1
             // 
@@ -487,22 +487,6 @@
             this.sidePanel4.TabIndex = 26;
             this.sidePanel4.Text = "sidePanel4";
             // 
-            // handshakingcbx
-            // 
-            this.handshakingcbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.handshakingcbx.FormattingEnabled = true;
-            this.handshakingcbx.Items.AddRange(new object[] {
-            "None",
-            "XOnXOff",
-            "RequestToSend",
-            "RequestToSendXOnXOff"});
-            this.handshakingcbx.Location = new System.Drawing.Point(209, 222);
-            this.handshakingcbx.Margin = new System.Windows.Forms.Padding(2);
-            this.handshakingcbx.Name = "handshakingcbx";
-            this.handshakingcbx.Size = new System.Drawing.Size(88, 20);
-            this.handshakingcbx.TabIndex = 29;
-            this.handshakingcbx.SelectedIndexChanged += new System.EventHandler(this.handshakingcbx_SelectedIndexChanged);
-            // 
             // sidePanel2
             // 
             this.sidePanel2.Controls.Add(this.firmware_version);
@@ -553,6 +537,22 @@
             this.receivetbx.Size = new System.Drawing.Size(427, 256);
             this.receivetbx.TabIndex = 20;
             this.receivetbx.TextChanged += new System.EventHandler(this.receivetbx_TextChanged);
+            // 
+            // handshakingcbx
+            // 
+            this.handshakingcbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.handshakingcbx.FormattingEnabled = true;
+            this.handshakingcbx.Items.AddRange(new object[] {
+            "None",
+            "XOnXOff",
+            "RequestToSend",
+            "RequestToSendXOnXOff"});
+            this.handshakingcbx.Location = new System.Drawing.Point(209, 222);
+            this.handshakingcbx.Margin = new System.Windows.Forms.Padding(2);
+            this.handshakingcbx.Name = "handshakingcbx";
+            this.handshakingcbx.Size = new System.Drawing.Size(88, 20);
+            this.handshakingcbx.TabIndex = 29;
+            this.handshakingcbx.SelectedIndexChanged += new System.EventHandler(this.handshakingcbx_SelectedIndexChanged);
             // 
             // Form1
             // 

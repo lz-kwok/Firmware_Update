@@ -64,6 +64,11 @@ namespace Firmware_Update_V1._0
             this.dataBitsCbx.SelectedIndex = 3;//数据位默认“8”
             this.stopBitsCbx.SelectedIndex = 0;//停止位默认“1”
             this.handshakingcbx.SelectedIndex = 0;//流控位默认“0”
+
+            update_button.Enabled = false;                  //“升级固件”禁按
+            reset_button.Enabled = false;                   //“复位终端”禁按
+            query_mode_button.Enabled = false;               //“查询终端”可按
+            simpleButton2.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)//“搜索”
@@ -93,90 +98,18 @@ namespace Firmware_Update_V1._0
 
         private void openCloseSpbtn_Click(object sender, EventArgs e)//“打开串口”
         {
-            //if (serialPort1.IsOpen)//如果串口已经打开，按下此开关应关闭串口，并将此按钮显示为“打开串口”
-            //{
-            //    try
-            //    {
-            //        timer1.Enabled = false;//关闭定时器
-            //        serialPort1.Close();
-            //        openCloseSpbtn.Text = "开始连接";
-            //        pictureBox1.Image = Properties.Resources.off;
-            //        comListCbx.Enabled = true;//“端口号”可选
-            //        baudRateCbx.Enabled = true;//“波特率”可选
-            //        parityCbx.Enabled = true;//“校验位”可选
-            //        dataBitsCbx.Enabled = true;//“数据位”可选
-            //        stopBitsCbx.Enabled = true;//“停止位”可选
-            //        button1.Enabled = true;//“搜索”可按
-            //        update_button.Enabled = false;//“升级固件”禁按
-            //        reset_button.Enabled = false;//“复位终端”禁按
-
-            //        query_mode_button.Enabled = false;//“查询模式”禁按
-            //        reset_button.Enabled = false;
-            //        serialPort1.DataReceived -= new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            //    }
-            //    catch
-            //    {
-            //        MessageBox.Show("串口断开失败", "错误");
-            //    }
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        serialPort1.PortName = comListCbx.Text;//1.端口号
-            //        serialPort1.BaudRate = Convert.ToInt32(baudRateCbx.Text);//2.波特率
-            //        switch (parityCbx.Text)//3.校验位
-            //        {
-            //            case "None （无）": serialPort1.Parity = Parity.None;break;
-            //            case "Odd  （奇）": serialPort1.Parity = Parity.Odd;break;
-            //            case "Even （偶）": serialPort1.Parity = Parity.Even;break;
-            //            case "Mark （=1）": serialPort1.Parity = Parity.Mark;break;
-            //            case "Space（=0）": serialPort1.Parity = Parity.Space;break;
-            //                default: serialPort1.Parity = Parity.None;break;
-            //        }
-            //        serialPort1.DataBits = Convert.ToInt32(dataBitsCbx.Text);//4.数据位
-            //        switch (stopBitsCbx.Text)//5.停止位
-            //        {
-            //            case   "1": serialPort1.StopBits = StopBits.One; break;
-            //            case "1.5": serialPort1.StopBits = StopBits.OnePointFive; break;
-            //            case   "2": serialPort1.StopBits = StopBits.Two; break;
-            //               default: serialPort1.StopBits = StopBits.One;break;
-            //        }
-            //        timer1.Enabled = true;//打开定时器
-            //        serialPort1.Open();//打开端口
-            //        openCloseSpbtn.Text = "断开连接";
-            //        pictureBox1.Image = Properties.Resources.on;
-            //        comListCbx.Enabled = false;//“端口号”禁选
-            //        baudRateCbx.Enabled = false;//“波特率”禁选
-            //        parityCbx.Enabled = false;//“校验位”禁选
-            //        dataBitsCbx.Enabled = false;//“数据位”禁选
-            //        stopBitsCbx.Enabled = false;//“停止位”禁选
-            //        button1.Enabled = false;//“搜索”禁按
-            //        update_button.Enabled = false;//“升级固件”禁按
-            //        reset_button.Enabled = false;
-
-            //        query_mode_button.Enabled = true;//“查询终端”可按
-            //        serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            //    }
-            //    catch
-            //    {
-            //        MessageBox.Show("串口连接失败", "错误");
-            //    }
-            //}
             try
             {
                 if (openCloseSpbtn.Text == "开始连接")
                 {
-                    //baudRateCbx.Text = baudRateCbx.Items[3].ToString();
-                    //parityCbx.Text = parityCbx.Items[0].ToString();
-                    //dataBitsCbx.Text = dataBitsCbx.Items[3].ToString();
-                    //stopBitsCbx.Text = stopBitsCbx.Items[0].ToString();
-                    //handshakingcbx.Text = handshakingcbx.Items[0].ToString();
-
                     controller.OpenSerialPort(comListCbx.Text, baudRateCbx.Text,
                         dataBitsCbx.Text, stopBitsCbx.Text, parityCbx.Text,            //dataBitsCbx.Text, stopBitsCbx.Text, parityCbx.Text,
                         handshakingcbx.Text);
                     openCloseSpbtn.Text = "断开连接";
+                    update_button.Enabled = false;                  //“升级固件”禁按
+                    reset_button.Enabled = false;                   //“复位终端”禁按
+                    query_mode_button.Enabled = true;               //“查询终端”可按
+                    simpleButton2.Enabled = false;
                 }
                 else
                 {
@@ -204,7 +137,6 @@ namespace Firmware_Update_V1._0
                 {
                     timer1.Enabled = false;//关闭定时器
                     openCloseSpbtn.Text = "开始连接";
-                    pictureBox1.Image = Properties.Resources.off;
                     comListCbx.Enabled = true;//“端口号”可选
                     baudRateCbx.Enabled = true;//“波特率”可选
                     parityCbx.Enabled = true;//“校验位”可选
@@ -296,23 +228,10 @@ namespace Firmware_Update_V1._0
                 flag = controller.SendDataToCom(bytes);
             }
 
-            //if (sendHexRadiobtn.Checked)
-            //{
-            //    //If hex radio checked
-            //    //send bytes to serial port
-            //    Byte[] bytes = IController.Hex2Bytes(sendText);
-            //   // sendbtn.Enabled = false;//wait return
-            //    flag = controller.SendDataToCom(bytes);
-            //   // sendbtn.Enabled = true;
-            //}
-            //else
-            //{
-            //    //send String to serial port
-            //  //  sendbtn.Enabled = false;//wait return
-            //    flag = controller.SendDataToCom(sendText);
-            //   // sendbtn.Enabled = true;
-            //  //  sendBytesCount += sendText.Length;
-            //}
+            if (!flag)
+            {
+                MessageBox.Show("数据发送", "失败");
+            }
 
         }
 
@@ -548,7 +467,7 @@ namespace Firmware_Update_V1._0
                 SendBytes[5] = 0X00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
-                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
+                controller.SendDataToCom(SendBytes);
             }
             catch
             {
