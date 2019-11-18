@@ -168,7 +168,7 @@ namespace Firmware_Update_V1._0
             {
                 openCloseSpbtn.Text = "开始连接";
 
-                comListCbx.Enabled = false;
+                comListCbx.Enabled = true;
                 baudRateCbx.Enabled = false;
                 dataBitsCbx.Enabled = false;
                 stopBitsCbx.Enabled = false;
@@ -203,6 +203,16 @@ namespace Firmware_Update_V1._0
                     receivetbx.AppendText("-");
                 }
                 receivetbx.AppendText(IController.Bytes2Hex(e.receivedBytes));
+            }
+
+            if ((e.receivedBytes[0] == 0x0D) && (e.receivedBytes[e.receivedBytes.Length - 1] == 0x0D))
+            {
+                switch (e.receivedBytes[1])
+                { 
+                    case 0xfe:
+                        firmware_version.Text = "固件版本" + "1.0.0\r\n";
+                        break;
+                }
             }
 
         }
