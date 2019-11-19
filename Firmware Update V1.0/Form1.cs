@@ -210,7 +210,14 @@ namespace Firmware_Update_V1._0
                 switch (e.receivedBytes[1])
                 { 
                     case 0xfe:
-                        firmware_version.Text = "固件版本" + "1.0.0\r\n";
+                        byte[] verbuf = new byte[5];
+                        verbuf[0] = e.receivedBytes[2];
+                        verbuf[1] = 0x2e;
+                        verbuf[2] = e.receivedBytes[3];
+                        verbuf[3] = 0x2e;
+                        verbuf[4] = e.receivedBytes[5];
+                        firmware_version.Text = "固件版本" + ":\r\n" + byteToHexStr(verbuf);
+                        reset_button.Enabled = true;
                         break;
                 }
             }
