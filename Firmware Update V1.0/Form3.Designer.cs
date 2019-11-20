@@ -51,7 +51,9 @@
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel1.SuspendLayout();
             this.sidePanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).BeginInit();
@@ -69,6 +71,7 @@
             this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
+            this.tabNavigationPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -331,14 +334,34 @@
             // tabNavigationPage1
             // 
             this.tabNavigationPage1.Caption = "手动测试";
+            this.tabNavigationPage1.Controls.Add(this.simpleButton5);
+            this.tabNavigationPage1.Controls.Add(this.simpleButton2);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(289, 381);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(11, 15);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(131, 31);
+            this.simpleButton2.TabIndex = 0;
+            this.simpleButton2.Text = "1.5KW 功率测试";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // tabNavigationPage2
             // 
             this.tabNavigationPage2.Caption = "自动测试";
             this.tabNavigationPage2.Name = "tabNavigationPage2";
             this.tabNavigationPage2.Size = new System.Drawing.Size(289, 381);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Location = new System.Drawing.Point(11, 52);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(131, 31);
+            this.simpleButton5.TabIndex = 1;
+            this.simpleButton5.Text = "3KW 功率测试";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // Form3
             // 
@@ -374,6 +397,7 @@
             this.sidePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
+            this.tabNavigationPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -403,6 +427,8 @@
         private DevExpress.XtraBars.Navigation.TabPane tabPane1;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
 
     }
 }

@@ -210,13 +210,12 @@ namespace Firmware_Update_V1._0
                 switch (e.receivedBytes[1])
                 { 
                     case 0xfe:
-                        byte[] verbuf = new byte[5];
+                        byte[] verbuf = new byte[3];
                         verbuf[0] = e.receivedBytes[2];
-                        verbuf[1] = 0x2e;
-                        verbuf[2] = e.receivedBytes[3];
-                        verbuf[3] = 0x2e;
-                        verbuf[4] = e.receivedBytes[5];
-                        firmware_version.Text = "固件版本" + ":\r\n" + byteToHexStr(verbuf);
+                        verbuf[1] = e.receivedBytes[3];
+                        verbuf[2] = e.receivedBytes[5];
+                        string result = string.Join(".", verbuf);
+                        firmware_version.Text = "固件版本" + ":\r\n" + result;
                         reset_button.Enabled = true;
                         break;
                 }
@@ -468,6 +467,11 @@ namespace Firmware_Update_V1._0
             byte b2 = (byte)(b % 10);//低四位  
 
             return (byte)((b1 << 4) | b2);
+        }
+
+        public void TransmitData(byte[] Data)
+        {
+            controller.SendDataToCom(Data);
         }
 
         private void query_mode_button_Click(object sender, EventArgs e)//查询终端

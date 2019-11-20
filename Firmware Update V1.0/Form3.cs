@@ -127,9 +127,68 @@ namespace Firmware_Update_V1._0
             this.spreadsheetControl1.ShowPrintPreview();
         }
 
-        private void tabNavigationPage2_Paint(object sender, PaintEventArgs e)
+        private void simpleButton2_Click(object sender, EventArgs e)
         {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton2.Text == "1.5KW 功率测试")
+            {
+                this.simpleButton2.Text = "1.5KW 功率测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x00;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else {
+                this.simpleButton2.Text = "1.5KW 功率测试";
+            }
 
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void Q1_0_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton5.Text == "3KW 功率测试")
+            {
+                this.simpleButton5.Text = "3KW 功率测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x00;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                this.simpleButton5.Text = "3KW 功率测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
         }
     }
 }
