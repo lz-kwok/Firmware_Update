@@ -135,14 +135,23 @@ namespace Firmware_Update_V1._0
                 this.simpleButton2.Text = "1.5KW 功率测试中";
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
-                SendBytes[2] = 0x00;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[2] = 0x01;//负载1.5KW
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
             }
-            else {
+            else if (this.simpleButton2.Text == "1.5KW 功率测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x02;//负载1.5KW
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
                 this.simpleButton2.Text = "1.5KW 功率测试";
             }
 
