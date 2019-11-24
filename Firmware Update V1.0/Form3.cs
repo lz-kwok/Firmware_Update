@@ -66,6 +66,78 @@ namespace Firmware_Update_V1._0
 
         }
 
+        public void Output_Status_Show(byte dat)
+        {
+            if (dat == 0x01)
+            {
+                this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+            }
+            else if (dat == 0x02)
+            {
+                this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            else if (dat == 0x03)
+            {
+                this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+            }
+            else if (dat == 0x04)
+            {
+                this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            else if (dat == 0x05)
+            {
+                this.Q1_1.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+            }
+            else if (dat == 0x06)
+            {
+                this.Q1_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            else if (dat == 0x07)
+            {
+                this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_7.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+            }
+            else if (dat == 0x08)
+            {
+                this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_7.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            else if (dat == 0x09)
+            {
+                this.Q1_9.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+            }
+            else if (dat == 0x0A)
+            {
+                this.Q1_9.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            else if (dat == 0x0B)
+            {
+                this.Q1_2.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+            }
+            else if (dat == 0x0C)
+            {
+                this.Q1_2.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            else if (dat == 0x0D) {
+                this.Q1_0.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+            }
+            else if (dat == 0x0E) {
+                this.Q1_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+        }
+
         private void Form3_Load(object sender, EventArgs e)
         {
  
@@ -127,12 +199,12 @@ namespace Firmware_Update_V1._0
             this.spreadsheetControl1.ShowPrintPreview();
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
+        private void Power1_5Button_Click(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[8];
-            if (this.simpleButton2.Text == "1.5KW 功率测试")
+            if (this.Power1_5Button.Text == "1.5KW 功率测试")
             {
-                this.simpleButton2.Text = "1.5KW 功率测试中";
+                this.Power1_5Button.Text = "1.5KW 功率测试中";
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x01;//负载1.5KW
@@ -142,7 +214,7 @@ namespace Firmware_Update_V1._0
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
             }
-            else if (this.simpleButton2.Text == "1.5KW 功率测试中")
+            else if (this.Power1_5Button.Text == "1.5KW 功率测试中")
             {
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
@@ -152,7 +224,7 @@ namespace Firmware_Update_V1._0
                 SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
-                this.simpleButton2.Text = "1.5KW 功率测试";
+                this.Power1_5Button.Text = "1.5KW 功率测试";
             }
 
             try
@@ -170,15 +242,15 @@ namespace Firmware_Update_V1._0
             
         }
 
-        private void simpleButton5_Click(object sender, EventArgs e)
+        private void Power3_0Button_Click(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[8];
-            if (this.simpleButton5.Text == "3KW 功率测试")
+            if (this.Power3_0Button.Text == "3KW 功率测试")
             {
-                this.simpleButton5.Text = "3KW 功率测试中";
+                this.Power3_0Button.Text = "3KW 功率测试中";
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
-                SendBytes[2] = 0x00;
+                SendBytes[2] = 0x03;
                 SendBytes[3] = 0X00;
                 SendBytes[4] = 0X00;
                 SendBytes[5] = 0X00;
@@ -187,7 +259,207 @@ namespace Firmware_Update_V1._0
             }
             else
             {
-                this.simpleButton5.Text = "3KW 功率测试";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x04;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.Power3_0Button.Text = "3KW 功率测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void OverLoad_Button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.OverLoad_Button.Text == "过载测试")
+            {
+                MessageBox.Show("请确认手动打开", "吸尘器");
+                this.OverLoad_Button.Text = "过载测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x07;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                MessageBox.Show("请确认手动关闭", "吸尘器");
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x08;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.OverLoad_Button.Text = "过载测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void Load_Short_Circuit_Button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.Load_Short_Circuit_Button.Text == "短路测试")
+            {
+                this.Load_Short_Circuit_Button.Text = "短路测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x09;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x0A;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.Load_Short_Circuit_Button.Text = "短路测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void Load_Reverse_Button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.Load_Reverse_Button.Text == "反接测试")
+            {
+                this.Load_Reverse_Button.Text = "反接测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x05;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x06;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.Load_Reverse_Button.Text = "反接测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void Precharge_Button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.Precharge_Button.Text == "预充电打开")
+            {
+                this.Precharge_Button.Text = "预充电关闭";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x0B;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x0C;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.Precharge_Button.Text = "预充电打开";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void Main_Button_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.Main_Button.Text == "主接触器打开")
+            {
+                this.Main_Button.Text = "主接触器关闭";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x0D;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x0E;
+                SendBytes[3] = 0X00;
+                SendBytes[4] = 0X00;
+                SendBytes[5] = 0X00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.Main_Button.Text = "主接触器打开";
             }
 
             try

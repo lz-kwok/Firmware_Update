@@ -81,10 +81,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(4, 60);
+            this.button1.Location = new System.Drawing.Point(23, 64);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 20);
+            this.button1.Size = new System.Drawing.Size(105, 20);
             this.button1.TabIndex = 0;
             this.button1.Text = "扫描端口";
             this.button1.UseVisualStyleBackColor = true;
@@ -144,10 +144,10 @@
             // 
             this.comListCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comListCbx.FormattingEnabled = true;
-            this.comListCbx.Location = new System.Drawing.Point(5, 32);
+            this.comListCbx.Location = new System.Drawing.Point(23, 36);
             this.comListCbx.Margin = new System.Windows.Forms.Padding(2);
             this.comListCbx.Name = "comListCbx";
-            this.comListCbx.Size = new System.Drawing.Size(73, 20);
+            this.comListCbx.Size = new System.Drawing.Size(105, 20);
             this.comListCbx.TabIndex = 6;
             this.comListCbx.SelectedIndexChanged += new System.EventHandler(this.comListCbx_SelectedIndexChanged);
             // 
@@ -219,10 +219,10 @@
             // 
             // openCloseSpbtn
             // 
-            this.openCloseSpbtn.Location = new System.Drawing.Point(4, 88);
+            this.openCloseSpbtn.Location = new System.Drawing.Point(23, 92);
             this.openCloseSpbtn.Margin = new System.Windows.Forms.Padding(2);
             this.openCloseSpbtn.Name = "openCloseSpbtn";
-            this.openCloseSpbtn.Size = new System.Drawing.Size(141, 22);
+            this.openCloseSpbtn.Size = new System.Drawing.Size(105, 22);
             this.openCloseSpbtn.TabIndex = 11;
             this.openCloseSpbtn.Text = "开始连接";
             this.openCloseSpbtn.UseVisualStyleBackColor = true;

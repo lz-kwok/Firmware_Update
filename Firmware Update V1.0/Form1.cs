@@ -25,6 +25,7 @@ namespace Firmware_Update_V1._0
     }
     public partial class Form1 : Form, IView
     {
+        private Form3 f3;
         private IController controller;
         public static SerialPort serialPort1 = new SerialPort();
 
@@ -217,6 +218,9 @@ namespace Firmware_Update_V1._0
                         string result = string.Join(".", verbuf);
                         firmware_version.Text = "固件版本" + ":\r\n" + result;
                         reset_button.Enabled = true;
+                        break;
+                    case 0xfd:
+                        f3.Output_Status_Show(e.receivedBytes[2]);
                         break;
                 }
             }
