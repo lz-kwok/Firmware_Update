@@ -52,7 +52,6 @@
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.Main_Button = new DevExpress.XtraEditors.SimpleButton();
-            this.Precharge_Button = new DevExpress.XtraEditors.SimpleButton();
             this.Load_Reverse_Button = new DevExpress.XtraEditors.SimpleButton();
             this.Load_Short_Circuit_Button = new DevExpress.XtraEditors.SimpleButton();
             this.OverLoad_Button = new DevExpress.XtraEditors.SimpleButton();
@@ -340,7 +339,6 @@
             // 
             this.tabNavigationPage1.Caption = "手动测试";
             this.tabNavigationPage1.Controls.Add(this.Main_Button);
-            this.tabNavigationPage1.Controls.Add(this.Precharge_Button);
             this.tabNavigationPage1.Controls.Add(this.Load_Reverse_Button);
             this.tabNavigationPage1.Controls.Add(this.Load_Short_Circuit_Button);
             this.tabNavigationPage1.Controls.Add(this.OverLoad_Button);
@@ -351,25 +349,16 @@
             // 
             // Main_Button
             // 
-            this.Main_Button.Location = new System.Drawing.Point(146, 5);
+            this.Main_Button.Location = new System.Drawing.Point(11, 5);
             this.Main_Button.Name = "Main_Button";
             this.Main_Button.Size = new System.Drawing.Size(131, 31);
             this.Main_Button.TabIndex = 6;
             this.Main_Button.Text = "主接触器打开";
             this.Main_Button.Click += new System.EventHandler(this.Main_Button_Click);
             // 
-            // Precharge_Button
-            // 
-            this.Precharge_Button.Location = new System.Drawing.Point(9, 5);
-            this.Precharge_Button.Name = "Precharge_Button";
-            this.Precharge_Button.Size = new System.Drawing.Size(131, 31);
-            this.Precharge_Button.TabIndex = 5;
-            this.Precharge_Button.Text = "预充电打开";
-            this.Precharge_Button.Click += new System.EventHandler(this.Precharge_Button_Click);
-            // 
             // Load_Reverse_Button
             // 
-            this.Load_Reverse_Button.Location = new System.Drawing.Point(146, 42);
+            this.Load_Reverse_Button.Location = new System.Drawing.Point(11, 42);
             this.Load_Reverse_Button.Name = "Load_Reverse_Button";
             this.Load_Reverse_Button.Size = new System.Drawing.Size(131, 31);
             this.Load_Reverse_Button.TabIndex = 4;
@@ -378,7 +367,7 @@
             // 
             // Load_Short_Circuit_Button
             // 
-            this.Load_Short_Circuit_Button.Location = new System.Drawing.Point(9, 42);
+            this.Load_Short_Circuit_Button.Location = new System.Drawing.Point(148, 5);
             this.Load_Short_Circuit_Button.Name = "Load_Short_Circuit_Button";
             this.Load_Short_Circuit_Button.Size = new System.Drawing.Size(131, 31);
             this.Load_Short_Circuit_Button.TabIndex = 3;
@@ -387,7 +376,7 @@
             // 
             // OverLoad_Button
             // 
-            this.OverLoad_Button.Location = new System.Drawing.Point(9, 116);
+            this.OverLoad_Button.Location = new System.Drawing.Point(146, 42);
             this.OverLoad_Button.Name = "OverLoad_Button";
             this.OverLoad_Button.Size = new System.Drawing.Size(131, 31);
             this.OverLoad_Button.TabIndex = 2;
@@ -405,7 +394,7 @@
             // 
             // Power1_5Button
             // 
-            this.Power1_5Button.Location = new System.Drawing.Point(9, 79);
+            this.Power1_5Button.Location = new System.Drawing.Point(11, 79);
             this.Power1_5Button.Name = "Power1_5Button";
             this.Power1_5Button.Size = new System.Drawing.Size(131, 31);
             this.Power1_5Button.TabIndex = 0;
@@ -487,7 +476,6 @@
         private DevExpress.XtraEditors.SimpleButton OverLoad_Button;
         private DevExpress.XtraEditors.SimpleButton Load_Short_Circuit_Button;
         private DevExpress.XtraEditors.SimpleButton Load_Reverse_Button;
-        private DevExpress.XtraEditors.SimpleButton Precharge_Button;
         private DevExpress.XtraEditors.SimpleButton Main_Button;
 
     }

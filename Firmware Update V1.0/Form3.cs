@@ -98,7 +98,7 @@ namespace Firmware_Update_V1._0
             }
             else if (dat == 0x07)
             {
-                this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Green;
                 this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Green;
                 this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Green;
                 this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
@@ -107,7 +107,7 @@ namespace Firmware_Update_V1._0
             }
             else if (dat == 0x08)
             {
-                this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
@@ -384,44 +384,6 @@ namespace Firmware_Update_V1._0
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
                 this.Load_Reverse_Button.Text = "反接测试";
-            }
-
-            try
-            {
-                f1.TransmitData(SendBytes);
-            }
-            catch
-            {
-                MessageBox.Show("串口通讯错误", "错误");
-            }
-        }
-
-        private void Precharge_Button_Click(object sender, EventArgs e)
-        {
-            byte[] SendBytes = new byte[8];
-            if (this.Precharge_Button.Text == "预充电打开")
-            {
-                this.Precharge_Button.Text = "预充电关闭";
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0xFD;//查询
-                SendBytes[2] = 0x0B;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
-                SendBytes[6] = 0x00;
-                SendBytes[7] = 0x0D;
-            }
-            else
-            {
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0xFD;//查询
-                SendBytes[2] = 0x0C;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
-                SendBytes[6] = 0x00;
-                SendBytes[7] = 0x0D;
-                this.Precharge_Button.Text = "预充电打开";
             }
 
             try

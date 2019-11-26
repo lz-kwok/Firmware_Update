@@ -503,6 +503,7 @@ namespace Firmware_Update_V1._0
         private void reset_button_Click(object sender, EventArgs e)//复位终端
         {
             Form3 frm = new Form3(this);//首先实例化
+            f3 = frm;
             frm.ShowDialog();
         }
 
