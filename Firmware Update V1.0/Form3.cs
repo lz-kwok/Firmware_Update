@@ -285,7 +285,7 @@ namespace Firmware_Update_V1._0
             byte[] SendBytes = new byte[8];
             if (this.OverLoad_Button.Text == "过载测试")
             {
-                MessageBox.Show("请确认手动打开", "吸尘器");
+                MessageBox.Show("请确认手动打开吸尘器", "警告");
                 this.OverLoad_Button.Text = "过载测试中";
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
@@ -298,7 +298,7 @@ namespace Firmware_Update_V1._0
             }
             else
             {
-                MessageBox.Show("请确认手动关闭", "吸尘器");
+                MessageBox.Show("请确认手动关闭吸尘器", "警告");
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x08;
