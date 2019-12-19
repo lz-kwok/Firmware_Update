@@ -299,6 +299,7 @@
             this.radioButton4.TabIndex = 1;
             this.radioButton4.Text = "十六进制接收";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton3
             // 

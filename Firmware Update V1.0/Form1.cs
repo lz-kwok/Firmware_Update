@@ -32,17 +32,14 @@ namespace Firmware_Update_V1._0
         public static byte FirmwareVersionOld = 0x00;
         public static byte[] DeviceNumber = new byte[2];
         public static byte[] PDNumber = new byte[2];
-        struct DateYMD
-        {
-            public byte Year;
-            public byte Month;
-            public byte Day;
-        }
-        DateYMD PDDate;
+
         public static byte TerminalType = 0xFF;
         public static byte TransmissionWay = 0x00;
         public static byte[] DEVEUI = new byte[2];
         public static byte SendPeriod;
+
+        public static byte[] RecBytes = new byte[32];
+        int RecNum = 0;
 
         int TimerMScounter = 0;//计时器变量
 
@@ -56,8 +53,7 @@ namespace Firmware_Update_V1._0
              this.controller = controller;
          }
 
-         
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             this.baudRateCbx.SelectedIndex = 3;//波特率默认“115200”
@@ -178,6 +174,7 @@ namespace Firmware_Update_V1._0
             }
         }
 
+        
         public void ComReceiveDataEvent(Object sender, SerialPortEventArgs e)
         {
             if (this.InvokeRequired)
@@ -193,6 +190,10 @@ namespace Firmware_Update_V1._0
                 return;
             }
 
+            for(int i=0;i<e.receivedBytes.Length;i++){
+                RecBytes[RecNum++] = e.receivedBytes[i];
+            }
+
             if (radioButton3.Checked) //display as string 
             {
                 this.receivetbx.AppendText(Encoding.Default.GetString(e.receivedBytes));
@@ -201,28 +202,36 @@ namespace Firmware_Update_V1._0
             {
                 if (receivetbx.Text.Length > 0)
                 {
-                    receivetbx.AppendText("-");
+                    receivetbx.AppendText(" ");
                 }
                 receivetbx.AppendText(IController.Bytes2Hex(e.receivedBytes));
             }
 
-            if ((e.receivedBytes[0] == 0x0D) && (e.receivedBytes[e.receivedBytes.Length - 1] == 0x0D))
+            if ((RecBytes[0] == 0x0D) && (RecBytes[RecNum - 1] == 0x0D))
             {
-                switch (e.receivedBytes[1])
+                receivetbx.Text += "\r\n";
+                switch (RecBytes[1])
                 { 
                     case 0xfe:
                         byte[] verbuf = new byte[3];
-                        verbuf[0] = e.receivedBytes[2];
-                        verbuf[1] = e.receivedBytes[3];
-                        verbuf[2] = e.receivedBytes[5];
+                        verbuf[0] = RecBytes[2];
+                        verbuf[1] = RecBytes[3];
+                        verbuf[2] = RecBytes[5];
                         string result = string.Join(".", verbuf);
                         firmware_version.Text = "固件版本" + ":\r\n" + result;
                         reset_button.Enabled = true;
                         break;
                     case 0xfd:
-                        f3.Output_Status_Show(e.receivedBytes[2]);
+                        f3.Output_Status_Show(RecBytes[2]);
+                        break;
+                    case 0xf9:
+                        f3.DPSP1000_Parameter_Display(RecBytes[2], RecBytes[3], RecBytes[4], RecBytes[5]);
                         break;
                 }
+
+                Array.Clear(RecBytes, 0, 32);
+                Array.Clear(e.receivedBytes, 0, e.receivedBytes.Length);
+                RecNum = 0;
             }
 
         }
@@ -771,6 +780,11 @@ namespace Firmware_Update_V1._0
         }
 
         private void handshakingcbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
 
         }

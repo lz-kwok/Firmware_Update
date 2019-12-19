@@ -1,5 +1,6 @@
 ﻿using DevExpress.Spreadsheet;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Firmware_Update_V1._0
 {
@@ -19,6 +22,7 @@ namespace Firmware_Update_V1._0
             InitializeComponent();
             f1 = frm1;
         }
+
 
         class FileDialogHelper
         {
@@ -138,6 +142,28 @@ namespace Firmware_Update_V1._0
             }
         }
 
+        public void DPSP1000_Parameter_Display(byte vol_h_data, byte vol_l_data, byte cur_h_data, byte cur_l_data)
+        {
+            if (vol_l_data < 10)
+            {
+                this.textBox2.Text = vol_h_data.ToString() + ".0" + vol_l_data.ToString();
+            }
+            else {
+                this.textBox2.Text = vol_h_data.ToString() + "." + vol_l_data.ToString();
+            }
+
+            if (cur_l_data < 10)
+            {
+                this.textBox1.Text = cur_h_data.ToString() + ".0" + cur_l_data.ToString();
+            }
+            else
+            {
+                this.textBox1.Text = cur_h_data.ToString() + "." + cur_l_data.ToString();
+            }
+            
+        }
+
+
         private void Form3_Load(object sender, EventArgs e)
         {
  
@@ -191,7 +217,19 @@ namespace Firmware_Update_V1._0
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
+            string filePath = FileDialogHelper.SaveExcel();
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                try
+                {
+                    IWorkbook workbook = spreadsheetControl1.Document;
+                    workbook.SaveDocument(filePath);
+                    MessageBox.Show("保存成功");
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -251,9 +289,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x03;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
             }
@@ -262,9 +300,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x04;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
                 this.Power3_0Button.Text = "3KW 功率测试";
@@ -290,9 +328,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x07;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
             }
@@ -302,9 +340,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x08;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
                 this.OverLoad_Button.Text = "过载测试";
@@ -329,9 +367,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x09;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
             }
@@ -340,9 +378,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x0A;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
                 this.Load_Short_Circuit_Button.Text = "短路测试";
@@ -367,9 +405,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x05;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
             }
@@ -378,9 +416,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x06;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
                 this.Load_Reverse_Button.Text = "反接测试";
@@ -405,9 +443,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x0D;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
             }
@@ -416,9 +454,9 @@ namespace Firmware_Update_V1._0
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xFD;//查询
                 SendBytes[2] = 0x0E;
-                SendBytes[3] = 0X00;
-                SendBytes[4] = 0X00;
-                SendBytes[5] = 0X00;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
                 this.Main_Button.Text = "主接触器打开";
@@ -432,6 +470,158 @@ namespace Firmware_Update_V1._0
             {
                 MessageBox.Show("串口通讯错误", "错误");
             }
+        }
+
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEdit1.Checked == true) {
+                checkEdit2.Checked = false;
+                checkEdit3.Checked = false;
+                checkEdit4.Checked = false;
+                checkEdit5.Checked = false;
+            }
+        }
+
+        private void checkEdit2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEdit2.Checked == true)
+            {
+                checkEdit1.Checked = false;
+                checkEdit3.Checked = false;
+                checkEdit4.Checked = false;
+                checkEdit5.Checked = false;
+            }
+        }
+
+        private void checkEdit3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEdit3.Checked == true)
+            {
+                checkEdit1.Checked = false;
+                checkEdit2.Checked = false;
+                checkEdit4.Checked = false;
+                checkEdit5.Checked = false;
+            }
+        }
+
+        private void checkEdit4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEdit4.Checked == true)
+            {
+                checkEdit1.Checked = false;
+                checkEdit2.Checked = false;
+                checkEdit3.Checked = false;
+                checkEdit5.Checked = false;
+            }
+        }
+
+        private void checkEdit5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEdit5.Checked == true)
+            {
+                checkEdit2.Checked = false;
+                checkEdit3.Checked = false;
+                checkEdit4.Checked = false;
+                checkEdit1.Checked = false;
+            }
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton6.Text == "打开DPSP直流电源")
+            {
+                this.simpleButton6.Text = "关闭DPSP直流电源";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFB;//查询
+                SendBytes[2] = 0x10;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFB;//查询
+                SendBytes[2] = 0x0F;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton6.Text = "打开DPSP直流电源";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            Worksheet worksheet = spreadsheetControl1.ActiveWorksheet;
+            worksheet.Range["J98:K98"].Value = "Have a nice day!";
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton7.Text == "源效应电压设置")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFA;//查询
+                if (checkEdit1.Checked == true) {
+                    SendBytes[2] = 0x02;
+                }
+                if (checkEdit2.Checked == true)
+                {
+                    SendBytes[2] = 0x03;
+                }
+                if (checkEdit3.Checked == true)
+                {
+                    SendBytes[2] = 0x04;
+                }
+                if (checkEdit4.Checked == true)
+                {
+                    SendBytes[2] = 0x01;
+                }
+                if (checkEdit5.Checked == true)
+                {
+                    SendBytes[2] = 0x05;
+                }
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

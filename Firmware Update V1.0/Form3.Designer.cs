@@ -33,14 +33,19 @@
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.spreadsheetControl1 = new DevExpress.XtraSpreadsheet.SpreadsheetControl();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.Q2_1 = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
             this.Q1_5 = new DevExpress.XtraEditors.TextEdit();
             this.Q2_0 = new DevExpress.XtraEditors.TextEdit();
             this.Q1_3 = new DevExpress.XtraEditors.TextEdit();
             this.Q1_9 = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.Q1_4 = new DevExpress.XtraEditors.TextEdit();
             this.Q1_8 = new DevExpress.XtraEditors.TextEdit();
             this.Q1_2 = new DevExpress.XtraEditors.TextEdit();
@@ -51,6 +56,13 @@
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.checkEdit5 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.Main_Button = new DevExpress.XtraEditors.SimpleButton();
             this.Load_Reverse_Button = new DevExpress.XtraEditors.SimpleButton();
             this.Load_Short_Circuit_Button = new DevExpress.XtraEditors.SimpleButton();
@@ -58,6 +70,8 @@
             this.Power3_0Button = new DevExpress.XtraEditors.SimpleButton();
             this.Power1_5Button = new DevExpress.XtraEditors.SimpleButton();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel1.SuspendLayout();
             this.sidePanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).BeginInit();
@@ -76,6 +90,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabNavigationPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            this.tabNavigationPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -120,6 +140,24 @@
             this.simpleButton1.Text = "另存为";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox2.Location = new System.Drawing.Point(20, 136);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(110, 35);
+            this.textBox2.TabIndex = 8;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Location = new System.Drawing.Point(157, 136);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(110, 35);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
             // spreadsheetControl1
             // 
             this.spreadsheetControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -133,12 +171,17 @@
             // 
             // sidePanel3
             // 
+            this.sidePanel3.Controls.Add(this.label3);
             this.sidePanel3.Controls.Add(this.label7);
             this.sidePanel3.Controls.Add(this.Q2_1);
+            this.sidePanel3.Controls.Add(this.label2);
             this.sidePanel3.Controls.Add(this.Q1_5);
             this.sidePanel3.Controls.Add(this.Q2_0);
+            this.sidePanel3.Controls.Add(this.textBox1);
+            this.sidePanel3.Controls.Add(this.textBox2);
             this.sidePanel3.Controls.Add(this.Q1_3);
             this.sidePanel3.Controls.Add(this.Q1_9);
+            this.sidePanel3.Controls.Add(this.label1);
             this.sidePanel3.Controls.Add(this.Q1_4);
             this.sidePanel3.Controls.Add(this.Q1_8);
             this.sidePanel3.Controls.Add(this.Q1_2);
@@ -149,9 +192,20 @@
             this.sidePanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.sidePanel3.Location = new System.Drawing.Point(0, 0);
             this.sidePanel3.Name = "sidePanel3";
-            this.sidePanel3.Size = new System.Drawing.Size(307, 100);
+            this.sidePanel3.Size = new System.Drawing.Size(307, 177);
             this.sidePanel3.TabIndex = 0;
             this.sidePanel3.Text = "sidePanel3";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(272, 142);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 20);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "A";
             // 
             // label7
             // 
@@ -175,6 +229,17 @@
             this.Q2_1.Properties.Appearance.Options.UseForeColor = true;
             this.Q2_1.Size = new System.Drawing.Size(37, 20);
             this.Q2_1.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(132, 142);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 20);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "V";
             // 
             // Q1_5
             // 
@@ -223,6 +288,17 @@
             this.Q1_9.Properties.Appearance.Options.UseForeColor = true;
             this.Q1_9.Size = new System.Drawing.Size(37, 20);
             this.Q1_9.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(64, 104);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 20);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "DPSP1000电源参数";
             // 
             // Q1_4
             // 
@@ -324,20 +400,27 @@
             this.tabPane1.Controls.Add(this.tabNavigationPage1);
             this.tabPane1.Controls.Add(this.tabNavigationPage2);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPane1.Location = new System.Drawing.Point(0, 100);
+            this.tabPane1.Location = new System.Drawing.Point(0, 177);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
             this.tabNavigationPage2});
-            this.tabPane1.RegularSize = new System.Drawing.Size(307, 427);
+            this.tabPane1.RegularSize = new System.Drawing.Size(307, 350);
             this.tabPane1.SelectedPage = this.tabNavigationPage2;
-            this.tabPane1.Size = new System.Drawing.Size(307, 427);
+            this.tabPane1.Size = new System.Drawing.Size(307, 350);
             this.tabPane1.TabIndex = 6;
             this.tabPane1.Text = "tabPane1";
             // 
             // tabNavigationPage1
             // 
             this.tabNavigationPage1.Caption = "手动测试";
+            this.tabNavigationPage1.Controls.Add(this.checkEdit5);
+            this.tabNavigationPage1.Controls.Add(this.checkEdit4);
+            this.tabNavigationPage1.Controls.Add(this.simpleButton7);
+            this.tabNavigationPage1.Controls.Add(this.simpleButton6);
+            this.tabNavigationPage1.Controls.Add(this.checkEdit3);
+            this.tabNavigationPage1.Controls.Add(this.checkEdit2);
+            this.tabNavigationPage1.Controls.Add(this.checkEdit1);
             this.tabNavigationPage1.Controls.Add(this.Main_Button);
             this.tabNavigationPage1.Controls.Add(this.Load_Reverse_Button);
             this.tabNavigationPage1.Controls.Add(this.Load_Short_Circuit_Button);
@@ -345,7 +428,70 @@
             this.tabNavigationPage1.Controls.Add(this.Power3_0Button);
             this.tabNavigationPage1.Controls.Add(this.Power1_5Button);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(289, 381);
+            this.tabNavigationPage1.Size = new System.Drawing.Size(289, 304);
+            // 
+            // checkEdit5
+            // 
+            this.checkEdit5.Location = new System.Drawing.Point(216, 146);
+            this.checkEdit5.Name = "checkEdit5";
+            this.checkEdit5.Properties.Caption = "142V";
+            this.checkEdit5.Size = new System.Drawing.Size(67, 19);
+            this.checkEdit5.TabIndex = 13;
+            this.checkEdit5.CheckedChanged += new System.EventHandler(this.checkEdit5_CheckedChanged);
+            // 
+            // checkEdit4
+            // 
+            this.checkEdit4.Location = new System.Drawing.Point(216, 120);
+            this.checkEdit4.Name = "checkEdit4";
+            this.checkEdit4.Properties.Caption = "70V";
+            this.checkEdit4.Size = new System.Drawing.Size(67, 19);
+            this.checkEdit4.TabIndex = 12;
+            this.checkEdit4.CheckedChanged += new System.EventHandler(this.checkEdit4_CheckedChanged);
+            // 
+            // simpleButton7
+            // 
+            this.simpleButton7.Location = new System.Drawing.Point(11, 160);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(131, 30);
+            this.simpleButton7.TabIndex = 11;
+            this.simpleButton7.Text = "源效应电压设置";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+            // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Location = new System.Drawing.Point(11, 120);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(131, 30);
+            this.simpleButton6.TabIndex = 10;
+            this.simpleButton6.Text = "打开DPSP直流电源";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
+            // 
+            // checkEdit3
+            // 
+            this.checkEdit3.Location = new System.Drawing.Point(149, 171);
+            this.checkEdit3.Name = "checkEdit3";
+            this.checkEdit3.Properties.Caption = "137.5V";
+            this.checkEdit3.Size = new System.Drawing.Size(67, 19);
+            this.checkEdit3.TabIndex = 9;
+            this.checkEdit3.CheckedChanged += new System.EventHandler(this.checkEdit3_CheckedChanged);
+            // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Location = new System.Drawing.Point(149, 146);
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Caption = "110V";
+            this.checkEdit2.Size = new System.Drawing.Size(56, 19);
+            this.checkEdit2.TabIndex = 8;
+            this.checkEdit2.CheckedChanged += new System.EventHandler(this.checkEdit2_CheckedChanged);
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(149, 120);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "77V";
+            this.checkEdit1.Size = new System.Drawing.Size(48, 19);
+            this.checkEdit1.TabIndex = 7;
+            this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
             // Main_Button
             // 
@@ -404,8 +550,32 @@
             // tabNavigationPage2
             // 
             this.tabNavigationPage2.Caption = "自动测试";
+            this.tabNavigationPage2.Controls.Add(this.simpleButton5);
+            this.tabNavigationPage2.Controls.Add(this.simpleButton2);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(289, 381);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(289, 304);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
+            this.simpleButton5.Location = new System.Drawing.Point(13, 121);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(262, 63);
+            this.simpleButton5.TabIndex = 1;
+            this.simpleButton5.Text = "自动化测试->置位";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(11, 16);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(262, 63);
+            this.simpleButton2.TabIndex = 0;
+            this.simpleButton2.Text = "自动化测试->开始";
             // 
             // Form3
             // 
@@ -442,6 +612,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
             this.tabNavigationPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            this.tabNavigationPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -477,6 +653,20 @@
         private DevExpress.XtraEditors.SimpleButton Load_Short_Circuit_Button;
         private DevExpress.XtraEditors.SimpleButton Load_Reverse_Button;
         private DevExpress.XtraEditors.SimpleButton Main_Button;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit3;
+        private DevExpress.XtraEditors.CheckEdit checkEdit4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.CheckEdit checkEdit5;
 
     }
 }
