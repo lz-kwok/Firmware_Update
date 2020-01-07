@@ -576,6 +576,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(262, 63);
             this.simpleButton2.TabIndex = 0;
             this.simpleButton2.Text = "自动化测试->开始";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // Form3
             // 

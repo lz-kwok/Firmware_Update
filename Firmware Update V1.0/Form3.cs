@@ -623,5 +623,45 @@ namespace Firmware_Update_V1._0
         {
 
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton2.Text == "自动化测试->开始")
+            {
+                this.simpleButton2.Text = "自动化测试->进行中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xE0;//查询
+                SendBytes[2] = 0x01;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xE0;//查询
+                SendBytes[2] = 0x02;
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton2.Text = "自动化测试->开始";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+            Form4 frm = new Form4(this);//首先实例化
+            frm.ShowDialog();
+        }
     }
 }

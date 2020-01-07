@@ -58,7 +58,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.query_mode_button = new DevExpress.XtraEditors.SimpleButton();
             this.update_button = new DevExpress.XtraEditors.SimpleButton();
             this.reset_button = new DevExpress.XtraEditors.SimpleButton();
@@ -414,22 +413,12 @@
             this.checkBox2.Text = "自动发送";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(329, 14);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(110, 43);
-            this.simpleButton2.TabIndex = 4;
-            this.simpleButton2.Text = "测试项设置";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
             // query_mode_button
             // 
             this.query_mode_button.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("query_mode_button.ImageOptions.Image")));
-            this.query_mode_button.Location = new System.Drawing.Point(221, 14);
+            this.query_mode_button.Location = new System.Drawing.Point(299, 14);
             this.query_mode_button.Name = "query_mode_button";
-            this.query_mode_button.Size = new System.Drawing.Size(102, 43);
+            this.query_mode_button.Size = new System.Drawing.Size(141, 43);
             this.query_mode_button.TabIndex = 2;
             this.query_mode_button.Text = "模式查询";
             this.query_mode_button.Click += new System.EventHandler(this.query_mode_button_Click);
@@ -437,9 +426,9 @@
             // update_button
             // 
             this.update_button.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("update_button.ImageOptions.Image")));
-            this.update_button.Location = new System.Drawing.Point(116, 14);
+            this.update_button.Location = new System.Drawing.Point(153, 14);
             this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(99, 43);
+            this.update_button.Size = new System.Drawing.Size(128, 43);
             this.update_button.TabIndex = 1;
             this.update_button.Text = "固件升级";
             this.update_button.Click += new System.EventHandler(this.update_button_Click);
@@ -449,7 +438,7 @@
             this.reset_button.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("reset_button.ImageOptions.Image")));
             this.reset_button.Location = new System.Drawing.Point(12, 14);
             this.reset_button.Name = "reset_button";
-            this.reset_button.Size = new System.Drawing.Size(98, 43);
+            this.reset_button.Size = new System.Drawing.Size(127, 43);
             this.reset_button.TabIndex = 0;
             this.reset_button.Text = "开始测试";
             this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
@@ -492,7 +481,6 @@
             // 
             this.sidePanel2.Controls.Add(this.firmware_version);
             this.sidePanel2.Controls.Add(this.reset_button);
-            this.sidePanel2.Controls.Add(this.simpleButton2);
             this.sidePanel2.Controls.Add(this.update_button);
             this.sidePanel2.Controls.Add(this.query_mode_button);
             this.sidePanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -623,7 +611,6 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraEditors.SidePanel sidePanel4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton query_mode_button;
         private DevExpress.XtraEditors.SimpleButton update_button;
         private DevExpress.XtraEditors.SimpleButton reset_button;

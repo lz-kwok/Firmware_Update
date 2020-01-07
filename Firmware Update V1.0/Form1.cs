@@ -65,7 +65,6 @@ namespace Firmware_Update_V1._0
             update_button.Enabled = false;                  //“升级固件”禁按
             reset_button.Enabled = false;                   //“复位终端”禁按
             query_mode_button.Enabled = false;               //“查询终端”可按
-            simpleButton2.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)//“搜索”
@@ -106,7 +105,6 @@ namespace Firmware_Update_V1._0
                     update_button.Enabled = false;                  //“升级固件”禁按
                     reset_button.Enabled = false;                   //“复位终端”禁按
                     query_mode_button.Enabled = true;               //“查询终端”可按
-                    simpleButton2.Enabled = false;
                 }
                 else
                 {
@@ -740,28 +738,6 @@ namespace Firmware_Update_V1._0
         {
             receivetbx.SelectionStart = receivetbx.Text.Length;
             receivetbx.ScrollToCaret();
-        }
-
-        private void tabNavigationPage2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            Form4 frm = new Form4(this);//首先实例化
-            frm.ShowDialog();
-        }
-       
-
-        private void sidePanel7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comListCbx_SelectedIndexChanged(object sender, EventArgs e)

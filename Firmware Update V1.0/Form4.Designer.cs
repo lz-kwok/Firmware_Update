@@ -67,6 +67,7 @@
             this.checkEdit3.Properties.Caption = "输出过载";
             this.checkEdit3.Size = new System.Drawing.Size(75, 19);
             this.checkEdit3.TabIndex = 2;
+            this.checkEdit3.CheckedChanged += new System.EventHandler(this.checkEdit3_CheckedChanged);
             // 
             // checkEdit4
             // 
@@ -96,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 219);
+            this.ClientSize = new System.Drawing.Size(705, 358);
             this.Controls.Add(this.checkEdit6);
             this.Controls.Add(this.checkEdit5);
             this.Controls.Add(this.checkEdit4);
