@@ -165,6 +165,167 @@ namespace Firmware_Update_V1._0
 
         public void Spreadsheet_Content_Show(byte data[])
         {
+            Worksheet worksheet = spreadsheetControl1.ActiveWorksheet;
+            if(data[2] == 0x01){
+                int cur_in_x100 = (int)data[3]<<8 + data[4];
+                float cur_in = ((float)cur_in_x100)/100;
+                worksheet.Range["J98:K98"].Value = cur_in;
+
+                int vol_out_x100 = (int)data[5]<<8 + data[6];
+                float vol_out = ((float)vol_out_x100)/100;
+                worksheet.Range["L98"].Value = vol_out;
+
+                int cur_out_x100 = (int)data[7]<<8 + data[8];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["M98"].Value = cur_out;
+            }else if(data[2] == 0x02){
+                int freq_x100 = (int)data[3]<<8 + data[4];
+                float freq = ((float)freq_x100)/100;
+                worksheet.Range["N98"].Value = freq;
+
+                int deltaV_x100 = (int)data[5]<<8 + data[6];
+                float deltaV = ((float)deltaV_x100)/100;
+                worksheet.Range["P98"].Value = deltaV;
+            }if(data[2] == 0x03){
+                int cur_in_x100 = (int)data[3]<<8 + data[4];
+                float cur_in = ((float)cur_in_x100)/100;
+                worksheet.Range["J99:K99"].Value = cur_in;
+
+                int vol_out_x100 = (int)data[5]<<8 + data[6];
+                float vol_out = ((float)vol_out_x100)/100;
+                worksheet.Range["L99"].Value = vol_out;
+
+                int cur_out_x100 = (int)data[7]<<8 + data[8];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["M99"].Value = cur_out;
+            }else if(data[2] == 0x04){
+                int freq_x100 = (int)data[3]<<8 + data[4];
+                float freq = ((float)freq_x100)/100;
+                worksheet.Range["N99"].Value = freq;
+
+                int deltaV_x100 = (int)data[5]<<8 + data[6];
+                float deltaV = ((float)deltaV_x100)/100;
+                worksheet.Range["P99"].Value = deltaV;
+            }if(data[2] == 0x05){
+                int cur_in_x100 = (int)data[3]<<8 + data[4];
+                float cur_in = ((float)cur_in_x100)/100;
+                worksheet.Range["J100:K100"].Value = cur_in;
+
+                int vol_out_x100 = (int)data[5]<<8 + data[6];
+                float vol_out = ((float)vol_out_x100)/100;
+                worksheet.Range["L100"].Value = vol_out;
+
+                int cur_out_x100 = (int)data[7]<<8 + data[8];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["M100"].Value = cur_out;
+            }else if(data[2] == 0x06){
+                int freq_x100 = (int)data[3]<<8 + data[4];
+                float freq = ((float)freq_x100)/100;
+                worksheet.Range["N100"].Value = freq;
+
+                int deltaV_x100 = (int)data[5]<<8 + data[6];
+                float deltaV = ((float)deltaV_x100)/100;
+                worksheet.Range["P100"].Value = deltaV;
+
+                int HIE_x100 = (int)data[7]<<8 + data[8];
+                float HIE = ((float)HIE_x100)/100;
+                worksheet.Range["O100"].Value = HIE;
+            }
+
+            else if(data[2] == 0x11){
+                int vol_in_x100 = (int)data[3]<<8 + data[4];
+                float vol_in = ((float)vol_in_x100)/100;
+                worksheet.Range["E102:H102"].Value = vol_in;
+
+                int cur_in_x100 = (int)data[5]<<8 + data[6];
+                float cur_in = ((float)cur_in_x100)/100;
+                worksheet.Range["I102:K102"].Value = cur_in;
+
+                int vol_out_x100 = (int)data[7]<<8 + data[8];
+                float vol_out = ((float)vol_out_x100)/100;
+                worksheet.Range["L102:M102"].Value = vol_out;
+
+                int cur_out_x100 = (int)data[9]<<8 + data[10];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["N102"].Value = cur_out;
+
+                worksheet.Range["P102"].Value = (float)((cur_out*vol_out*100)/(vol_in*cur_in));
+            }
+
+            else if(data[2] == 0x21){
+                int cur_in_x100 = (int)data[3]<<8 + data[4];
+                float cur_in = ((float)cur_in_x100)/100;
+                worksheet.Range["I104:K104"].Value = cur_in;
+
+                int vol_out_x100 = (int)data[5]<<8 + data[6];
+                float vol_out = ((float)vol_out_x100)/100;
+                worksheet.Range["L104:M104"].Value = vol_out;
+
+                int cur_out_x100 = (int)data[7]<<8 + data[8];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["N104:O104"].Value = cur_out;
+
+                int deltaV_x100 = (int)data[9]<<8 + data[10];
+                float deltaV = ((float)deltaV_x100)/100;
+                worksheet.Range["P104"].Value = deltaV;
+            }else if(data[2] == 0x22){
+                int cur_in_x100 = (int)data[3]<<8 + data[4];
+                float cur_in = ((float)cur_in_x100)/100;
+                worksheet.Range["I105:K105"].Value = cur_in;
+
+                int vol_out_x100 = (int)data[5]<<8 + data[6];
+                float vol_out = ((float)vol_out_x100)/100;
+                worksheet.Range["L105:M105"].Value = vol_out;
+
+                int cur_out_x100 = (int)data[7]<<8 + data[8];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["N105:O105"].Value = cur_out;
+
+                int deltaV_x100 = (int)data[9]<<8 + data[10];
+                float deltaV = ((float)deltaV_x100)/100;
+                worksheet.Range["P105"].Value = deltaV;
+            }else if(data[2] == 0x23){
+                int cur_in_x100 = (int)data[3]<<8 + data[4];
+                float cur_in = ((float)cur_in_x100)/100;
+                worksheet.Range["I106:K106"].Value = cur_in;
+
+                int vol_out_x100 = (int)data[5]<<8 + data[6];
+                float vol_out = ((float)vol_out_x100)/100;
+                worksheet.Range["L106:M106"].Value = vol_out;
+
+                int cur_out_x100 = (int)data[7]<<8 + data[8];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["N106:O106"].Value = cur_out;
+
+                int deltaV_x100 = (int)data[9]<<8 + data[10];
+                float deltaV = ((float)deltaV_x100)/100;
+                worksheet.Range["P106"].Value = deltaV;
+            }
+
+            else if(data[2] == 0x31){
+                int Overvol_x100 = (int)data[3]<<8 + data[4];
+                float Overvol = ((float)Overvol_x100)/100;
+                worksheet.Range["I107:K108"].Value = Overvol;
+
+                int err_code = (int)data[5]<<8 + data[6];
+                worksheet.Range["N107:O108"].Value = err_code;
+            }else if(data[2] == 0x32){
+                int uvp_x100 = (int)data[3]<<8 + data[4];
+                float uvp = ((float)uvp_x100)/100;
+                worksheet.Range["I109:K110"].Value = uvp;
+
+                int err_code = (int)data[5]<<8 + data[6];
+                worksheet.Range["N109:O110"].Value = err_code;
+            }
+
+            else if(data[2] == 0x41){
+                int cur_out_x100 = (int)data[3]<<8 + data[4];
+                float cur_out = ((float)cur_out_x100)/100;
+                worksheet.Range["O111"].Value = cur_out;
+
+                int err_code = (int)data[5]<<8 + data[6];
+                worksheet.Range["M111"].Value = err_code;
+            }
             
         }
 
@@ -581,8 +742,6 @@ namespace Firmware_Update_V1._0
 
         private void simpleButton7_Click(object sender, EventArgs e)
         {
-            Worksheet worksheet = spreadsheetControl1.ActiveWorksheet;
-            worksheet.Range["J98:K98"].Value = "Have a nice day!";
             byte[] SendBytes = new byte[8];
             if (this.simpleButton7.Text == "源效应电压设置")
             {
