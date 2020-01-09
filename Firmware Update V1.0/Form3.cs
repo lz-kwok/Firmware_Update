@@ -327,6 +327,15 @@ namespace Firmware_Update_V1._0
                 worksheet.Range["M111"].Value = err_code;
             }
             
+            else if(data[2] == 0x51){
+                int err_code = (int)data[3]<<8 + data[4];
+                worksheet.Range["N113:O113"].Value = err_code;
+            }
+
+            // else if(data[2] == 0x61){
+            //     int err_code = (int)data[3]<<8 + data[4];
+            //     worksheet.Range["N103:O103"].Value = err_code;
+            // }
         }
 
 
