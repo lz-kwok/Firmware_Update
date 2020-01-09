@@ -338,6 +338,13 @@ namespace Firmware_Update_V1._0
             // }
         }
 
+        public static int GetBit(byte b, int index) { return ((b & (1 << index)) > 0) ? 1: 0; }
+
+        public static byte SetBit(byte b, int index) { return (byte)(b | (1 << index)); }
+
+        public static byte ClearBit(byte b, int index) { return (byte)(b & (byte.MaxValue - (1 << index))); }
+
+        public static byte ReverseBit(byte b, int index) { return (byte)(b ^ (byte)(1 << index)); }
 
         private void Form3_Load(object sender, EventArgs e)
         {
