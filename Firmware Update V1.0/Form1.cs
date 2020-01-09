@@ -225,6 +225,9 @@ namespace Firmware_Update_V1._0
                     case 0xf9:
                         f3.DPSP1000_Parameter_Display(RecBytes[2], RecBytes[3], RecBytes[4], RecBytes[5]);
                         break;
+                    case 0xe0:
+                        f3.Spreadsheet_Content_Show(RecBytes);
+                        break;
                 }
 
                 Array.Clear(RecBytes, 0, 32);
