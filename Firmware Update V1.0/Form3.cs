@@ -48,7 +48,7 @@ namespace Firmware_Update_V1._0
             /// <returns></returns>
             public static string SaveExcel()
             {
-                string filename = "测试报告"";
+                string filename = "测试报告";
                 SaveFileDialog saveDialog = new SaveFileDialog();
                 //设置默认文件扩展名。
                 saveDialog.DefaultExt = "xls";
@@ -163,7 +163,7 @@ namespace Firmware_Update_V1._0
             
         }
 
-        public void Spreadsheet_Content_Show(byte data[])
+        public void Spreadsheet_Content_Show(byte[] data)
         {
             Worksheet worksheet = spreadsheetControl1.ActiveWorksheet;
             if(data[2] == 0x01){
