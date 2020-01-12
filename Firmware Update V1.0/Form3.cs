@@ -21,6 +21,14 @@ namespace Firmware_Update_V1._0
         {
             InitializeComponent();
             f1 = frm1;
+
+            string path = System.Windows.Forms.Application.StartupPath;
+            string xls_path = path +　"\\单相逆变器.xls";
+            if (!string.IsNullOrEmpty(xls_path))
+            {
+                IWorkbook workbook = spreadsheetControl1.Document;
+                workbook.LoadDocument(xls_path);
+            }
         }
 
 
@@ -128,11 +136,11 @@ namespace Firmware_Update_V1._0
             }
             else if (dat == 0x0B)
             {
-                this.Q1_2.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             }
             else if (dat == 0x0C)
             {
-                this.Q1_2.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             }
             else if (dat == 0x0D) {
                 this.Q1_0.Properties.Appearance.BackColor = System.Drawing.Color.Green;
@@ -142,8 +150,9 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        public void DPSP1000_Parameter_Display(byte vol_h_data, byte vol_l_data, byte cur_h_data, byte cur_l_data)
+        public void DPSP1000_Parameter_Display(byte vol_h_data, byte vol_l_data, byte cur_h_data, byte cur_l_data, byte type, byte err_code)
         {
+            Worksheet worksheet = spreadsheetControl1.ActiveWorksheet;
             if (vol_l_data < 10)
             {
                 this.textBox2.Text = vol_h_data.ToString() + ".0" + vol_l_data.ToString();
@@ -160,7 +169,60 @@ namespace Firmware_Update_V1._0
             {
                 this.textBox1.Text = cur_h_data.ToString() + "." + cur_l_data.ToString();
             }
+
+            switch (type) { 
+                case 0x01:
+                    worksheet.Range["J98:K98"].Value = this.textBox1.Text;
+                    worksheet.Range["N109:O110"].Value = err_code;
+                    break;
+                case 0x02:
+                    worksheet.Range["J99:K99"].Value = this.textBox1.Text;
+                    worksheet.Range["N109:O110"].Value = err_code;
+                    break;
+                case 0x03:
+                    worksheet.Range["J100:K100"].Value = this.textBox1.Text;
+                    worksheet.Range["N109:O110"].Value = err_code;
+                    break;
+            }
             
+        }
+
+        public void SingleReverse_Parameter_Display(byte vol_h_data, byte vol_l_data, byte cur_h_data, byte cur_l_data, byte type , byte err_code)
+        {
+            Worksheet worksheet = spreadsheetControl1.ActiveWorksheet;
+            if (vol_l_data < 10)
+            {
+                this.textBox3.Text = vol_h_data.ToString() + ".0" + vol_l_data.ToString();
+            }
+            else
+            {
+                this.textBox3.Text = vol_h_data.ToString() + "." + vol_l_data.ToString();
+            }
+
+            if (cur_l_data < 10)
+            {
+                this.textBox4.Text = cur_h_data.ToString() + ".0" + cur_l_data.ToString();
+            }
+            else
+            {
+                this.textBox4.Text = cur_h_data.ToString() + "." + cur_l_data.ToString();
+            }
+
+            switch (type)
+            {
+                case 0x01:
+                    worksheet.Range["L98"].Value = this.textBox3.Text;
+                    worksheet.Range["M98"].Value = this.textBox4.Text;
+                    break;
+                case 0x02:
+                    worksheet.Range["L99"].Value = this.textBox3.Text;
+                    worksheet.Range["M99"].Value = this.textBox4.Text;
+                    break;
+                case 0x03:
+                    worksheet.Range["L100"].Value = this.textBox3.Text;
+                    worksheet.Range["M100"].Value = this.textBox4.Text;
+                    break;
+            }
         }
 
         public void Spreadsheet_Content_Show(byte[] data)
@@ -340,7 +402,12 @@ namespace Firmware_Update_V1._0
 
         public static int GetBit(byte b, int index) { return ((b & (1 << index)) > 0) ? 1: 0; }
 
-        public static byte SetBit(byte b, int index) { return (byte)(b | (1 << index)); }
+        byte set_bit(byte data, byte offset)
+        {
+            byte dat = data;
+            dat |= (byte)(1 << offset);
+            return dat;
+        }
 
         public static byte ClearBit(byte b, int index) { return (byte)(b & (byte.MaxValue - (1 << index))); }
 
@@ -804,17 +871,49 @@ namespace Firmware_Update_V1._0
 
         }
 
+        byte check_menu_h = 0;
+        byte check_menu_l = 0;
+
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[8];
             if (this.simpleButton2.Text == "自动化测试->开始")
             {
                 this.simpleButton2.Text = "自动化测试->进行中";
+
+                if (checkEdit6.Checked == true){
+                    set_bit(check_menu_h,0);
+                } else {
+                 //   check_menu_h ^= 0x01;
+                }
+
+                if (checkEdit7.Checked == true)
+                {
+                    set_bit(check_menu_h, 1);
+                }
+                else
+                {
+                    //check_menu_h ^= 0x02;
+                }
+
+                if (checkEdit8.Checked == true)
+                {
+                    set_bit(check_menu_h, 2);
+                }
+                else
+                {
+                    //check_menu_h ^= 0x04;
+                }
+
+
+
+
+
                 SendBytes[0] = 0x0D;
                 SendBytes[1] = 0xE0;//查询
                 SendBytes[2] = 0x01;
-                SendBytes[3] = 0x00;
-                SendBytes[4] = 0x00;
+                SendBytes[3] = check_menu_h;
+                SendBytes[4] = check_menu_l;
                 SendBytes[5] = 0x00;
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
@@ -840,8 +939,242 @@ namespace Firmware_Update_V1._0
             {
                 MessageBox.Show("串口通讯错误", "错误");
             }
-            Form4 frm = new Form4(this);//首先实例化
-            frm.ShowDialog();
+        }
+
+        private void checkEdit11_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit9_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit12_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit13_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit14_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit6_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit7_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit8_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton8.Text == "0KW 功率测试")
+            {
+                this.simpleButton8.Text = "0KW 功率测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x20;//负载0KW
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton8.Text == "0KW 功率测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//查询
+                SendBytes[2] = 0x21;//负载0KW
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton8.Text = "0KW 功率测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        //输入欠压保护测试
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton9.Text == "输入欠压保护测试")
+            {
+                this.simpleButton9.Text = "输入欠压保护测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x22;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton9.Text == "输入欠压保护测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x23;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton9.Text = "输入欠压保护测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void simpleButton10_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton10.Text == "输入过压保护测试")
+            {
+                this.simpleButton10.Text = "输入过压保护测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x24;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton10.Text == "输入过压保护测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x25;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton10.Text = "输入过压保护测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void simpleButton11_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton11.Text == "启动信号试验")
+            {
+                this.simpleButton11.Text = "启动信号试验中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x26;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton11.Text == "启动信号试验中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x27;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton11.Text = "启动信号试验";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void simpleButton12_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton12.Text == "效率测试")
+            {
+                this.simpleButton12.Text = "效率测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x28;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton12.Text == "效率测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x29;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton12.Text = "效率测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
         }
     }
 }

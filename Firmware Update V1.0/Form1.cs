@@ -103,7 +103,7 @@ namespace Firmware_Update_V1._0
                         handshakingcbx.Text);
                     openCloseSpbtn.Text = "断开连接";
                     update_button.Enabled = false;                  //“升级固件”禁按
-                    reset_button.Enabled = false;                   //“复位终端”禁按
+                    reset_button.Enabled = true;                   //“复位终端”禁按
                     query_mode_button.Enabled = true;               //“查询终端”可按
                 }
                 else
@@ -188,9 +188,9 @@ namespace Firmware_Update_V1._0
                 return;
             }
 
-            for(int i=0;i<e.receivedBytes.Length;i++){
-                RecBytes[RecNum++] = e.receivedBytes[i];
-            }
+          //  for(int i=0;i<e.receivedBytes.Length;i++){
+           //     RecBytes[RecNum++] = e.receivedBytes[i];
+          //  }
 
             if (radioButton3.Checked) //display as string 
             {
@@ -205,32 +205,35 @@ namespace Firmware_Update_V1._0
                 receivetbx.AppendText(IController.Bytes2Hex(e.receivedBytes));
             }
 
-            if ((RecBytes[0] == 0x0D) && (RecBytes[RecNum - 1] == 0x0D))
+            if ((e.receivedBytes[0] == 0x0D) && (e.receivedBytes[e.receivedBytes.Length - 1] == 0x0D))
             {
                 receivetbx.Text += "\r\n";
-                switch (RecBytes[1])
+                switch (e.receivedBytes[1])
                 { 
                     case 0xfe:
                         byte[] verbuf = new byte[3];
-                        verbuf[0] = RecBytes[2];
-                        verbuf[1] = RecBytes[3];
-                        verbuf[2] = RecBytes[5];
+                        verbuf[0] = e.receivedBytes[2];
+                        verbuf[1] = e.receivedBytes[3];
+                        verbuf[2] = e.receivedBytes[5];
                         string result = string.Join(".", verbuf);
                         firmware_version.Text = "固件版本" + ":\r\n" + result;
                         reset_button.Enabled = true;
                         break;
                     case 0xfd:
-                        f3.Output_Status_Show(RecBytes[2]);
+                        f3.Output_Status_Show(e.receivedBytes[2]);
                         break;
                     case 0xf9:
-                        f3.DPSP1000_Parameter_Display(RecBytes[2], RecBytes[3], RecBytes[4], RecBytes[5]);
+                        f3.DPSP1000_Parameter_Display(e.receivedBytes[2], e.receivedBytes[3], e.receivedBytes[4], e.receivedBytes[5], e.receivedBytes[6], e.receivedBytes[7]);
+                        break;
+                    case 0xf8:
+                        f3.SingleReverse_Parameter_Display(e.receivedBytes[2], e.receivedBytes[3], e.receivedBytes[4], e.receivedBytes[5],e.receivedBytes[6], e.receivedBytes[6]);
                         break;
                     case 0xe0:
-                        f3.Spreadsheet_Content_Show(RecBytes);
+                        f3.Spreadsheet_Content_Show(e.receivedBytes);
                         break;
                 }
 
-                Array.Clear(RecBytes, 0, 32);
+                //Array.Clear(RecBytes, 0, 32);
                 Array.Clear(e.receivedBytes, 0, e.receivedBytes.Length);
                 RecNum = 0;
             }
@@ -267,98 +270,6 @@ namespace Firmware_Update_V1._0
 
         public static int UpdateState = 0;//升级状态
 
-        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            string s = "";
-            string CurrentTime = "";
-            int count = serialPort1.BytesToRead;//接收数据的字符数
-            byte[] data = new byte[count];//创建接收8位数据数组data
-            bool ShowFlag = false;
-            int deviceMode = 0; //默认手动模式
-            serialPort1.Read(data, 0, count);//将接收的数据存放到data
-            CurrentTime = "【" + DateTime.Now.ToString("f") + ":" + DateTime.Now.Second.ToString("D2") + "】";
-
-            if (Form2.ReadyForUpdateFlag && count == 1)
-            {
-                ShowFlag = true;
-                switch (data[0])
-                {
-                    case 0x75: UpdateState = 1; break;//复位成功
-                    case 0x76: UpdateState = 11; break;//固件版本校验未通过
-                    case 0x77: UpdateState = 2; break;//固件版本校验通过
-                    case 0x78: UpdateState = 3; break;//开始擦除芯片
-                    case 0x79: UpdateState = 4; break;//擦除芯片完成
-                    case 0x7A: UpdateState = 5; break;//开始发送固件
-                    case 0x7B: UpdateState = 6; break;//固件升级完成，重启
-                    default: UpdateState = 0; break;
-                }
-            }
-            else
-                ShowFlag = false;
-            if(count == 15)//接收到“终端信息”
-            {
-                if (data[0] == 0xFF && data[14] == 0xFF)
-                {
-                    ShowFlag = true;
-                    FirmwareVersionOld = data[1];
-                    deviceMode = data[2];
-
-                    GloabValue.TerminalTypeValue = TerminalType = data[9];
-                    GloabValue.TransmissionTypeValue = TransmissionWay = data[10];
-
-                    switch (deviceMode)
-                    {
-                     //   case 0x01: this.tabPage1.TabIndex = 0; break;
-                    //    case 0x02: this.tabPage1.TabIndex = 1; ; break;
-                        default: break;
-                    }
-
-                    if (this.InvokeRequired)//1.代理
-                    {
-                        this.Invoke(new MethodInvoker(delegate
-                        {
-
-                        }));
-                    }
-                    else//2.正常
-                    {
-
-                    }
-                }
-                else
-                    ShowFlag = false;
-            }
-
-            if (ShowFlag == false) {
-                if (radioButton3.Checked == true) {
-                    s = System.Text.Encoding.Default.GetString(data);
-                }
-                if (radioButton4.Checked == true) {
-                    s = byteToHexStr(data);
-                }
-            }
-
-            //↓↓↓接收数据显示区代码↓↓↓
-            if (this.InvokeRequired)//1.代理
-            {
-                this.Invoke(new MethodInvoker(delegate
-                {
-                    if (checkBox1.Checked == true)
-                        this.receivetbx.AppendText(CurrentTime + "\r\n" + s + "\n");
-                    else
-                        this.receivetbx.AppendText(s + "\n");
-                }));
-            }
-            else//2.正常
-            {
-                if (checkBox1.Checked == true)
-                    this.receivetbx.AppendText(CurrentTime + "\r\n" + s + "\n");
-                else
-                    this.receivetbx.AppendText(s + "\n");
-            }
-            //↑↑↑接收数据显示区代码↑↑↑
-
-        }
         public static string byteToHexStr(byte[] bytes)//将十六进制数组组合成字符串显示
         {
             string returnStr = "";
@@ -764,6 +675,11 @@ namespace Firmware_Update_V1._0
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
 
         }
