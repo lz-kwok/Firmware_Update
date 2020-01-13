@@ -30,10 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -60,6 +65,8 @@
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
@@ -91,7 +98,9 @@
             this.checkEdit11 = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.sidePanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Q1_5.Properties)).BeginInit();
@@ -129,10 +138,7 @@
             // 
             // sidePanel1
             // 
-            this.sidePanel1.Controls.Add(this.textBox4);
-            this.sidePanel1.Controls.Add(this.label4);
-            this.sidePanel1.Controls.Add(this.label5);
-            this.sidePanel1.Controls.Add(this.textBox3);
+            this.sidePanel1.Controls.Add(this.groupBox1);
             this.sidePanel1.Controls.Add(this.simpleButton4);
             this.sidePanel1.Controls.Add(this.simpleButton3);
             this.sidePanel1.Controls.Add(this.simpleButton1);
@@ -143,44 +149,99 @@
             this.sidePanel1.TabIndex = 0;
             this.sidePanel1.Text = "sidePanel1";
             // 
-            // textBox4
+            // groupBox1
             // 
-            this.textBox4.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(512, 15);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(128, 35);
-            this.textBox4.TabIndex = 36;
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Location = new System.Drawing.Point(330, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(594, 50);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "逆变器基本参数";
             // 
-            // label4
+            // label8
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(645, 22);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 20);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "A";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(569, 26);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 20);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "V";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(415, 26);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 20);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Hz";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox3.Location = new System.Drawing.Point(6, 20);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(109, 26);
+            this.textBox3.TabIndex = 34;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox6.Location = new System.Drawing.Point(453, 20);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(109, 26);
+            this.textBox6.TabIndex = 38;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(487, 22);
+            this.label5.Location = new System.Drawing.Point(120, 26);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 20);
             this.label5.TabIndex = 34;
             this.label5.Text = "V";
             // 
-            // textBox3
+            // textBox5
             // 
-            this.textBox3.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(354, 15);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(128, 35);
-            this.textBox3.TabIndex = 34;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBox5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox5.Location = new System.Drawing.Point(304, 20);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(109, 26);
+            this.textBox5.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(266, 26);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 20);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "A";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox4.Location = new System.Drawing.Point(155, 20);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(109, 26);
+            this.textBox4.TabIndex = 36;
             // 
             // simpleButton4
             // 
@@ -486,6 +547,9 @@
             // tabNavigationPage1
             // 
             this.tabNavigationPage1.Caption = "手动测试";
+            this.tabNavigationPage1.Controls.Add(this.simpleButton15);
+            this.tabNavigationPage1.Controls.Add(this.simpleButton14);
+            this.tabNavigationPage1.Controls.Add(this.simpleButton13);
             this.tabNavigationPage1.Controls.Add(this.simpleButton12);
             this.tabNavigationPage1.Controls.Add(this.simpleButton11);
             this.tabNavigationPage1.Controls.Add(this.simpleButton10);
@@ -506,6 +570,24 @@
             this.tabNavigationPage1.Controls.Add(this.Power1_5Button);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(426, 304);
+            // 
+            // simpleButton14
+            // 
+            this.simpleButton14.Location = new System.Drawing.Point(147, 191);
+            this.simpleButton14.Name = "simpleButton14";
+            this.simpleButton14.Size = new System.Drawing.Size(131, 31);
+            this.simpleButton14.TabIndex = 20;
+            this.simpleButton14.Text = "启动时间测试";
+            this.simpleButton14.Click += new System.EventHandler(this.simpleButton14_Click);
+            // 
+            // simpleButton13
+            // 
+            this.simpleButton13.Location = new System.Drawing.Point(12, 154);
+            this.simpleButton13.Name = "simpleButton13";
+            this.simpleButton13.Size = new System.Drawing.Size(131, 31);
+            this.simpleButton13.TabIndex = 19;
+            this.simpleButton13.Text = "过流测试";
+            this.simpleButton13.Click += new System.EventHandler(this.simpleButton13_Click);
             // 
             // simpleButton12
             // 
@@ -685,7 +767,7 @@
             this.tabNavigationPage2.Controls.Add(this.simpleButton5);
             this.tabNavigationPage2.Controls.Add(this.simpleButton2);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(387, 304);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(426, 304);
             // 
             // checkEdit15
             // 
@@ -798,6 +880,15 @@
             this.simpleButton2.Text = "自动化测试->开始";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
+            // simpleButton15
+            // 
+            this.simpleButton15.Location = new System.Drawing.Point(284, 191);
+            this.simpleButton15.Name = "信号触点测试";
+            this.simpleButton15.Size = new System.Drawing.Size(131, 31);
+            this.simpleButton15.TabIndex = 21;
+            this.simpleButton15.Text = "信号触点测试";
+            this.simpleButton15.Click += new System.EventHandler(this.simpleButton15_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -815,7 +906,8 @@
             this.Text = "TN19002测试页";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.sidePanel1.ResumeLayout(false);
-            this.sidePanel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.sidePanel3.ResumeLayout(false);
             this.sidePanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).EndInit();
@@ -918,6 +1010,14 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton10;
         private DevExpress.XtraEditors.SimpleButton simpleButton11;
         private DevExpress.XtraEditors.SimpleButton simpleButton12;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.SimpleButton simpleButton13;
+        private DevExpress.XtraEditors.SimpleButton simpleButton14;
+        private DevExpress.XtraEditors.SimpleButton simpleButton15;
 
     }
 }

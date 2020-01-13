@@ -265,8 +265,8 @@ namespace Firmware_Update_V1._0
             }
 
             //电位差显示
-            byte delta_v_h = data[16]/10;
-            byte delta_v_l = data[16]%10;
+            byte delta_v_h = (byte)(data[16] / 10);
+            byte delta_v_l = (byte)(data[16] % 10);
             string delta_v = delta_v_h.ToString() + "." +delta_v_l.ToString();
 
             if (data[12] < 10)      //交流电源频率显示
@@ -327,22 +327,22 @@ namespace Firmware_Update_V1._0
                 worksheet.Range["L106:M106"].Value = this.textBox3.Text;
                 worksheet.Range["N106:O106"].Value = this.textBox4.Text;
                 worksheet.Range["P106"].Value = delta_v;
-            }else if(data[2] = 0x08){   //输入欠压测试
+            }else if(data[2] == 0x08){   //输入欠压测试
                 if(data[15] == 0x02){
                     worksheet.Range["I107:K108"].Value = this.textBox3.Text;
                     worksheet.Range["N107:O108"].Value = data[15];
                 }
-            }else if(data[2] = 0x09){   //输入过压测试
+            }else if(data[2] == 0x09){   //输入过压测试
                 if(data[15] == 0x01){
                     worksheet.Range["I109:K110"].Value = this.textBox3.Text;
                     worksheet.Range["N109:O110"].Value = data[15];
                 }
-            }else if(data[2] = 0x0A){   //输出过载测试
+            }else if(data[2] == 0x0A){   //输出过载测试
                 if(data[15] == 0x06){
                     worksheet.Range["O111"].Value = this.textBox4.Text;
                     worksheet.Range["M111"].Value = data[15];
                 }
-            }else if(data[2] = 0x0B){   //输出过流测试
+            }else if(data[2] == 0x0B){   //输出过流测试
                 if(data[15] == 0x05){
                     worksheet.Range["O112"].Value = this.textBox4.Text;
                     worksheet.Range["M112"].Value = data[15];
@@ -1124,6 +1124,120 @@ namespace Firmware_Update_V1._0
                 SendBytes[6] = 0x00;
                 SendBytes[7] = 0x0D;
                 this.simpleButton12.Text = "效率测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void simpleButton13_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton13.Text == "过流测试")
+            {
+                this.simpleButton13.Text = "过流测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x30;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton13.Text == "过流测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x31;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton13.Text = "过流测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void simpleButton14_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton14.Text == "启动时间测试")
+            {
+                this.simpleButton14.Text = "启动时间测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x32;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton14.Text == "启动时间测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x33;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton14.Text = "启动时间测试";
+            }
+
+            try
+            {
+                f1.TransmitData(SendBytes);
+            }
+            catch
+            {
+                MessageBox.Show("串口通讯错误", "错误");
+            }
+        }
+
+        private void simpleButton15_Click(object sender, EventArgs e)
+        {
+            byte[] SendBytes = new byte[8];
+            if (this.simpleButton15.Text == "信号触点测试")
+            {
+                this.simpleButton15.Text = "信号触点测试中";
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x32;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+            }
+            else if (this.simpleButton15.Text == "信号触点测试中")
+            {
+                SendBytes[0] = 0x0D;
+                SendBytes[1] = 0xFD;//
+                SendBytes[2] = 0x33;//
+                SendBytes[3] = 0x00;
+                SendBytes[4] = 0x00;
+                SendBytes[5] = 0x00;
+                SendBytes[6] = 0x00;
+                SendBytes[7] = 0x0D;
+                this.simpleButton15.Text = "信号触点测试";
             }
 
             try
