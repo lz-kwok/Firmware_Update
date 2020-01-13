@@ -90,12 +90,12 @@ namespace Firmware_Update_V1._0
                 this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             }
-            else if (dat == 0x03)
+            else if ((dat == 0x03)|| (dat == 0x28))
             {
                 this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
                 this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             }
-            else if (dat == 0x04)
+            else if ((dat == 0x04)|| (dat == 0x29))
             {
                 this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_8.Properties.Appearance.BackColor = System.Drawing.Color.Red;
@@ -228,170 +228,129 @@ namespace Firmware_Update_V1._0
         public void Spreadsheet_Content_Show(byte[] data)
         {
             Worksheet worksheet = spreadsheetControl1.ActiveWorksheet;
-            if(data[2] == 0x01){
-                int cur_in_x100 = (int)data[3]<<8 + data[4];
-                float cur_in = ((float)cur_in_x100)/100;
-                worksheet.Range["J98:K98"].Value = cur_in;
 
-                int vol_out_x100 = (int)data[5]<<8 + data[6];
-                float vol_out = ((float)vol_out_x100)/100;
-                worksheet.Range["L98"].Value = vol_out;
-
-                int cur_out_x100 = (int)data[7]<<8 + data[8];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["M98"].Value = cur_out;
-            }else if(data[2] == 0x02){
-                int freq_x100 = (int)data[3]<<8 + data[4];
-                float freq = ((float)freq_x100)/100;
-                worksheet.Range["N98"].Value = freq;
-
-                int deltaV_x100 = (int)data[5]<<8 + data[6];
-                float deltaV = ((float)deltaV_x100)/100;
-                worksheet.Range["P98"].Value = deltaV;
-            }if(data[2] == 0x03){
-                int cur_in_x100 = (int)data[3]<<8 + data[4];
-                float cur_in = ((float)cur_in_x100)/100;
-                worksheet.Range["J99:K99"].Value = cur_in;
-
-                int vol_out_x100 = (int)data[5]<<8 + data[6];
-                float vol_out = ((float)vol_out_x100)/100;
-                worksheet.Range["L99"].Value = vol_out;
-
-                int cur_out_x100 = (int)data[7]<<8 + data[8];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["M99"].Value = cur_out;
-            }else if(data[2] == 0x04){
-                int freq_x100 = (int)data[3]<<8 + data[4];
-                float freq = ((float)freq_x100)/100;
-                worksheet.Range["N99"].Value = freq;
-
-                int deltaV_x100 = (int)data[5]<<8 + data[6];
-                float deltaV = ((float)deltaV_x100)/100;
-                worksheet.Range["P99"].Value = deltaV;
-            }if(data[2] == 0x05){
-                int cur_in_x100 = (int)data[3]<<8 + data[4];
-                float cur_in = ((float)cur_in_x100)/100;
-                worksheet.Range["J100:K100"].Value = cur_in;
-
-                int vol_out_x100 = (int)data[5]<<8 + data[6];
-                float vol_out = ((float)vol_out_x100)/100;
-                worksheet.Range["L100"].Value = vol_out;
-
-                int cur_out_x100 = (int)data[7]<<8 + data[8];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["M100"].Value = cur_out;
-            }else if(data[2] == 0x06){
-                int freq_x100 = (int)data[3]<<8 + data[4];
-                float freq = ((float)freq_x100)/100;
-                worksheet.Range["N100"].Value = freq;
-
-                int deltaV_x100 = (int)data[5]<<8 + data[6];
-                float deltaV = ((float)deltaV_x100)/100;
-                worksheet.Range["P100"].Value = deltaV;
-
-                int HIE_x100 = (int)data[7]<<8 + data[8];
-                float HIE = ((float)HIE_x100)/100;
-                worksheet.Range["O100"].Value = HIE;
+            if (data[4] < 10)       //直流电压显示
+            {
+                this.textBox2.Text = data[3].ToString() + ".0" + data[4].ToString();
+            }
+            else {
+                this.textBox2.Text = data[3].ToString() + "." + data[4].ToString();
             }
 
-            else if(data[2] == 0x11){
-                int vol_in_x100 = (int)data[3]<<8 + data[4];
-                float vol_in = ((float)vol_in_x100)/100;
-                worksheet.Range["E102:H102"].Value = vol_in;
-
-                int cur_in_x100 = (int)data[5]<<8 + data[6];
-                float cur_in = ((float)cur_in_x100)/100;
-                worksheet.Range["I102:K102"].Value = cur_in;
-
-                int vol_out_x100 = (int)data[7]<<8 + data[8];
-                float vol_out = ((float)vol_out_x100)/100;
-                worksheet.Range["L102:M102"].Value = vol_out;
-
-                int cur_out_x100 = (int)data[9]<<8 + data[10];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["N102"].Value = cur_out;
-
-                worksheet.Range["P102"].Value = (float)((cur_out*vol_out*100)/(vol_in*cur_in));
+            if (data[6] < 10)       //直流电流显示
+            {
+                this.textBox1.Text = data[5].ToString() + ".0" + data[6].ToString();
+            }
+            else
+            {
+                this.textBox1.Text = data[5].ToString() + "." + data[6].ToString();
             }
 
-            else if(data[2] == 0x21){
-                int cur_in_x100 = (int)data[3]<<8 + data[4];
-                float cur_in = ((float)cur_in_x100)/100;
-                worksheet.Range["I104:K104"].Value = cur_in;
-
-                int vol_out_x100 = (int)data[5]<<8 + data[6];
-                float vol_out = ((float)vol_out_x100)/100;
-                worksheet.Range["L104:M104"].Value = vol_out;
-
-                int cur_out_x100 = (int)data[7]<<8 + data[8];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["N104:O104"].Value = cur_out;
-
-                int deltaV_x100 = (int)data[9]<<8 + data[10];
-                float deltaV = ((float)deltaV_x100)/100;
-                worksheet.Range["P104"].Value = deltaV;
-            }else if(data[2] == 0x22){
-                int cur_in_x100 = (int)data[3]<<8 + data[4];
-                float cur_in = ((float)cur_in_x100)/100;
-                worksheet.Range["I105:K105"].Value = cur_in;
-
-                int vol_out_x100 = (int)data[5]<<8 + data[6];
-                float vol_out = ((float)vol_out_x100)/100;
-                worksheet.Range["L105:M105"].Value = vol_out;
-
-                int cur_out_x100 = (int)data[7]<<8 + data[8];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["N105:O105"].Value = cur_out;
-
-                int deltaV_x100 = (int)data[9]<<8 + data[10];
-                float deltaV = ((float)deltaV_x100)/100;
-                worksheet.Range["P105"].Value = deltaV;
-            }else if(data[2] == 0x23){
-                int cur_in_x100 = (int)data[3]<<8 + data[4];
-                float cur_in = ((float)cur_in_x100)/100;
-                worksheet.Range["I106:K106"].Value = cur_in;
-
-                int vol_out_x100 = (int)data[5]<<8 + data[6];
-                float vol_out = ((float)vol_out_x100)/100;
-                worksheet.Range["L106:M106"].Value = vol_out;
-
-                int cur_out_x100 = (int)data[7]<<8 + data[8];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["N106:O106"].Value = cur_out;
-
-                int deltaV_x100 = (int)data[9]<<8 + data[10];
-                float deltaV = ((float)deltaV_x100)/100;
-                worksheet.Range["P106"].Value = deltaV;
+            if (data[8] < 10)       //交流电压有效值显示
+            {
+                this.textBox3.Text = data[7].ToString() + ".0" + data[8].ToString();
+            }
+            else
+            {
+                this.textBox3.Text = data[7].ToString() + "." + data[8].ToString();
             }
 
-            else if(data[2] == 0x31){
-                int Overvol_x100 = (int)data[3]<<8 + data[4];
-                float Overvol = ((float)Overvol_x100)/100;
-                worksheet.Range["I107:K108"].Value = Overvol;
-
-                int err_code = (int)data[5]<<8 + data[6];
-                worksheet.Range["N107:O108"].Value = err_code;
-            }else if(data[2] == 0x32){
-                int uvp_x100 = (int)data[3]<<8 + data[4];
-                float uvp = ((float)uvp_x100)/100;
-                worksheet.Range["I109:K110"].Value = uvp;
-
-                int err_code = (int)data[5]<<8 + data[6];
-                worksheet.Range["N109:O110"].Value = err_code;
+            if (data[10] < 10)      //交流电流有效值显示
+            {
+                this.textBox4.Text = data[9].ToString() + ".0" + data[10].ToString();
+            }
+            else
+            {
+                this.textBox4.Text = data[9].ToString() + "." + data[10].ToString();
             }
 
-            else if(data[2] == 0x41){
-                int cur_out_x100 = (int)data[3]<<8 + data[4];
-                float cur_out = ((float)cur_out_x100)/100;
-                worksheet.Range["O111"].Value = cur_out;
+            //电位差显示
+            byte delta_v_h = data[16]/10;
+            byte delta_v_l = data[16]%10;
+            string delta_v = delta_v_h.ToString() + "." +delta_v_l.ToString();
 
-                int err_code = (int)data[5]<<8 + data[6];
-                worksheet.Range["M111"].Value = err_code;
+            if (data[12] < 10)      //交流电源频率显示
+            {
+                this.textBox5.Text = data[11].ToString() + ".0" + data[12].ToString();
             }
-            
-            else if(data[2] == 0x51){
-                int err_code = (int)data[3]<<8 + data[4];
-                worksheet.Range["N113:O113"].Value = err_code;
+            else
+            {
+                this.textBox5.Text = data[11].ToString() + "." + data[12].ToString();
+            }
+
+            if (data[14] < 10)      //输出效率显示
+            {
+                this.textBox6.Text = data[13].ToString() + ".0" + data[14].ToString();
+            }
+            else
+            {
+                this.textBox6.Text = data[13].ToString() + "." + data[14].ToString();
+            }
+
+            if(data[2] == 0x01){            //0kW测试
+                worksheet.Range["J98:K98"].Value = this.textBox1.Text;
+                worksheet.Range["L98"].Value = this.textBox3.Text;
+                worksheet.Range["M98"].Value = this.textBox4.Text;
+                worksheet.Range["N98"].Value = this.textBox5.Text;
+                worksheet.Range["P98"].Value = delta_v;
+            }else if(data[2] == 0x02){      //1.5kW测试
+                worksheet.Range["J99:K99"].Value = this.textBox1.Text;
+                worksheet.Range["L99"].Value = this.textBox3.Text;
+                worksheet.Range["M99"].Value = this.textBox4.Text;
+                worksheet.Range["N99"].Value = this.textBox5.Text;
+                worksheet.Range["P99"].Value = delta_v;
+            }if(data[2] == 0x03){           //3kW测试
+                worksheet.Range["J100:K100"].Value = this.textBox1.Text;
+                worksheet.Range["L100"].Value = this.textBox3.Text;
+                worksheet.Range["M100"].Value = this.textBox4.Text;
+                worksheet.Range["N100"].Value = this.textBox5.Text;
+                worksheet.Range["P100"].Value = delta_v;
+                //worksheet.Range["O100"].Value = HIE;      //谐波
+            }else if(data[2] == 0x04){      //效率测试
+                worksheet.Range["E102:H102"].Value = this.textBox2.Text;
+                worksheet.Range["I102:K102"].Value = this.textBox1.Text;
+                worksheet.Range["L102:M102"].Value = this.textBox3.Text;
+                worksheet.Range["N102"].Value = this.textBox4.Text;
+                worksheet.Range["P102"].Value = this.textBox6.Text;      //效率
+            }if(data[2] == 0x05){       //源效应77V测试
+                worksheet.Range["I104:K104"].Value = this.textBox1.Text;
+                worksheet.Range["L104:M104"].Value = this.textBox3.Text;
+                worksheet.Range["N104:O104"].Value = this.textBox4.Text;
+                worksheet.Range["P104"].Value = delta_v;
+            }else if(data[2] == 0x06){  //源效应110V测试
+                worksheet.Range["I105:K105"].Value = this.textBox1.Text;
+                worksheet.Range["L105:M105"].Value = this.textBox3.Text;
+                worksheet.Range["N105:O105"].Value = this.textBox4.Text;
+                worksheet.Range["P105"].Value = delta_v;
+            }else if(data[2] == 0x07){  //源效应137.5V测试
+                worksheet.Range["I106:K106"].Value = this.textBox1.Text;
+                worksheet.Range["L106:M106"].Value = this.textBox3.Text;
+                worksheet.Range["N106:O106"].Value = this.textBox4.Text;
+                worksheet.Range["P106"].Value = delta_v;
+            }else if(data[2] = 0x08){   //输入欠压测试
+                if(data[15] == 0x02){
+                    worksheet.Range["I107:K108"].Value = this.textBox3.Text;
+                    worksheet.Range["N107:O108"].Value = data[15];
+                }
+            }else if(data[2] = 0x09){   //输入过压测试
+                if(data[15] == 0x01){
+                    worksheet.Range["I109:K110"].Value = this.textBox3.Text;
+                    worksheet.Range["N109:O110"].Value = data[15];
+                }
+            }else if(data[2] = 0x0A){   //输出过载测试
+                if(data[15] == 0x06){
+                    worksheet.Range["O111"].Value = this.textBox4.Text;
+                    worksheet.Range["M111"].Value = data[15];
+                }
+            }else if(data[2] = 0x0B){   //输出过流测试
+                if(data[15] == 0x05){
+                    worksheet.Range["O112"].Value = this.textBox4.Text;
+                    worksheet.Range["M112"].Value = data[15];
+                }
+            }else if(data[2] == 0x0C){  //短路测试
+                if(data[15] == 0x05){
+                    worksheet.Range["N113:O113"].Value = data[15];
+                }
             }
 
             // else if(data[2] == 0x61){
