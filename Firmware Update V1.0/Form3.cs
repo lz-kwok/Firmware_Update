@@ -110,7 +110,7 @@ namespace Firmware_Update_V1._0
             }
             else if (dat == 0x07)
             {
-                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Green;
                 this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Green;
                 this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Green;
                 this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
@@ -119,7 +119,7 @@ namespace Firmware_Update_V1._0
             }
             else if (dat == 0x08)
             {
-                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q1_3.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_4.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_5.Properties.Appearance.BackColor = System.Drawing.Color.Red;
                 this.Q1_6.Properties.Appearance.BackColor = System.Drawing.Color.Red;
@@ -136,17 +136,21 @@ namespace Firmware_Update_V1._0
             }
             else if (dat == 0x0B)
             {
-                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q2_1.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             }
             else if (dat == 0x0C)
             {
-                this.Q2_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q2_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             }
             else if (dat == 0x0D) {
                 this.Q1_0.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Green;
+                this.Q2_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             }
             else if (dat == 0x0E) {
                 this.Q1_0.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.Q2_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+                this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             }
         }
 
@@ -261,7 +265,7 @@ namespace Firmware_Update_V1._0
             }
             else
             {
-                this.textBox4.Text = data[9].ToString() + "." + data[10].ToString();
+                this.textBox4.Text =  data[9].ToString() + "." + data[10].ToString();
             }
 
             //电位差显示
@@ -269,14 +273,7 @@ namespace Firmware_Update_V1._0
             byte delta_v_l = (byte)(data[16] % 10);
             string delta_v = delta_v_h.ToString() + "." +delta_v_l.ToString();
 
-            if (data[12] < 10)      //交流电源频率显示
-            {
-                this.textBox5.Text = data[11].ToString() + ".0" + data[12].ToString();
-            }
-            else
-            {
-                this.textBox5.Text = data[11].ToString() + "." + data[12].ToString();
-            }
+            this.textBox5.Text = data[12].ToString();
 
             if (data[14] < 10)      //输出效率显示
             {
@@ -329,12 +326,12 @@ namespace Firmware_Update_V1._0
                 worksheet.Range["P106"].Value = delta_v;
             }else if(data[2] == 0x08){   //输入欠压测试
                 if(data[15] == 0x02){
-                    worksheet.Range["I107:K108"].Value = this.textBox3.Text;
+                    worksheet.Range["I107:K108"].Value = this.textBox2.Text;
                     worksheet.Range["N107:O108"].Value = data[15];
                 }
             }else if(data[2] == 0x09){   //输入过压测试
                 if(data[15] == 0x01){
-                    worksheet.Range["I109:K110"].Value = this.textBox3.Text;
+                    worksheet.Range["I109:K110"].Value = this.textBox2.Text;
                     worksheet.Range["N109:O110"].Value = data[15];
                 }
             }else if(data[2] == 0x0A){   //输出过载测试
@@ -1248,6 +1245,31 @@ namespace Firmware_Update_V1._0
             {
                 MessageBox.Show("串口通讯错误", "错误");
             }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEdit1_EditValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fault_1_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

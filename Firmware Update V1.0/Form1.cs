@@ -103,7 +103,7 @@ namespace Firmware_Update_V1._0
                         handshakingcbx.Text);
                     openCloseSpbtn.Text = "断开连接";
                     update_button.Enabled = false;                  //“升级固件”禁按
-                    reset_button.Enabled = true;                   //“复位终端”禁按
+                    reset_button.Enabled = false;                   //“复位终端”禁按
                     query_mode_button.Enabled = true;               //“查询终端”可按
                 }
                 else
