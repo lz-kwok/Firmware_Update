@@ -178,10 +178,7 @@ namespace Firmware_Update_V1._0
         public static bool CMD_Reset = true, CMD_EraseEnd = true, CMD_Firmware = true;
         public static bool CMD_EraseBegin = true, CMD_Send = true, CMD_Done = true;
         byte[] SendTxtBytes = new byte[16];
-        int SendCnt = 0, j = 0;
-        byte SendTemp, CharTemp;
-        byte SendByteTemp;
-        bool AddrFlag = false;
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             byte[] SendBytes = new byte[10];
@@ -335,6 +332,11 @@ namespace Firmware_Update_V1._0
         }
 
         private void separatorControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

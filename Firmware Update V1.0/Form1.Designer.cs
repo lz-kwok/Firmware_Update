@@ -68,6 +68,10 @@
             this.sendtbx = new System.Windows.Forms.TextBox();
             this.receivetbx = new System.Windows.Forms.TextBox();
             this.handshakingcbx = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.串口设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.串口设置ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.固件升级ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,6 +80,7 @@
             this.sidePanel1.SuspendLayout();
             this.sidePanel4.SuspendLayout();
             this.sidePanel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -291,11 +296,13 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
+            this.radioButton4.Checked = true;
             this.radioButton4.Location = new System.Drawing.Point(3, 21);
             this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(95, 16);
             this.radioButton4.TabIndex = 1;
+            this.radioButton4.TabStop = true;
             this.radioButton4.Text = "十六进制接收";
             this.radioButton4.UseVisualStyleBackColor = true;
             this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
@@ -303,7 +310,6 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
             this.radioButton3.Location = new System.Drawing.Point(3, 2);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
@@ -392,6 +398,7 @@
             this.textBox4.Size = new System.Drawing.Size(66, 21);
             this.textBox4.TabIndex = 30;
             this.textBox4.Text = "1";
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -413,6 +420,7 @@
             this.checkBox2.TabIndex = 28;
             this.checkBox2.Text = "自动发送";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // query_mode_button
             // 
@@ -448,9 +456,9 @@
             // 
             this.sidePanel1.Controls.Add(this.sidePanel4);
             this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sidePanel1.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel1.Location = new System.Drawing.Point(0, 25);
             this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(610, 444);
+            this.sidePanel1.Size = new System.Drawing.Size(610, 447);
             this.sidePanel1.TabIndex = 39;
             this.sidePanel1.Text = "sidePanel1";
             // 
@@ -474,7 +482,7 @@
             this.sidePanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel4.Location = new System.Drawing.Point(0, 0);
             this.sidePanel4.Name = "sidePanel4";
-            this.sidePanel4.Size = new System.Drawing.Size(610, 444);
+            this.sidePanel4.Size = new System.Drawing.Size(610, 447);
             this.sidePanel4.TabIndex = 26;
             this.sidePanel4.Text = "sidePanel4";
             // 
@@ -485,7 +493,7 @@
             this.sidePanel2.Controls.Add(this.update_button);
             this.sidePanel2.Controls.Add(this.query_mode_button);
             this.sidePanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sidePanel2.Location = new System.Drawing.Point(0, 375);
+            this.sidePanel2.Location = new System.Drawing.Point(0, 378);
             this.sidePanel2.Name = "sidePanel2";
             this.sidePanel2.Size = new System.Drawing.Size(610, 69);
             this.sidePanel2.TabIndex = 25;
@@ -544,15 +552,50 @@
             this.handshakingcbx.TabIndex = 29;
             this.handshakingcbx.SelectedIndexChanged += new System.EventHandler(this.handshakingcbx_SelectedIndexChanged);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.串口设置ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(610, 25);
+            this.menuStrip1.TabIndex = 40;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 串口设置ToolStripMenuItem
+            // 
+            this.串口设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.串口设置ToolStripMenuItem1,
+            this.固件升级ToolStripMenuItem});
+            this.串口设置ToolStripMenuItem.Name = "串口设置ToolStripMenuItem";
+            this.串口设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.串口设置ToolStripMenuItem.Text = "设置";
+            this.串口设置ToolStripMenuItem.Click += new System.EventHandler(this.串口设置ToolStripMenuItem_Click);
+            // 
+            // 串口设置ToolStripMenuItem1
+            // 
+            this.串口设置ToolStripMenuItem1.Name = "串口设置ToolStripMenuItem1";
+            this.串口设置ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.串口设置ToolStripMenuItem1.Text = "串口设置";
+            this.串口设置ToolStripMenuItem1.Click += new System.EventHandler(this.串口设置ToolStripMenuItem1_Click);
+            // 
+            // 固件升级ToolStripMenuItem
+            // 
+            this.固件升级ToolStripMenuItem.Name = "固件升级ToolStripMenuItem";
+            this.固件升级ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.固件升级ToolStripMenuItem.Text = "固件升级";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(610, 444);
+            this.ClientSize = new System.Drawing.Size(610, 472);
             this.Controls.Add(this.sidePanel1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -575,7 +618,10 @@
             this.sidePanel4.PerformLayout();
             this.sidePanel2.ResumeLayout(false);
             this.sidePanel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -620,6 +666,10 @@
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private System.Windows.Forms.TextBox firmware_version;
         private System.Windows.Forms.ComboBox handshakingcbx;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 串口设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 串口设置ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 固件升级ToolStripMenuItem;
     }
 }
 

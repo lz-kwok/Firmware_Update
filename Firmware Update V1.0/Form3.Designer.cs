@@ -29,27 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.ac_volt = new System.Windows.Forms.TextBox();
+            this.efficient = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.ac_freq = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ac_current = new System.Windows.Forms.TextBox();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dc_volt = new System.Windows.Forms.TextBox();
+            this.dc_current = new System.Windows.Forms.TextBox();
             this.spreadsheetControl1 = new DevExpress.XtraSpreadsheet.SpreadsheetControl();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
-            this.fault_1 = new DevExpress.XtraEditors.TextEdit();
+            this.errorCode = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Fault_3 = new DevExpress.XtraEditors.TextEdit();
+            this.Fault_2 = new DevExpress.XtraEditors.TextEdit();
+            this.Fault_1 = new DevExpress.XtraEditors.TextEdit();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.S = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.Q2_1 = new DevExpress.XtraEditors.TextEdit();
@@ -69,50 +77,32 @@
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit5 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.Main_Button = new DevExpress.XtraEditors.SimpleButton();
-            this.Load_Reverse_Button = new DevExpress.XtraEditors.SimpleButton();
-            this.Load_Short_Circuit_Button = new DevExpress.XtraEditors.SimpleButton();
-            this.OverLoad_Button = new DevExpress.XtraEditors.SimpleButton();
-            this.Power3_0Button = new DevExpress.XtraEditors.SimpleButton();
-            this.Power1_5Button = new DevExpress.XtraEditors.SimpleButton();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.原始电压 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.实测电压 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.电压标定 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.原始电流 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.实测电流 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.标定电流 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.checkEdit15 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit14 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit13 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit12 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit6 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit7 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit8 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit9 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit10 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit11 = new DevExpress.XtraEditors.CheckEdit();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.测试项目 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.是否测试 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.测试结果 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.打开主接触器 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.打开直流电源 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.全选 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.启动测试 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.sidePanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.sidePanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fault_1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fault_3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fault_2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fault_1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Q1_5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_0.Properties)).BeginInit();
@@ -129,24 +119,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabNavigationPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabNavigationPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit15.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit14.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit13.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit12.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit10.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit11.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -166,12 +146,12 @@
             // 
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.ac_volt);
+            this.groupBox1.Controls.Add(this.efficient);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.ac_freq);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.ac_current);
             this.groupBox1.Location = new System.Drawing.Point(300, 9);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(648, 50);
@@ -201,23 +181,21 @@
             this.label6.TabIndex = 39;
             this.label6.Text = "Hz";
             // 
-            // textBox3
+            // ac_volt
             // 
-            this.textBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(4, 20);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(138, 26);
-            this.textBox3.TabIndex = 34;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.ac_volt.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ac_volt.Location = new System.Drawing.Point(4, 20);
+            this.ac_volt.Name = "ac_volt";
+            this.ac_volt.Size = new System.Drawing.Size(138, 26);
+            this.ac_volt.TabIndex = 34;
             // 
-            // textBox6
+            // efficient
             // 
-            this.textBox6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox6.Location = new System.Drawing.Point(497, 20);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(126, 26);
-            this.textBox6.TabIndex = 38;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.efficient.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.efficient.Location = new System.Drawing.Point(497, 20);
+            this.efficient.Name = "efficient";
+            this.efficient.Size = new System.Drawing.Size(126, 26);
+            this.efficient.TabIndex = 38;
             // 
             // label5
             // 
@@ -230,14 +208,13 @@
             this.label5.TabIndex = 34;
             this.label5.Text = "V";
             // 
-            // textBox5
+            // ac_freq
             // 
-            this.textBox5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox5.Location = new System.Drawing.Point(331, 20);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(129, 26);
-            this.textBox5.TabIndex = 37;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.ac_freq.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ac_freq.Location = new System.Drawing.Point(331, 20);
+            this.ac_freq.Name = "ac_freq";
+            this.ac_freq.Size = new System.Drawing.Size(129, 26);
+            this.ac_freq.TabIndex = 37;
             // 
             // label4
             // 
@@ -250,14 +227,13 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "A";
             // 
-            // textBox4
+            // ac_current
             // 
-            this.textBox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(160, 20);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(149, 26);
-            this.textBox4.TabIndex = 36;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.ac_current.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ac_current.Location = new System.Drawing.Point(160, 20);
+            this.ac_current.Name = "ac_current";
+            this.ac_current.Size = new System.Drawing.Size(149, 26);
+            this.ac_current.TabIndex = 36;
             // 
             // simpleButton4
             // 
@@ -289,23 +265,21 @@
             this.simpleButton1.Text = "另存为";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // textBox2
+            // dc_volt
             // 
-            this.textBox2.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(20, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(110, 35);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.dc_volt.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dc_volt.Location = new System.Drawing.Point(20, 136);
+            this.dc_volt.Name = "dc_volt";
+            this.dc_volt.Size = new System.Drawing.Size(110, 35);
+            this.dc_volt.TabIndex = 8;
             // 
-            // textBox1
+            // dc_current
             // 
-            this.textBox1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(175, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(110, 35);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.dc_current.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dc_current.Location = new System.Drawing.Point(175, 136);
+            this.dc_current.Name = "dc_current";
+            this.dc_current.Size = new System.Drawing.Size(110, 35);
+            this.dc_current.TabIndex = 7;
             // 
             // spreadsheetControl1
             // 
@@ -320,22 +294,22 @@
             // 
             // sidePanel3
             // 
-            this.sidePanel3.Controls.Add(this.textBox7);
+            this.sidePanel3.Controls.Add(this.errorCode);
             this.sidePanel3.Controls.Add(this.label9);
-            this.sidePanel3.Controls.Add(this.textEdit4);
-            this.sidePanel3.Controls.Add(this.textEdit3);
-            this.sidePanel3.Controls.Add(this.fault_1);
+            this.sidePanel3.Controls.Add(this.Fault_3);
+            this.sidePanel3.Controls.Add(this.Fault_2);
+            this.sidePanel3.Controls.Add(this.Fault_1);
             this.sidePanel3.Controls.Add(this.separatorControl1);
             this.sidePanel3.Controls.Add(this.splitterControl1);
-            this.sidePanel3.Controls.Add(this.textEdit1);
+            this.sidePanel3.Controls.Add(this.S);
             this.sidePanel3.Controls.Add(this.label3);
             this.sidePanel3.Controls.Add(this.label7);
             this.sidePanel3.Controls.Add(this.Q2_1);
             this.sidePanel3.Controls.Add(this.label2);
             this.sidePanel3.Controls.Add(this.Q1_5);
             this.sidePanel3.Controls.Add(this.Q2_0);
-            this.sidePanel3.Controls.Add(this.textBox1);
-            this.sidePanel3.Controls.Add(this.textBox2);
+            this.sidePanel3.Controls.Add(this.dc_current);
+            this.sidePanel3.Controls.Add(this.dc_volt);
             this.sidePanel3.Controls.Add(this.Q1_3);
             this.sidePanel3.Controls.Add(this.Q1_9);
             this.sidePanel3.Controls.Add(this.label1);
@@ -353,21 +327,70 @@
             this.sidePanel3.TabIndex = 0;
             this.sidePanel3.Text = "sidePanel3";
             // 
-            // fault_1
+            // errorCode
             // 
-            this.fault_1.EditValue = "fault_1";
-            this.fault_1.Location = new System.Drawing.Point(352, 36);
-            this.fault_1.Name = "fault_1";
-            this.fault_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
-            this.fault_1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fault_1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.fault_1.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.fault_1.Properties.Appearance.Options.UseBackColor = true;
-            this.fault_1.Properties.Appearance.Options.UseFont = true;
-            this.fault_1.Properties.Appearance.Options.UseForeColor = true;
-            this.fault_1.Size = new System.Drawing.Size(68, 30);
-            this.fault_1.TabIndex = 37;
-            this.fault_1.EditValueChanged += new System.EventHandler(this.fault_1_EditValueChanged);
+            this.errorCode.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.errorCode.Location = new System.Drawing.Point(352, 138);
+            this.errorCode.Name = "errorCode";
+            this.errorCode.Size = new System.Drawing.Size(68, 29);
+            this.errorCode.TabIndex = 41;
+            this.errorCode.TextChanged += new System.EventHandler(this.errorCode_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(338, 10);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 20);
+            this.label9.TabIndex = 40;
+            this.label9.Text = "故障状态";
+            // 
+            // Fault_3
+            // 
+            this.Fault_3.EditValue = "Fault_3";
+            this.Fault_3.Location = new System.Drawing.Point(352, 102);
+            this.Fault_3.Name = "Fault_3";
+            this.Fault_3.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Fault_3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fault_3.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Fault_3.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.Fault_3.Properties.Appearance.Options.UseBackColor = true;
+            this.Fault_3.Properties.Appearance.Options.UseFont = true;
+            this.Fault_3.Properties.Appearance.Options.UseForeColor = true;
+            this.Fault_3.Size = new System.Drawing.Size(68, 30);
+            this.Fault_3.TabIndex = 39;
+            // 
+            // Fault_2
+            // 
+            this.Fault_2.EditValue = "Fault_2";
+            this.Fault_2.Location = new System.Drawing.Point(352, 69);
+            this.Fault_2.Name = "Fault_2";
+            this.Fault_2.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Fault_2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fault_2.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Fault_2.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.Fault_2.Properties.Appearance.Options.UseBackColor = true;
+            this.Fault_2.Properties.Appearance.Options.UseFont = true;
+            this.Fault_2.Properties.Appearance.Options.UseForeColor = true;
+            this.Fault_2.Size = new System.Drawing.Size(68, 30);
+            this.Fault_2.TabIndex = 38;
+            // 
+            // Fault_1
+            // 
+            this.Fault_1.EditValue = "Fault_1";
+            this.Fault_1.Location = new System.Drawing.Point(352, 36);
+            this.Fault_1.Name = "Fault_1";
+            this.Fault_1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.Fault_1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fault_1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Fault_1.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.Fault_1.Properties.Appearance.Options.UseBackColor = true;
+            this.Fault_1.Properties.Appearance.Options.UseFont = true;
+            this.Fault_1.Properties.Appearance.Options.UseForeColor = true;
+            this.Fault_1.Size = new System.Drawing.Size(68, 30);
+            this.Fault_1.TabIndex = 37;
             // 
             // separatorControl1
             // 
@@ -385,21 +408,20 @@
             this.splitterControl1.TabIndex = 35;
             this.splitterControl1.TabStop = false;
             // 
-            // textEdit1
+            // S
             // 
-            this.textEdit1.EditValue = "S";
-            this.textEdit1.Location = new System.Drawing.Point(288, 38);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Red;
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.textEdit1.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.textEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit1.Size = new System.Drawing.Size(28, 48);
-            this.textEdit1.TabIndex = 34;
-            this.textEdit1.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged_1);
+            this.S.EditValue = "S";
+            this.S.Location = new System.Drawing.Point(288, 38);
+            this.S.Name = "S";
+            this.S.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.S.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.S.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.S.Properties.Appearance.Options.UseBackColor = true;
+            this.S.Properties.Appearance.Options.UseFont = true;
+            this.S.Properties.Appearance.Options.UseForeColor = true;
+            this.S.Size = new System.Drawing.Size(28, 48);
+            this.S.TabIndex = 34;
             // 
             // label3
             // 
@@ -611,404 +633,195 @@
             this.tabNavigationPage1,
             this.tabNavigationPage2});
             this.tabPane1.RegularSize = new System.Drawing.Size(444, 350);
-            this.tabPane1.SelectedPage = this.tabNavigationPage1;
+            this.tabPane1.SelectedPage = this.tabNavigationPage2;
             this.tabPane1.Size = new System.Drawing.Size(444, 350);
             this.tabPane1.TabIndex = 6;
             this.tabPane1.Text = "tabPane1";
+            this.tabPane1.Click += new System.EventHandler(this.tabPane1_Click);
             // 
             // tabNavigationPage1
             // 
-            this.tabNavigationPage1.Caption = "手动测试";
-            this.tabNavigationPage1.Controls.Add(this.simpleButton15);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton14);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton13);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton12);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton11);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton10);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton9);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton8);
-            this.tabNavigationPage1.Controls.Add(this.checkEdit5);
-            this.tabNavigationPage1.Controls.Add(this.checkEdit4);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton7);
-            this.tabNavigationPage1.Controls.Add(this.simpleButton6);
-            this.tabNavigationPage1.Controls.Add(this.checkEdit3);
-            this.tabNavigationPage1.Controls.Add(this.checkEdit2);
-            this.tabNavigationPage1.Controls.Add(this.checkEdit1);
-            this.tabNavigationPage1.Controls.Add(this.Main_Button);
-            this.tabNavigationPage1.Controls.Add(this.Load_Reverse_Button);
-            this.tabNavigationPage1.Controls.Add(this.Load_Short_Circuit_Button);
-            this.tabNavigationPage1.Controls.Add(this.OverLoad_Button);
-            this.tabNavigationPage1.Controls.Add(this.Power3_0Button);
-            this.tabNavigationPage1.Controls.Add(this.Power1_5Button);
+            this.tabNavigationPage1.Caption = "标定页面";
+            this.tabNavigationPage1.Controls.Add(this.dataGridView3);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(426, 304);
             // 
-            // simpleButton15
+            // dataGridView3
             // 
-            this.simpleButton15.Location = new System.Drawing.Point(284, 191);
-            this.simpleButton15.Name = "simpleButton15";
-            this.simpleButton15.Size = new System.Drawing.Size(131, 31);
-            this.simpleButton15.TabIndex = 21;
-            this.simpleButton15.Text = "信号触点测试";
-            this.simpleButton15.Click += new System.EventHandler(this.simpleButton15_Click);
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.原始电压,
+            this.实测电压,
+            this.电压标定,
+            this.原始电流,
+            this.实测电流,
+            this.标定电流});
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 23;
+            this.dataGridView3.Size = new System.Drawing.Size(426, 304);
+            this.dataGridView3.TabIndex = 0;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
-            // simpleButton14
+            // 原始电压
             // 
-            this.simpleButton14.Location = new System.Drawing.Point(147, 191);
-            this.simpleButton14.Name = "simpleButton14";
-            this.simpleButton14.Size = new System.Drawing.Size(131, 31);
-            this.simpleButton14.TabIndex = 20;
-            this.simpleButton14.Text = "启动时间测试";
-            this.simpleButton14.Click += new System.EventHandler(this.simpleButton14_Click);
+            this.原始电压.HeaderText = "原始电压";
+            this.原始电压.Name = "原始电压";
+            this.原始电压.Width = 80;
             // 
-            // simpleButton13
+            // 实测电压
             // 
-            this.simpleButton13.Location = new System.Drawing.Point(12, 154);
-            this.simpleButton13.Name = "simpleButton13";
-            this.simpleButton13.Size = new System.Drawing.Size(131, 31);
-            this.simpleButton13.TabIndex = 19;
-            this.simpleButton13.Text = "过流测试";
-            this.simpleButton13.Click += new System.EventHandler(this.simpleButton13_Click);
+            this.实测电压.HeaderText = "实测电压";
+            this.实测电压.Name = "实测电压";
+            this.实测电压.Width = 80;
             // 
-            // simpleButton12
+            // 电压标定
             // 
-            this.simpleButton12.Location = new System.Drawing.Point(284, 6);
-            this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.Size = new System.Drawing.Size(131, 30);
-            this.simpleButton12.TabIndex = 18;
-            this.simpleButton12.Text = "效率测试";
-            this.simpleButton12.Click += new System.EventHandler(this.simpleButton12_Click);
+            this.电压标定.HeaderText = "电压标定";
+            this.电压标定.Name = "电压标定";
+            this.电压标定.Width = 80;
             // 
-            // simpleButton11
+            // 原始电流
             // 
-            this.simpleButton11.Location = new System.Drawing.Point(12, 191);
-            this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.Size = new System.Drawing.Size(131, 31);
-            this.simpleButton11.TabIndex = 17;
-            this.simpleButton11.Text = "启动信号试验";
-            this.simpleButton11.Click += new System.EventHandler(this.simpleButton11_Click);
+            this.原始电流.HeaderText = "原始电流";
+            this.原始电流.Name = "原始电流";
+            this.原始电流.Width = 80;
             // 
-            // simpleButton10
+            // 实测电流
             // 
-            this.simpleButton10.Location = new System.Drawing.Point(147, 116);
-            this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.Size = new System.Drawing.Size(131, 31);
-            this.simpleButton10.TabIndex = 16;
-            this.simpleButton10.Text = "输入过压保护测试";
-            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
+            this.实测电流.HeaderText = "实测电流";
+            this.实测电流.Name = "实测电流";
+            this.实测电流.Width = 80;
             // 
-            // simpleButton9
+            // 标定电流
             // 
-            this.simpleButton9.Location = new System.Drawing.Point(12, 116);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.Size = new System.Drawing.Size(131, 31);
-            this.simpleButton9.TabIndex = 15;
-            this.simpleButton9.Text = "输入欠压保护测试";
-            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
-            // 
-            // simpleButton8
-            // 
-            this.simpleButton8.Location = new System.Drawing.Point(11, 42);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(131, 31);
-            this.simpleButton8.TabIndex = 14;
-            this.simpleButton8.Text = "0KW 功率测试";
-            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
-            // 
-            // checkEdit5
-            // 
-            this.checkEdit5.Location = new System.Drawing.Point(364, 86);
-            this.checkEdit5.Name = "checkEdit5";
-            this.checkEdit5.Properties.Caption = "142V";
-            this.checkEdit5.Size = new System.Drawing.Size(51, 19);
-            this.checkEdit5.TabIndex = 13;
-            this.checkEdit5.CheckedChanged += new System.EventHandler(this.checkEdit5_CheckedChanged);
-            // 
-            // checkEdit4
-            // 
-            this.checkEdit4.Location = new System.Drawing.Point(148, 86);
-            this.checkEdit4.Name = "checkEdit4";
-            this.checkEdit4.Properties.Caption = "70V";
-            this.checkEdit4.Size = new System.Drawing.Size(45, 19);
-            this.checkEdit4.TabIndex = 12;
-            this.checkEdit4.CheckedChanged += new System.EventHandler(this.checkEdit4_CheckedChanged);
-            // 
-            // simpleButton7
-            // 
-            this.simpleButton7.Location = new System.Drawing.Point(11, 80);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(131, 30);
-            this.simpleButton7.TabIndex = 11;
-            this.simpleButton7.Text = "源效应电压设置";
-            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
-            // 
-            // simpleButton6
-            // 
-            this.simpleButton6.Location = new System.Drawing.Point(147, 6);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(131, 30);
-            this.simpleButton6.TabIndex = 10;
-            this.simpleButton6.Text = "打开DPSP直流电源";
-            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
-            // 
-            // checkEdit3
-            // 
-            this.checkEdit3.Location = new System.Drawing.Point(297, 86);
-            this.checkEdit3.Name = "checkEdit3";
-            this.checkEdit3.Properties.Caption = "137.5V";
-            this.checkEdit3.Size = new System.Drawing.Size(67, 19);
-            this.checkEdit3.TabIndex = 9;
-            this.checkEdit3.CheckedChanged += new System.EventHandler(this.checkEdit3_CheckedChanged);
-            // 
-            // checkEdit2
-            // 
-            this.checkEdit2.Location = new System.Drawing.Point(241, 86);
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Caption = "110V";
-            this.checkEdit2.Size = new System.Drawing.Size(56, 19);
-            this.checkEdit2.TabIndex = 8;
-            this.checkEdit2.CheckedChanged += new System.EventHandler(this.checkEdit2_CheckedChanged);
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(193, 86);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "77V";
-            this.checkEdit1.Size = new System.Drawing.Size(48, 19);
-            this.checkEdit1.TabIndex = 7;
-            this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
-            // 
-            // Main_Button
-            // 
-            this.Main_Button.Location = new System.Drawing.Point(11, 5);
-            this.Main_Button.Name = "Main_Button";
-            this.Main_Button.Size = new System.Drawing.Size(131, 31);
-            this.Main_Button.TabIndex = 6;
-            this.Main_Button.Text = "主接触器打开";
-            this.Main_Button.Click += new System.EventHandler(this.Main_Button_Click);
-            // 
-            // Load_Reverse_Button
-            // 
-            this.Load_Reverse_Button.Location = new System.Drawing.Point(284, 154);
-            this.Load_Reverse_Button.Name = "Load_Reverse_Button";
-            this.Load_Reverse_Button.Size = new System.Drawing.Size(131, 31);
-            this.Load_Reverse_Button.TabIndex = 4;
-            this.Load_Reverse_Button.Text = "反接测试";
-            this.Load_Reverse_Button.Click += new System.EventHandler(this.Load_Reverse_Button_Click);
-            // 
-            // Load_Short_Circuit_Button
-            // 
-            this.Load_Short_Circuit_Button.Location = new System.Drawing.Point(148, 154);
-            this.Load_Short_Circuit_Button.Name = "Load_Short_Circuit_Button";
-            this.Load_Short_Circuit_Button.Size = new System.Drawing.Size(131, 31);
-            this.Load_Short_Circuit_Button.TabIndex = 3;
-            this.Load_Short_Circuit_Button.Text = "短路测试";
-            this.Load_Short_Circuit_Button.Click += new System.EventHandler(this.Load_Short_Circuit_Button_Click);
-            // 
-            // OverLoad_Button
-            // 
-            this.OverLoad_Button.Location = new System.Drawing.Point(283, 116);
-            this.OverLoad_Button.Name = "OverLoad_Button";
-            this.OverLoad_Button.Size = new System.Drawing.Size(131, 31);
-            this.OverLoad_Button.TabIndex = 2;
-            this.OverLoad_Button.Text = "过载测试";
-            this.OverLoad_Button.Click += new System.EventHandler(this.OverLoad_Button_Click);
-            // 
-            // Power3_0Button
-            // 
-            this.Power3_0Button.Location = new System.Drawing.Point(283, 42);
-            this.Power3_0Button.Name = "Power3_0Button";
-            this.Power3_0Button.Size = new System.Drawing.Size(131, 31);
-            this.Power3_0Button.TabIndex = 1;
-            this.Power3_0Button.Text = "3KW 功率测试";
-            this.Power3_0Button.Click += new System.EventHandler(this.Power3_0Button_Click);
-            // 
-            // Power1_5Button
-            // 
-            this.Power1_5Button.Location = new System.Drawing.Point(147, 42);
-            this.Power1_5Button.Name = "Power1_5Button";
-            this.Power1_5Button.Size = new System.Drawing.Size(131, 31);
-            this.Power1_5Button.TabIndex = 0;
-            this.Power1_5Button.Text = "1.5KW 功率测试";
-            this.Power1_5Button.Click += new System.EventHandler(this.Power1_5Button_Click);
+            this.标定电流.HeaderText = "标定电流";
+            this.标定电流.Name = "标定电流";
+            this.标定电流.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.标定电流.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.标定电流.Width = 80;
             // 
             // tabNavigationPage2
             // 
             this.tabNavigationPage2.Caption = "自动测试";
-            this.tabNavigationPage2.Controls.Add(this.checkEdit15);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit14);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit13);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit12);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit6);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit7);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit8);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit9);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit10);
-            this.tabNavigationPage2.Controls.Add(this.checkEdit11);
-            this.tabNavigationPage2.Controls.Add(this.simpleButton5);
-            this.tabNavigationPage2.Controls.Add(this.simpleButton2);
+            this.tabNavigationPage2.Controls.Add(this.splitContainer1);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
             this.tabNavigationPage2.Size = new System.Drawing.Size(426, 304);
             // 
-            // checkEdit15
+            // splitContainer1
             // 
-            this.checkEdit15.Location = new System.Drawing.Point(116, 230);
-            this.checkEdit15.Name = "checkEdit15";
-            this.checkEdit15.Properties.Caption = "启动信号试验";
-            this.checkEdit15.Size = new System.Drawing.Size(112, 19);
-            this.checkEdit15.TabIndex = 15;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // checkEdit14
+            // splitContainer1.Panel1
             // 
-            this.checkEdit14.Location = new System.Drawing.Point(116, 205);
-            this.checkEdit14.Name = "checkEdit14";
-            this.checkEdit14.Properties.Caption = "输入反接保护";
-            this.checkEdit14.Size = new System.Drawing.Size(112, 19);
-            this.checkEdit14.TabIndex = 14;
-            this.checkEdit14.CheckedChanged += new System.EventHandler(this.checkEdit14_CheckedChanged);
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
             // 
-            // checkEdit13
+            // splitContainer1.Panel2
             // 
-            this.checkEdit13.Location = new System.Drawing.Point(116, 180);
-            this.checkEdit13.Name = "checkEdit13";
-            this.checkEdit13.Properties.Caption = "输出短路试验";
-            this.checkEdit13.Size = new System.Drawing.Size(112, 19);
-            this.checkEdit13.TabIndex = 13;
-            this.checkEdit13.CheckedChanged += new System.EventHandler(this.checkEdit13_CheckedChanged);
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(426, 304);
+            this.splitContainer1.SplitterDistance = 239;
+            this.splitContainer1.TabIndex = 18;
             // 
-            // checkEdit12
+            // dataGridView1
             // 
-            this.checkEdit12.Location = new System.Drawing.Point(116, 155);
-            this.checkEdit12.Name = "checkEdit12";
-            this.checkEdit12.Properties.Caption = "输出过流保护";
-            this.checkEdit12.Size = new System.Drawing.Size(112, 19);
-            this.checkEdit12.TabIndex = 12;
-            this.checkEdit12.CheckedChanged += new System.EventHandler(this.checkEdit12_CheckedChanged);
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.测试项目,
+            this.是否测试,
+            this.测试结果});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(426, 239);
+            this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // checkEdit6
+            // 测试项目
             // 
-            this.checkEdit6.Location = new System.Drawing.Point(12, 155);
-            this.checkEdit6.Name = "checkEdit6";
-            this.checkEdit6.Properties.Caption = "负载效应";
-            this.checkEdit6.Size = new System.Drawing.Size(75, 19);
-            this.checkEdit6.TabIndex = 11;
-            this.checkEdit6.CheckedChanged += new System.EventHandler(this.checkEdit6_CheckedChanged);
+            this.测试项目.HeaderText = "测试项目";
+            this.测试项目.Name = "测试项目";
+            this.测试项目.Width = 200;
             // 
-            // checkEdit7
+            // 是否测试
             // 
-            this.checkEdit7.Location = new System.Drawing.Point(12, 180);
-            this.checkEdit7.Name = "checkEdit7";
-            this.checkEdit7.Properties.Caption = "效率测试";
-            this.checkEdit7.Size = new System.Drawing.Size(75, 19);
-            this.checkEdit7.TabIndex = 10;
-            this.checkEdit7.CheckedChanged += new System.EventHandler(this.checkEdit7_CheckedChanged);
+            this.是否测试.HeaderText = "是否测试";
+            this.是否测试.Name = "是否测试";
+            this.是否测试.Width = 85;
             // 
-            // checkEdit8
+            // 测试结果
             // 
-            this.checkEdit8.Location = new System.Drawing.Point(12, 205);
-            this.checkEdit8.Name = "checkEdit8";
-            this.checkEdit8.Properties.Caption = "源效应测试";
-            this.checkEdit8.Size = new System.Drawing.Size(85, 19);
-            this.checkEdit8.TabIndex = 9;
-            this.checkEdit8.CheckedChanged += new System.EventHandler(this.checkEdit8_CheckedChanged);
+            this.测试结果.HeaderText = "测试结果";
+            this.测试结果.Name = "测试结果";
             // 
-            // checkEdit9
+            // dataGridView2
             // 
-            this.checkEdit9.Location = new System.Drawing.Point(11, 230);
-            this.checkEdit9.Name = "checkEdit9";
-            this.checkEdit9.Properties.Caption = "输入欠压保护";
-            this.checkEdit9.Size = new System.Drawing.Size(102, 19);
-            this.checkEdit9.TabIndex = 8;
-            this.checkEdit9.CheckedChanged += new System.EventHandler(this.checkEdit9_CheckedChanged);
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.打开主接触器,
+            this.打开直流电源,
+            this.全选,
+            this.启动测试});
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(426, 61);
+            this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // checkEdit10
+            // 打开主接触器
             // 
-            this.checkEdit10.Location = new System.Drawing.Point(11, 255);
-            this.checkEdit10.Name = "checkEdit10";
-            this.checkEdit10.Properties.Caption = "输入过压保护";
-            this.checkEdit10.Size = new System.Drawing.Size(99, 19);
-            this.checkEdit10.TabIndex = 7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.NullValue = "打开主接触器";
+            this.打开主接触器.DefaultCellStyle = dataGridViewCellStyle1;
+            this.打开主接触器.HeaderText = "打开主接触器";
+            this.打开主接触器.Name = "打开主接触器";
+            this.打开主接触器.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.打开主接触器.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.打开主接触器.Text = "打开主接触器";
+            this.打开主接触器.UseColumnTextForButtonValue = true;
             // 
-            // checkEdit11
+            // 打开直流电源
             // 
-            this.checkEdit11.Location = new System.Drawing.Point(11, 280);
-            this.checkEdit11.Name = "checkEdit11";
-            this.checkEdit11.Properties.Caption = "输出过载保护";
-            this.checkEdit11.Size = new System.Drawing.Size(112, 19);
-            this.checkEdit11.TabIndex = 6;
-            this.checkEdit11.CheckedChanged += new System.EventHandler(this.checkEdit11_CheckedChanged);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.NullValue = "打开直流电源";
+            this.打开直流电源.DefaultCellStyle = dataGridViewCellStyle2;
+            this.打开直流电源.HeaderText = "打开直流电源";
+            this.打开直流电源.Name = "打开直流电源";
+            this.打开直流电源.Text = "打开直流电源";
+            this.打开直流电源.UseColumnTextForButtonValue = true;
             // 
-            // simpleButton5
+            // 全选
             // 
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
-            this.simpleButton5.Location = new System.Drawing.Point(12, 76);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(262, 63);
-            this.simpleButton5.TabIndex = 1;
-            this.simpleButton5.Text = "自动化测试->置位";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.NullValue = "全选";
+            this.全选.DefaultCellStyle = dataGridViewCellStyle3;
+            this.全选.HeaderText = "全选";
+            this.全选.Name = "全选";
+            this.全选.Text = "全选";
+            this.全选.UseColumnTextForButtonValue = true;
+            this.全选.Width = 83;
             // 
-            // simpleButton2
+            // 启动测试
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(11, 8);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(262, 63);
-            this.simpleButton2.TabIndex = 0;
-            this.simpleButton2.Text = "自动化测试->开始";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // textEdit3
-            // 
-            this.textEdit3.EditValue = "Fault2";
-            this.textEdit3.Location = new System.Drawing.Point(352, 69);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.BackColor = System.Drawing.Color.Red;
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.textEdit3.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.textEdit3.Properties.Appearance.Options.UseBackColor = true;
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit3.Size = new System.Drawing.Size(68, 30);
-            this.textEdit3.TabIndex = 38;
-            // 
-            // textEdit4
-            // 
-            this.textEdit4.EditValue = "Fault3";
-            this.textEdit4.Location = new System.Drawing.Point(352, 102);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.Appearance.BackColor = System.Drawing.Color.Red;
-            this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit4.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.textEdit4.Properties.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.textEdit4.Properties.Appearance.Options.UseBackColor = true;
-            this.textEdit4.Properties.Appearance.Options.UseFont = true;
-            this.textEdit4.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit4.Size = new System.Drawing.Size(68, 30);
-            this.textEdit4.TabIndex = 39;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(338, 10);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 20);
-            this.label9.TabIndex = 40;
-            this.label9.Text = "故障状态";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox7.Location = new System.Drawing.Point(352, 138);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(68, 29);
-            this.textBox7.TabIndex = 41;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = "启动测试";
+            this.启动测试.DefaultCellStyle = dataGridViewCellStyle4;
+            this.启动测试.HeaderText = "启动测试";
+            this.启动测试.Name = "启动测试";
+            this.启动测试.Text = "启动测试";
+            this.启动测试.UseColumnTextForButtonValue = true;
             // 
             // Form3
             // 
@@ -1031,9 +844,11 @@
             this.groupBox1.PerformLayout();
             this.sidePanel3.ResumeLayout(false);
             this.sidePanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fault_1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fault_3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fault_2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fault_1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Q1_5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Q2_0.Properties)).EndInit();
@@ -1050,24 +865,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
             this.tabNavigationPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabNavigationPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit15.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit14.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit13.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit12.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit10.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit11.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1097,61 +902,45 @@
         private DevExpress.XtraBars.Navigation.TabPane tabPane1;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
-        private DevExpress.XtraEditors.SimpleButton Power1_5Button;
-        private DevExpress.XtraEditors.SimpleButton Power3_0Button;
-        private DevExpress.XtraEditors.SimpleButton OverLoad_Button;
-        private DevExpress.XtraEditors.SimpleButton Load_Short_Circuit_Button;
-        private DevExpress.XtraEditors.SimpleButton Load_Reverse_Button;
-        private DevExpress.XtraEditors.SimpleButton Main_Button;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox dc_current;
+        private System.Windows.Forms.TextBox dc_volt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit2;
-        private DevExpress.XtraEditors.CheckEdit checkEdit3;
-        private DevExpress.XtraEditors.CheckEdit checkEdit4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraEditors.CheckEdit checkEdit5;
-        private DevExpress.XtraEditors.CheckEdit checkEdit6;
-        private DevExpress.XtraEditors.CheckEdit checkEdit7;
-        private DevExpress.XtraEditors.CheckEdit checkEdit8;
-        private DevExpress.XtraEditors.CheckEdit checkEdit9;
-        private DevExpress.XtraEditors.CheckEdit checkEdit10;
-        private DevExpress.XtraEditors.CheckEdit checkEdit11;
-        private DevExpress.XtraEditors.CheckEdit checkEdit12;
-        private DevExpress.XtraEditors.CheckEdit checkEdit13;
-        private DevExpress.XtraEditors.CheckEdit checkEdit15;
-        private DevExpress.XtraEditors.CheckEdit checkEdit14;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton10;
-        private DevExpress.XtraEditors.SimpleButton simpleButton11;
-        private DevExpress.XtraEditors.SimpleButton simpleButton12;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox ac_volt;
+        private System.Windows.Forms.TextBox ac_current;
+        private System.Windows.Forms.TextBox ac_freq;
+        private System.Windows.Forms.TextBox efficient;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton13;
-        private DevExpress.XtraEditors.SimpleButton simpleButton14;
-        private DevExpress.XtraEditors.SimpleButton simpleButton15;
         private System.Windows.Forms.Label label8;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit S;
         private DevExpress.XtraEditors.SplitterControl splitterControl1;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private DevExpress.XtraEditors.TextEdit fault_1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit Fault_1;
+        private DevExpress.XtraEditors.TextEdit Fault_2;
+        private DevExpress.XtraEditors.TextEdit Fault_3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox errorCode;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 测试项目;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn 是否测试;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 测试结果;
+        private System.Windows.Forms.DataGridViewButtonColumn 打开主接触器;
+        private System.Windows.Forms.DataGridViewButtonColumn 打开直流电源;
+        private System.Windows.Forms.DataGridViewButtonColumn 全选;
+        private System.Windows.Forms.DataGridViewButtonColumn 启动测试;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 原始电压;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 实测电压;
+        private System.Windows.Forms.DataGridViewButtonColumn 电压标定;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 原始电流;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 实测电流;
+        private System.Windows.Forms.DataGridViewButtonColumn 标定电流;
 
     }
 }

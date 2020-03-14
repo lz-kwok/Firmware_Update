@@ -39,7 +39,7 @@ namespace Firmware_Update_V1._0
         public static byte SendPeriod;
 
         public static byte[] RecBytes = new byte[32];
-        int RecNum = 0;
+        //int RecNum = 0;
 
         int TimerMScounter = 0;//计时器变量
 
@@ -90,6 +90,11 @@ namespace Firmware_Update_V1._0
                 catch
                 { }
             }
+        }
+
+        public void scan_combox(ComboBox MyBox)
+        {
+            SearchAndAddSerialToComboBox(serialPort1, MyBox);//调用扫描代码
         }
 
         private void openCloseSpbtn_Click(object sender, EventArgs e)//“打开串口”
@@ -219,11 +224,11 @@ namespace Firmware_Update_V1._0
                         firmware_version.Text = "固件版本" + ":\r\n" + result;
                         reset_button.Enabled = true;
                         break;
-                    case 0xfd:
-                        f3.Output_Status_Show(e.receivedBytes[2]);
+                    case 0xf1:
+                        f3.Output_Status_Show(e.receivedBytes);
                         break;
                     case 0xf9:
-                        f3.DPSP1000_Parameter_Display(e.receivedBytes[2], e.receivedBytes[3], e.receivedBytes[4], e.receivedBytes[5], e.receivedBytes[6], e.receivedBytes[7]);
+                        f3.Note_Message(e.receivedBytes);
                         break;
                     case 0xf8:
                         f3.SingleReverse_Parameter_Display(e.receivedBytes[2], e.receivedBytes[3], e.receivedBytes[4], e.receivedBytes[5],e.receivedBytes[6], e.receivedBytes[6]);
@@ -231,11 +236,14 @@ namespace Firmware_Update_V1._0
                     case 0xe0:
                         f3.Spreadsheet_Content_Show(e.receivedBytes);
                         break;
+                    case 0xf0:
+                        f3.calibration_process(e.receivedBytes);
+                        break;
                 }
 
                 //Array.Clear(RecBytes, 0, 32);
                 Array.Clear(e.receivedBytes, 0, e.receivedBytes.Length);
-                RecNum = 0;
+                //RecNum = 0;
             }
 
         }
@@ -363,8 +371,8 @@ namespace Firmware_Update_V1._0
             }
             if (firmware_version.Text == null || firmware_version.Text == "")
             {
-                update_button.Enabled = false;//“升级固件”禁按
-                reset_button.Enabled = false;//“复位终端”禁按
+                update_button.Enabled = false;  //“升级固件”禁按
+                reset_button.Enabled = false;   //“复位终端”禁按
             
      
             }
@@ -484,114 +492,7 @@ namespace Firmware_Update_V1._0
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-
-        private void out_1_0_button_Click(object sender, EventArgs e)
-        {
-            byte[] SendBytes = new byte[8];
-
-            try
-            {
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x01;        //Q1.0
-                SendBytes[2] = 0x00;
-                SendBytes[3] = 0x00;
-                SendBytes[4] = 0x00;
-                SendBytes[5] = 0x00;
-                SendBytes[6] = 0x00;
-                SendBytes[7] = 0x0D;
-                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
-            }
-            catch
-            {
-                MessageBox.Show("串口通讯错误", "错误");
-            }
-        }
-
-        private void out_1_1_button_Click(object sender, EventArgs e)
-        {
-            byte[] SendBytes = new byte[8];
-
-            try
-            {
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x02;        //Q1.1
-                SendBytes[2] = 0x00;
-                SendBytes[3] = 0x00;
-                SendBytes[4] = 0x00;
-                SendBytes[5] = 0x00;
-                SendBytes[6] = 0x00;
-                SendBytes[7] = 0x0D;
-                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
-            }
-            catch
-            {
-                MessageBox.Show("串口通讯错误", "错误");
-            }
-        }
-
-        private void out_1_2_button_Click(object sender, EventArgs e)
-        {
-            byte[] SendBytes = new byte[8];
-
-            try
-            {
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x03;        //Q1.2
-                SendBytes[2] = 0x00;
-                SendBytes[3] = 0x00;
-                SendBytes[4] = 0x00;
-                SendBytes[5] = 0x00;
-                SendBytes[6] = 0x00;
-                SendBytes[7] = 0x0D;
-                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
-            }
-            catch
-            {
-                MessageBox.Show("串口通讯错误", "错误");
-            }
-        }
-
-        private void out_1_3_button_Click(object sender, EventArgs e)
-        {
-            byte[] SendBytes = new byte[8];
-
-            try
-            {
-                SendBytes[0] = 0x0D;
-                SendBytes[1] = 0x04;        //Q1.3
-                SendBytes[2] = 0x00;
-                SendBytes[3] = 0x00;
-                SendBytes[4] = 0x00;
-                SendBytes[5] = 0x00;
-                SendBytes[6] = 0x00;
-                SendBytes[7] = 0x0D;
-                Form1.serialPort1.Write(SendBytes, 0, SendBytes.Length);
-            }
-            catch
-            {
-                MessageBox.Show("串口通讯错误", "错误");
-            }
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void firmware_version_TextChanged(object sender, EventArgs e)
         {
@@ -628,17 +529,7 @@ namespace Firmware_Update_V1._0
 
         }
 
-        private void firmware_version_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void tabPane1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit4_EditValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -682,6 +573,27 @@ namespace Firmware_Update_V1._0
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 串口设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void 串口设置ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            serialctr frm = new serialctr(this);//首先实例化
+            frm.ShowDialog();
         }
 
     }
